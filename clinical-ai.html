@@ -762,12 +762,15 @@ body.sticky-active{padding-bottom:60px;}
 
 /* ── INNER PRODUCT PAGE HERO — split with doctor photo ─────────────────── */
 
-/* ── INNER HERO — full bleed background photo treatment ────────────────── */
+
+/* ── INNER HERO v2 — full bleed bg + readable overlay ──────────────────── */
 .prod-hero{
   position:relative;overflow:hidden;
   background:#0f172a;
+  min-height:520px;
+  display:flex;flex-direction:column;
 }
-/* Full bleed background image */
+/* Full bleed background photo — visible at 35% */
 .prod-hero-bg-photo{
   position:absolute;inset:0;
   width:100%;height:100%;
@@ -775,64 +778,151 @@ body.sticky-active{padding-bottom:60px;}
   object-position:center top;
   display:block;
   z-index:0;
-  opacity:0.22;
-  filter:grayscale(20%);
+  opacity:0.35;
 }
-/* Dark blue gradient overlay — strong on left where copy sits, lighter on right */
+/* Overlay — much lighter, left side slightly darker for text readability */
 .prod-hero::before{
   content:'';
   position:absolute;inset:0;z-index:1;
-  background:
-    linear-gradient(to right,
-      rgba(15,23,42,0.97) 0%,
-      rgba(15,23,42,0.88) 45%,
-      rgba(15,23,42,0.60) 70%,
-      rgba(15,23,42,0.30) 100%
-    ),
-    linear-gradient(135deg,rgba(30,58,138,0.4) 0%,transparent 60%);
-  pointer-events:none;
+  background:linear-gradient(
+    105deg,
+    rgba(15,23,42,0.82) 0%,
+    rgba(15,23,42,0.70) 40%,
+    rgba(15,23,42,0.45) 70%,
+    rgba(15,23,42,0.25) 100%
+  );
 }
-/* Grid texture on top */
+/* Subtle blue tint + grid */
 .prod-hero::after{
   content:'';position:absolute;inset:0;z-index:2;
-  background-image:
+  background:
+    linear-gradient(135deg,rgba(37,99,235,0.12) 0%,transparent 50%),
     linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
     linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:48px 48px;
-  pointer-events:none;
+  background-size:auto,48px 48px,48px 48px;
 }
-/* Remove the old photo column — no longer needed */
-.prod-hero-photo-col{display:none !important;}
-/* Inner content above overlays */
+/* Content above overlays */
 .prod-hero-inner{
   display:grid;
-  grid-template-columns:1fr;
-  min-height:520px;
+  grid-template-columns:1fr 1fr;
+  flex:1;
   position:relative;z-index:3;
-  max-width:1440px;margin:0 auto;
+  max-width:1440px;margin:0 auto;width:100%;
 }
 .prod-hero-copy{
-  padding:80px 56px 80px 24px;
-  max-width:720px;
+  padding:80px 48px 80px 24px;
+  max-width:680px;
   display:flex;flex-direction:column;justify-content:center;
 }
-/* Trust strip */
+.prod-hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(37,99,235,0.25);
+  border:1px solid rgba(99,163,250,0.5);
+  color:#93c5fd;font-size:12px;font-weight:700;
+  padding:6px 14px;border-radius:99px;
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:20px;width:fit-content;
+}
+.prod-hero-h1{
+  font-size:clamp(30px,3.8vw,52px);
+  font-weight:800;color:#fff;
+  line-height:1.08;letter-spacing:-1.5px;
+  margin-bottom:16px;
+}
+.prod-hero-h1 span{color:#60a5fa;}
+.prod-hero-sub{
+  font-size:16px;color:#cbd5e1;line-height:1.75;
+  max-width:540px;margin-bottom:28px;
+}
+/* ── SOLUTION LINER CARDS ─────────────────────────────────────────────── */
+.prod-hero-solutions{
+  display:flex;flex-direction:column;gap:10px;
+  margin-bottom:28px;
+}
+.prod-sol-item{
+  display:flex;align-items:flex-start;gap:14px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.15);
+  border-radius:12px;
+  padding:14px 18px;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:background .2s,border-color .2s;
+}
+.prod-sol-item:hover{
+  background:rgba(255,255,255,0.13);
+  border-color:rgba(99,163,250,0.5);
+}
+.prod-sol-icon{
+  width:36px;height:36px;
+  border-radius:9px;
+  background:rgba(37,99,235,0.35);
+  border:1px solid rgba(99,163,250,0.3);
+  display:flex;align-items:center;
+  justify-content:center;
+  font-size:17px;flex-shrink:0;
+}
+.prod-sol-title{
+  font-size:14px;font-weight:700;
+  color:#fff;margin-bottom:3px;
+}
+.prod-sol-desc{
+  font-size:12px;color:#94a3b8;line-height:1.5;
+}
+/* CTAs */
+.prod-hero-ctas{display:flex;gap:10px;flex-wrap:wrap;}
+.prod-cta-primary{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#2563eb;color:#fff;
+  font-size:14px;font-weight:700;
+  padding:13px 24px;border-radius:8px;
+  transition:all .2s;
+  box-shadow:0 4px 14px rgba(37,99,235,0.4);
+}
+.prod-cta-primary:hover{background:#1d4ed8;transform:translateY(-2px);}
+.prod-cta-secondary{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,0.1);
+  color:#e2e8f0;font-size:14px;font-weight:600;
+  padding:13px 22px;border-radius:8px;
+  border:1px solid rgba(255,255,255,0.2);
+  transition:all .2s;backdrop-filter:blur(4px);
+}
+.prod-cta-secondary:hover{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,.4);}
+/* Right column — let photo breathe through */
+.prod-hero-photo-col{
+  position:relative;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+/* Trust row */
 .prod-hero-trust{
-  background:rgba(0,0,0,.35);
-  border-top:1px solid rgba(255,255,255,.1);
+  background:rgba(0,0,0,0.4);
+  border-top:1px solid rgba(255,255,255,0.1);
   padding:14px 24px;
-  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  display:flex;align-items:center;gap:16px;flex-wrap:wrap;
   font-size:12px;font-weight:600;color:#94a3b8;
   position:relative;z-index:3;
 }
+.prod-hero-trust-dot{
+  width:7px;height:7px;background:#22c55e;border-radius:50%;
+  box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;
+}
+.prod-hero-trust-item{display:flex;align-items:center;gap:5px;}
+.prod-hero-trust-div{width:1px;height:12px;background:rgba(255,255,255,.2);}
 
 @media(max-width:968px){
-  .prod-hero-copy{padding:56px 24px;max-width:100%;}
+  .prod-hero-inner{grid-template-columns:1fr;}
+  .prod-hero-photo-col{display:none;}
+  .prod-hero-copy{padding:52px 24px;max-width:100%;}
+  .prod-hero-bg-photo{opacity:0.25;}
 }
 @media(max-width:640px){
-  .prod-hero-inner{min-height:auto;}
-  .prod-hero-copy{padding:48px 16px;}
+  .prod-hero-h1{font-size:28px;letter-spacing:-.8px;}
+  .prod-hero-sub{font-size:14px;}
+  .prod-hero-ctas{flex-direction:column;align-items:stretch;}
+  .prod-cta-primary,.prod-cta-secondary{justify-content:center;}
 }
+
 
 
 </style>
@@ -887,7 +977,7 @@ body.sticky-active{padding-bottom:60px;}
 </div>
 
 <section class="prod-hero">
-  <img src="img/doctors/doctor3.jpg"
+  <img src="img/doctors/clinical-ai-hero.jpg"
        alt=""
        class="prod-hero-bg-photo"
        aria-hidden="true"
