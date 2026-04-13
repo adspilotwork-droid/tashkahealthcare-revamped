@@ -317,7 +317,10 @@
     <div class="dev-strip-inner">
       <span class="dev-strip-badge">🛠 Dev Preview</span>
       <p><strong>Client preview site</strong> — All pages are live. Navigation fully functional. For production review only.</p>
-      <a href="developer-notes.html" class="dev-link">View Developer Notes →</a>
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <a href="developer-notes.html" class="dev-link">Dev Notes →</a>
+        <a href="seo-audit.html" class="dev-link" style="border-color:#60a5fa;color:#60a5fa;">SEO Audit →</a>
+      </div>
     </div>
   </div>
 </div>
@@ -594,7 +597,7 @@
         <h5 class="footer-title">Get In Touch</h5>
         <p class="footer-text"><i class="fa fa-map-marker-alt" style="margin-right:7px;"></i>No.14, Whitely Layout Subba Rao Compound, in front of Ganesha Temple, Whitefield, Bengaluru, Karnataka 560066</p>
         <p class="footer-text" style="margin-top:9px;"><i class="fa fa-phone-alt" style="margin-right:7px;"></i><a href="tel:+919108198087" style="color:#fff;">+91 91081 98087</a></p>
-        <p class="footer-text" style="margin-top:9px;"><i class="fa fa-envelope" style="margin-right:7px;"></i><a href="/cdn-cgi/l/email-protection#ea998b868f99aa9e8b9982818b828f8b869e82898b988fc4898587" style="color:#fff;"><span class="__cf_email__" data-cfemail="5e2d3f323b2d1e2a3f2d36353f363b3f322a363d3f2c3b703d3133">[email&#160;protected]</span></a></p>
+        <p class="footer-text" style="margin-top:9px;"><i class="fa fa-envelope" style="margin-right:7px;"></i><a href="mailto:sales@tashkahealthcare.com" style="color:#fff;">sales@tashkahealthcare.com</a></p>
         <div class="footer-social" style="margin-top:14px;">
           <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -636,7 +639,7 @@
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ── Hamburger ────────────────────────────────────────────────────────────────
 const hamBtn=document.getElementById('hamBtn');
 const drawer=document.getElementById('mobileDrawer');
@@ -679,4 +682,13 @@ if(hamBtn&&drawer){
     document.body.classList.toggle('sticky-active',shouldShow);
     tick=false;
   }
-  window.addEventListener('scroll',()=>{if(!tick){requestAnimationFram
+  window.addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(upd);tick=true;}},{passive:true});
+  if(dis)dis.addEventListener('click',()=>{
+    sessionStorage.setItem('tashka_sticky_off','1');
+    bar.classList.remove('visible');document.body.classList.remove('sticky-active');
+  });
+})();
+</script>
+
+</body>
+</html>
