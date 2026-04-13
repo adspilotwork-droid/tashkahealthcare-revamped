@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>NABH Accreditation Software Checklist for Indian Hospitals 2026 | Tashka Healthcare Blog</title>
+<meta name="description" content="What NABH assessors actually look for in your hospital's software — from consent forms and discharge summaries to nursing notes and audit trails. Practical checklist for 2026.">
+<link rel="canonical" href="https://tashkahealthcare.com/blog-nabh-software-checklist">
+<meta property="og:title" content="NABH Accreditation Software Checklist for Indian Hospitals 2026 | Tashka Healthcare Blog">
+<meta property="og:type" content="article">
+<link rel="icon" href="img/logo/tashkatech_logo_web.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"NABH Accreditation for Indian Hospitals — The Complete Software Checklist","author":{"@type":"Organization","name":"Tashka Healthcare"},"publisher":{"@type":"Organization","name":"Tashka Healthcare","url":"https://tashkahealthcare.com"},"datePublished":"2026-03-01"}</script>
+<style>
+:root{--blue:#2563eb;--blue-d:#1d4ed8;--blue-l:#eff6ff;--blue-xl:#dbeafe;--green:#1fb981;--green-d:#17a673;--text:#0a0a0a;--text-2:#374151;--text-3:#6b7280;--text-4:#9ca3af;--border:#e5e7eb;--border-l:#f3f4f6;--bg:#f3f4f6;--bg-w:#fff;--bg-g:#f9fafb;--navy:#0f172a;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+a{text-decoration:none;transition:color .2s;}
+img{display:block;max-width:100%;}
+::selection{background:var(--blue);color:#fff;}
+.dev-strip{background:#1e293b;border-bottom:2px solid #f59e0b;padding:8px 0;position:sticky;top:0;z-index:2000;}
+.dev-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.dev-strip-badge{display:inline-flex;align-items:center;gap:6px;background:#f59e0b;color:#0a0a0a;font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase;}
+.dev-strip p{font-size:12px;color:#94a3b8;flex:1;}.dev-strip p strong{color:#e2e8f0;}
+.dev-strip a.dev-link{font-size:12px;font-weight:700;color:#f59e0b;border:1px solid #f59e0b;padding:4px 12px;border-radius:4px;white-space:nowrap;transition:background .2s,color .2s;}
+.dev-strip a.dev-link:hover{background:#f59e0b;color:#0a0a0a;}
+nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid #e5e7eb;}
+.nav-content{display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:16px;}
+.nav-logo img{height:44px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:0;align-items:center;flex-shrink:0;}
+.nav-links a{color:#374151;font-weight:500;font-size:13.5px;padding:0 11px;white-space:nowrap;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#2563eb;}
+.btn-wrapper{display:flex;gap:8px;flex-shrink:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:9px 18px;font-size:13px;font-weight:600;color:#fff;border-radius:8px;transition:all .25s;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.btn.whatsapp{background:#1fb981;}.btn.whatsapp:hover{background:#17a673;}
+.btn.demo{background:#2563eb;}.btn.demo:hover{background:#1d4ed8;}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1100;flex-shrink:0;}
+.nav-ham span{display:block;width:22px;height:2px;background:#374151;border-radius:2px;transition:all .3s;}
+.nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:999;padding:16px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.mobile-drawer.open{display:block;}
+.mobile-drawer ul{list-style:none;margin-bottom:16px;}
+.mobile-drawer ul li{border-bottom:1px solid #f3f4f6;}
+.mobile-drawer ul li a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:#374151;}
+.mobile-drawer ul li a:hover,.mobile-drawer ul li a.active{color:#2563eb;}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+.mob-ctas a{display:block;text-align:center;padding:12px;border-radius:10px;font-size:15px;font-weight:600;color:#fff;}
+.mob-wa{background:#1fb981;}.mob-demo{background:#2563eb;}
+@media(max-width:1100px){.nav-links a{font-size:12.5px;padding:0 9px;}.btn{padding:8px 14px;font-size:12px;}}
+@media(max-width:968px){.nav-links,.btn-wrapper{display:none;}.nav-ham{display:flex;}}
+.article-hero{background:linear-gradient(135deg,var(--navy),#1e3a5f);padding:60px 0 48px;position:relative;overflow:hidden;}
+.article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;}
+.article-hero-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.article-tag{display:inline-block;padding:5px 13px;background:rgba(37,99,235,.25);border:1px solid rgba(37,99,235,.4);color:#93c5fd;border-radius:99px;font-size:11px;font-weight:700;margin-bottom:14px;letter-spacing:.06em;text-transform:uppercase;}
+.article-hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-1px;margin-bottom:16px;}
+.article-meta{display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;color:#94a3b8;flex-wrap:wrap;}
+.article-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;padding:56px 0 80px;align-items:start;}
+.article-content h2{font-size:26px;font-weight:800;color:var(--text);letter-spacing:-.5px;margin:40px 0 16px;padding-top:8px;border-top:2px solid var(--border);}
+.article-content h2:first-child{margin-top:0;border-top:none;}
+.article-content h3{font-size:18px;font-weight:700;color:var(--text);margin:28px 0 12px;}
+.article-content p{font-size:15px;color:var(--text-2);line-height:1.8;margin-bottom:18px;}
+.article-content ul,.article-content ol{margin:0 0 18px 20px;}
+.article-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:8px;}
+.article-content strong{color:var(--text);font-weight:700;}
+.article-content a{color:var(--blue);font-weight:600;}
+.callout{background:var(--blue-l);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--text-2);line-height:1.75;}
+.callout strong{color:var(--blue);}
+.tldr-box{background:var(--navy);border-radius:12px;padding:24px 28px;margin:0 0 40px;}
+.tldr-box h4{font-size:12px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.tldr-box p{font-size:14px;color:#e2e8f0;line-height:1.7;margin-bottom:0;}
+/* Checklist style */
+.checklist-section{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px 28px;margin:24px 0;}
+.checklist-section h4{font-size:15px;font-weight:700;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.checklist-section h4 .cat-badge{font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px;background:var(--blue-l);color:var(--blue);}
+.checklist-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border-l);}
+.checklist-item:last-child{border-bottom:none;}
+.check-box{width:20px;height:20px;border:2px solid var(--border);border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.check-box.checked{background:var(--blue);border-color:var(--blue);}
+.check-box.checked::before{content:'✓';color:#fff;font-size:11px;font-weight:800;}
+.checklist-text{flex:1;}
+.checklist-text strong{display:block;font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;}
+.checklist-text span{font-size:12px;color:var(--text-3);line-height:1.5;}
+.severity-badge{font-size:10px;font-weight:700;padding:2px 7px;border-radius:3px;margin-left:6px;}
+.sev-critical{background:#fee2e2;color:#dc2626;}
+.sev-major{background:#fef3c7;color:#d97706;}
+.sev-minor{background:#f0fdf4;color:#16a34a;}
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;padding-top:40px;border-top:2px solid var(--border);}
+.related-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .2s;}
+.related-card:hover{border-color:var(--blue);transform:translateY(-2px);}
+.related-card .blog-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);background:var(--blue-l);padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:8px;}
+.related-card h3{font-size:14px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:6px;}
+.related-card p{font-size:12px;color:var(--text-3);line-height:1.6;}
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px;}
+.sidebar-card h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.sidebar-card p{font-size:13px;color:var(--text-3);line-height:1.65;margin-bottom:14px;}
+.sidebar-card a.sidebar-btn{display:block;background:var(--blue);color:#fff;text-align:center;padding:11px;border-radius:8px;font-size:13px;font-weight:700;transition:background .2s;}
+.sidebar-card a.sidebar-btn:hover{background:var(--blue-d);}
+.sidebar-card a.sidebar-wa{display:block;background:var(--green);color:#fff;text-align:center;padding:11px;border-radius:8px;font-size:13px;font-weight:700;margin-top:8px;transition:background .2s;}
+.sidebar-card a.sidebar-wa:hover{background:var(--green-d);}
+.sidebar-toc{background:var(--bg-g);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:20px;}
+.sidebar-toc h4{font-size:12px;font-weight:700;color:var(--text-4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.sidebar-toc ol{list-style:decimal;padding-left:18px;}
+.sidebar-toc li{font-size:13px;margin-bottom:7px;}
+.sidebar-toc li a{color:var(--blue);font-weight:500;}
+.final-cta{padding:72px 0;background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;text-align:center;}
+.final-cta h2{font-size:clamp(22px,3vw,36px);font-weight:800;margin-bottom:14px;letter-spacing:-.8px;}
+.final-cta p{font-size:16px;margin-bottom:28px;opacity:.95;max-width:560px;margin-left:auto;margin-right:auto;}
+.btn-white{background:#fff;color:var(--blue);padding:12px 26px;font-size:14px;font-weight:700;border-radius:8px;display:inline-block;margin:0 7px 10px;transition:all .2s;}
+.btn-white:hover{background:var(--bg-g);transform:translateY(-2px);}
+.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);padding:12px 26px;font-size:14px;font-weight:700;border-radius:8px;display:inline-block;margin:0 7px 10px;transition:all .2s;}
+.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.footer-modern{background:linear-gradient(135deg,#0f172a,#020617);color:#cbd5f5;}
+.footer-title{color:#fff;margin-bottom:13px;font-weight:600;font-size:15px;}
+.footer-text{color:#9ca3af;font-size:13px;line-height:1.7;}
+.footer-links{list-style:none;padding:0;}.footer-links li{margin-bottom:7px;}
+.footer-links a{color:#9ca3af;font-size:13px;transition:color .2s;}.footer-links a:hover{color:#3b82f6;}
+.footer-row{display:grid;grid-template-columns:1.1fr 1.2fr 0.9fr 1fr;gap:36px;padding:52px 0 32px;}
+.footer-bottom{border-top:1px solid #1e293b;padding:13px 0;font-size:12px;color:#9ca3af;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom a{color:#9ca3af;margin-left:12px;transition:color .2s;}.footer-bottom a:hover{color:#3b82f6;}
+.f-btn-demo{display:block;text-align:center;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:9px;margin-bottom:8px;}
+.f-btn-wa{display:block;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:9px;}
+@media(max-width:968px){.article-layout{grid-template-columns:1fr;}.related-grid{grid-template-columns:1fr;}.footer-row{grid-template-columns:1fr 1fr;gap:28px;}}
+@media(max-width:640px){.footer-row{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<div class="dev-strip">
+  <div class="container">
+    <div class="dev-strip-inner">
+      <span class="dev-strip-badge">🛠 Dev Preview</span>
+      <p><strong>Client preview site</strong> — All pages live. For review only.</p>
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <a href="developer-notes.html" class="dev-link">Dev Notes →</a>
+        <a href="seo-audit.html" class="dev-link" style="border-color:#60a5fa;color:#60a5fa;">SEO Audit →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="container">
+    <div class="nav-content">
+      <a class="nav-logo" href="index.html">
+        <img src="img/logo/tashka-logo-new.png" alt="Tashka Healthcare" height="44">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Healthcare AI</a></li>
+        <li><a href="epr-software.html">EPR Software</a></li>
+        <li><a href="clinical-ai.html">Clinical AI</a></li>
+        <li><a href="hospital-management.html">Hospital Management</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="btn-wrapper">
+        <a href="https://wa.me/919845137472" target="_blank" class="btn whatsapp">Chat on WhatsApp</a>
+        <a href="contact.html" class="btn demo">Book a Demo</a>
+      </div>
+      <button class="nav-ham" id="hamBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul>
+    <li><a href="index.html">Healthcare AI</a></li>
+    <li><a href="epr-software.html">EPR Software</a></li>
+    <li><a href="clinical-ai.html">Clinical AI</a></li>
+    <li><a href="hospital-management.html">Hospital Management</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="mob-ctas">
+    <a href="https://wa.me/919845137472" target="_blank" class="mob-wa">💬 Chat on WhatsApp</a>
+    <a href="contact.html" class="mob-demo">Book a Demo</a>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="article-hero-inner">
+      <span class="article-tag">NABH Compliance</span>
+      <h1>NABH Accreditation for Indian Hospitals — The Complete Software Checklist</h1>
+      <div class="article-meta">
+        <span>📅 March 2026</span>
+        <span>⏱ 10 min read</span>
+        <span>✍️ Tashka Clinical Team</span>
+        <span><a href="blog.html" style="color:#93c5fd;">← Back to Blog</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:56px 0 0;background:#fff;">
+  <div class="container">
+    <div class="article-layout">
+
+      <article class="article-content">
+
+        <div class="tldr-box">
+          <h4>TL;DR</h4>
+          <p>NABH assessors look at documentation completeness, audit trails, and process consistency — not just whether you have software. The software must produce discharge summaries, consent forms, nursing notes, and medication administration records in NABH-prescribed formats. It must also maintain audit logs showing who documented what and when. This checklist covers what assessors specifically examine in 2026.</p>
+        </div>
+
+        <h2 id="what-nabh-checks">What NABH Actually Checks in Your Software</h2>
+        <p>A common misconception among hospital administrators preparing for NABH accreditation is that having "hospital software" is sufficient. NABH assessors don't care about the brand of software you run — they care about whether your documentation meets their standards and whether your processes are consistent and auditable.</p>
+        <p>The assessment covers four broad areas where software plays a critical role:</p>
+        <ul>
+          <li><strong>Patient record completeness</strong> — Is every clinical interaction documented in the prescribed format?</li>
+          <li><strong>Consent documentation</strong> — Is informed consent captured, stored, and retrievable for every relevant procedure?</li>
+          <li><strong>Medication management</strong> — Are prescription, dispensing, and administration records complete and traceable?</li>
+          <li><strong>Audit trails</strong> — Can you show who did what, when, in your clinical documentation system?</li>
+        </ul>
+
+        <h2 id="admission">Admission and Registration Documentation</h2>
+
+        <div class="checklist-section">
+          <h4>🏥 Admission Documentation <span class="cat-badge">NABH Chapter 1</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Patient registration with MRN generation <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Unique Medical Record Number assigned at first registration. Consistent across all subsequent encounters.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Admission assessment within 24 hours of IPD admission <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>NABH requires a completed admission assessment form — history, presenting complaint, examination findings — documented and signed by the admitting doctor within 24 hours of IPD admission.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>General consent for treatment <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Documented at the time of admission. Software must capture digital consent or scan of physical consent and store against the patient record.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Patient demographic data completeness <span class="severity-badge sev-major">Major</span></strong>
+              <span>Name, DOB, gender, address, emergency contact, insurance/TPA details — all mandatory at registration.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="consent">Consent Documentation</h2>
+        <p>Consent documentation is one of the most common areas where hospitals fail NABH assessments. The issue is rarely that consent wasn't obtained — it's that the documentation is incomplete, incorrectly stored, or missing for specific procedures that require it.</p>
+
+        <div class="checklist-section">
+          <h4>📋 Consent Documentation <span class="cat-badge">NABH PFR</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Procedure-specific informed consent <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Separate consent for each invasive procedure — surgery, endoscopy, blood transfusion, anaesthesia. Generic "procedure consent" is not sufficient.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Anaesthesia consent — separate document <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Must be a separate consent from surgical consent. Must include risks, alternatives, and be signed by an anaesthesiologist or designated clinician.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Research consent (if applicable) <span class="severity-badge sev-major">Major</span></strong>
+              <span>If your hospital conducts any research or collects data for studies, a separate research consent is required and must be stored.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Consent in patient's language / translation availability <span class="severity-badge sev-major">Major</span></strong>
+              <span>Consent must be explained in a language the patient understands. Software should support multilingual consent forms or flag cases where an interpreter was used.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box"></div>
+            <div class="checklist-text">
+              <strong>Withdrawal of consent documentation <span class="severity-badge sev-major">Major</span></strong>
+              <span>If a patient withdraws consent, this must be documented with the clinical response and consequences explained.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="clinical">Clinical Documentation — OPD and IPD</h2>
+
+        <div class="checklist-section">
+          <h4>🩺 Clinical Documentation <span class="cat-badge">NABH COP</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Daily progress notes by treating clinician <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Every day the patient is in IPD, the treating doctor must document a progress note with SOAP format (Subjective, Objective, Assessment, Plan). Software must enforce this workflow.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Nursing assessment and care plan <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Nursing assessment at admission, shift notes, and care plan must be documented. Software must support nursing-specific documentation templates.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Medication Administration Record (MAR) <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Every medication dose given must be recorded with drug name, dose, route, time, and administering nurse's identity. Software must enforce this — paper MAR sheets are not adequate for NABH documentation standards in 2026.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Vital signs documented per nursing protocol <span class="severity-badge sev-major">Major</span></strong>
+              <span>Frequency of vital sign recording must match the hospital's clinical protocol for the patient's condition (e.g., post-surgical patients every 2 hours). Software should enforce the schedule.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Consultant / specialist referral notes documented <span class="severity-badge sev-major">Major</span></strong>
+              <span>When a specialist is called for consultation, the request, consultation note, and response must all be documented in the patient record.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box"></div>
+            <div class="checklist-text">
+              <strong>Nutrition assessment and dietary orders <span class="severity-badge sev-minor">Minor</span></strong>
+              <span>For longer admissions, nutritional assessment and any dietary orders or restrictions should be documented.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="discharge">Discharge Documentation</h2>
+        <p>The discharge summary is typically the most examined document during a NABH assessment. Assessors will pull multiple discharge summaries and check them against the NABH-prescribed format. Missing fields are scored as deficiencies.</p>
+
+        <div class="checklist-section">
+          <h4>🚪 Discharge Documentation <span class="cat-badge">NABH COP</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Discharge summary in NABH format <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Must include: Admitting diagnosis, Final diagnosis (with ICD code), Summary of investigations, Treatment given, Condition at discharge, Discharge medications with doses and duration, Follow-up instructions, Treating doctor's signature.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>ICD-10 diagnosis coding on discharge <span class="severity-badge sev-major">Major</span></strong>
+              <span>Final diagnosis must be coded to ICD-10 level at discharge. Software should provide ICD code lookup or AI-assisted coding.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Discharge medications complete and legible <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Every discharge medication must be listed with dose, frequency, duration, and any special instructions. Generic names preferred.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Follow-up appointment documented <span class="severity-badge sev-major">Major</span></strong>
+              <span>Follow-up date, location, and responsible doctor must be documented on the discharge summary.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Copy provided to patient at discharge <span class="severity-badge sev-major">Major</span></strong>
+              <span>Patient must receive a copy of the discharge summary at time of discharge. Software should support generating a patient-facing version.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="audit">Audit Trails and Access Logs</h2>
+        <p>This is an area where hospitals with paper-based documentation frequently struggle — but it's also an area where good software provides a significant advantage. NABH assessors can (and do) ask to see who accessed or modified a patient record and when.</p>
+
+        <div class="checklist-section">
+          <h4>🔍 Audit Trail Requirements <span class="cat-badge">NABH ICT</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>User-level access logging on all patient records <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>Every access to a patient record must be logged with username, timestamp, and action performed. This is non-negotiable for NABH ICT chapter compliance.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Document modification tracking <span class="severity-badge sev-major">Major</span></strong>
+              <span>If a clinical note is edited after initial creation, the original and modified versions must both be preserved with timestamps. "Deletion" of clinical records must not be possible — only corrections with reason documented.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Role-based access control documentation <span class="severity-badge sev-major">Major</span></strong>
+              <span>NABH requires that access to clinical records is appropriate to role. You must be able to demonstrate your software enforces role-based access and produce a report of user roles and permissions.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box"></div>
+            <div class="checklist-text">
+              <strong>Backup and recovery documentation <span class="severity-badge sev-minor">Minor</span></strong>
+              <span>Evidence that patient records are backed up regularly and a recovery procedure exists. Cloud-hosted systems typically meet this automatically.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>Assessor insight:</strong> NABH assessors frequently ask to see a specific patient's record and then ask who accessed it and when. If your software cannot produce an access log for a specific patient record within 2 minutes of the request, this is documented as a deficiency. Tashka's audit log is accessible with one click per patient record.
+        </div>
+
+        <h2 id="pharmacy">Pharmacy and Medication Safety</h2>
+
+        <div class="checklist-section">
+          <h4>💊 Pharmacy Documentation <span class="cat-badge">NABH MMU</span></h4>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Formulary management and availability <span class="severity-badge sev-major">Major</span></strong>
+              <span>A current drug formulary must be maintained. Software should support formulary management and flag when a non-formulary drug is prescribed.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>High-alert medication protocol <span class="severity-badge sev-critical">Critical</span></strong>
+              <span>High-alert medications (heparin, insulin, concentrated electrolytes) must be flagged with additional verification steps. Software should enforce double-check workflows for these drugs.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Medication reconciliation on admission and discharge <span class="severity-badge sev-major">Major</span></strong>
+              <span>Current medications the patient is taking before admission must be documented and reconciled with the treatment plan. At discharge, this must be reconciled again with the discharge medications.</span>
+            </div>
+          </div>
+          <div class="checklist-item">
+            <div class="check-box checked"></div>
+            <div class="checklist-text">
+              <strong>Adverse drug reaction documentation <span class="severity-badge sev-major">Major</span></strong>
+              <span>Any adverse drug reaction must be documented in the patient record and the hospital's ADR tracking system. Software must support ADR recording and allergy flagging.</span>
+            </div>
+          </div>
+        </div>
+
+        <h2 id="how-tashka">How Tashka Addresses Each Requirement</h2>
+        <p>Tashka ships with all NABH documentation templates pre-configured — not as optional extras or add-ons. During implementation, Tashka's clinical team customizes each template to match the hospital's specific protocols and assessor preferences (since some assessors have specific formatting expectations within the NABH standard).</p>
+        <p>Specifically:</p>
+        <ul>
+          <li><strong>All consent forms</strong> are pre-built for general, surgical, anaesthesia, research, and blood transfusion consent — with digital signature capture or scanned copy storage</li>
+          <li><strong>Discharge summaries</strong> are auto-generated from the clinical record with all NABH-required fields — doctors review and sign, not compose from scratch</li>
+          <li><strong>Nursing MAR</strong> enforces documentation at medication administration time — drugs cannot be marked as given without the administering nurse's login</li>
+          <li><strong>Audit trails</strong> are automatic and immutable — every access, every modification, with the original preserved</li>
+          <li><strong>ICD-10 coding</strong> is AI-assisted at discharge — Tashka suggests the appropriate ICD codes from the clinical notes</li>
+        </ul>
+        <p>Both Soukhyada Hospital and CSI Hospital achieved NABH compliance while running full documentation workflows on Tashka.</p>
+
+        <div class="related-grid">
+          <a href="blog-epr-vs-hims-vs-emr.html" class="related-card">
+            <span class="blog-tag">EPR Software</span>
+            <h3>EPR vs HIMS vs EMR — What's the Difference?</h3>
+            <p>The definitive breakdown for Indian hospital software purchasing decisions.</p>
+          </a>
+          <a href="blog-ai-chatbot-hospital.html" class="related-card">
+            <span class="blog-tag">Clinical AI</span>
+            <h3>Why ChatGPT Doesn't Work in Hospitals</h3>
+            <p>The case for RAG-based hospital AI over general-purpose AI tools.</p>
+          </a>
+        </div>
+
+      </article>
+
+      <aside class="article-sidebar">
+        <div class="sidebar-toc">
+          <h4>In This Article</h4>
+          <ol>
+            <li><a href="#what-nabh-checks">What NABH actually checks</a></li>
+            <li><a href="#admission">Admission documentation</a></li>
+            <li><a href="#consent">Consent documentation</a></li>
+            <li><a href="#clinical">Clinical documentation</a></li>
+            <li><a href="#discharge">Discharge documentation</a></li>
+            <li><a href="#audit">Audit trails</a></li>
+            <li><a href="#pharmacy">Pharmacy documentation</a></li>
+            <li><a href="#how-tashka">How Tashka addresses these</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-card">
+          <h4>NABH-Ready EPR Demo</h4>
+          <p>See all NABH-compliant templates pre-configured and ready — in a 30-minute walkthrough of Tashka EPR.</p>
+          <a href="contact.html" class="sidebar-btn">Book a Free Demo →</a>
+          <a href="https://wa.me/919845137472" target="_blank" class="sidebar-wa">💬 Chat on WhatsApp</a>
+        </div>
+        <div class="sidebar-card" style="background:var(--bg-g);">
+          <h4>Related Articles</h4>
+          <p style="margin-bottom:10px;"><a href="blog-epr-vs-hims-vs-emr.html" style="color:var(--blue);font-weight:600;">EPR vs HIMS vs EMR →</a></p>
+          <p style="margin-bottom:10px;"><a href="blog-ai-chatbot-hospital.html" style="color:var(--blue);font-weight:600;">AI Chatbot vs ChatGPT →</a></p>
+          <p style="margin-bottom:0;"><a href="blog.html" style="color:var(--blue);font-weight:600;">← All Blog Articles</a></p>
+        </div>
+        <div class="sidebar-card" style="background:#f0fdf4;border-color:#86efac;">
+          <h4 style="color:#16a34a;">✓ NABH Compliance</h4>
+          <p>Soukhyada and CSI Hospitals both achieved NABH accreditation running full documentation on Tashka.</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Preparing for NABH Accreditation?</h2>
+    <p>Book a demo and we'll show you every NABH-required template pre-configured and ready to deploy in your hospital.</p>
+    <div><a href="contact.html" class="btn-white">Book a Free Demo</a><a href="https://wa.me/919845137472" target="_blank" class="btn-outline-w">💬 Chat on WhatsApp</a></div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<div class="footer-modern">
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <img src="img/logo/tashka-logo-new.png" height="52" style="margin-bottom:14px;" alt="Tashka Healthcare Logo">
+        <h6 class="footer-title">Healthcare AI &amp; Digital Transformation</h6>
+        <p class="footer-text">AI-powered hospital management software built by clinicians. Deployed across Karnataka, India.</p>
+      </div>
+      <div>
+        <h5 class="footer-title">Get In Touch</h5>
+        <p class="footer-text">No.14, Whitely Layout, Whitefield, Bengaluru, Karnataka 560066</p>
+        <p class="footer-text" style="margin-top:8px;"><a href="tel:+919108198087" style="color:#fff;">+91 91081 98087</a></p>
+        <p class="footer-text" style="margin-top:8px;"><a href="mailto:sales@tashkahealthcare.com" style="color:#fff;">sales@tashkahealthcare.com</a></p>
+      </div>
+      <div>
+        <h5 class="footer-title">Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Healthcare AI Platform</a></li>
+          <li><a href="epr-software.html">EPR Software</a></li>
+          <li><a href="clinical-ai.html">Clinical AI</a></li>
+          <li><a href="hospital-management.html">Hospital Management Software</a></li>
+          <li><a href="blog.html">Blog &amp; Resources</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-title">Ready to Get Started?</h5>
+        <p class="footer-text" style="margin-bottom:16px;">30-minute walkthrough tailored to your hospital.</p>
+        <a href="contact.html" class="f-btn-demo">Book a Free Demo →</a>
+        <a href="https://wa.me/919845137472" target="_blank" class="f-btn-wa">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <span>© 2026 Tashka Healthcare. Built by doctors. Bangalore &amp; Dublin.</span>
+      <div><a href="contact.html">Contact</a><a href="#">Privacy</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const hamBtn=document.getElementById('hamBtn');
+const drawer=document.getElementById('mobileDrawer');
+if(hamBtn&&drawer){
+  hamBtn.addEventListener('click',()=>{const open=drawer.classList.toggle('open');hamBtn.classList.toggle('open',open);hamBtn.setAttribute('aria-expanded',open);document.body.style.overflow=open?'hidden':'';});
+  drawer.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}));
+  document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hamBtn.contains(e.target)){drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('resize',()=>{if(window.innerWidth>968){drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+}
+</script>
+</body>
+</html>

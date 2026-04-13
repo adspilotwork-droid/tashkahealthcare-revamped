@@ -47,30 +47,50 @@ img{display:block;max-width:100%;}
 .dev-strip a.dev-link{font-size:12px;font-weight:700;color:#f59e0b;border:1px solid #f59e0b;padding:4px 12px;border-radius:4px;white-space:nowrap;transition:background .2s,color .2s;}
 .dev-strip a.dev-link:hover{background:#f59e0b;color:#0a0a0a;}
 
-/* ── NAV ─────────────────────────────────────────────────────────────────── */
-nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid var(--border);}
-.nav-content{display:flex;justify-content:space-between;align-items:center;padding:14px 0;}
-.nav-links{display:flex;list-style:none;}
-.nav-links a{color:var(--text-2);font-weight:500;font-size:14px;padding:0 13px;transition:color .2s;}
-.nav-links a:hover,.nav-links a.active{color:var(--blue);}
-.btn-wrapper{display:flex;gap:10px;}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;font-size:14px;font-weight:600;color:#fff;border-radius:10px;transition:all .25s;background:var(--blue);border:none;cursor:pointer;font-family:inherit;}
-.btn.whatsapp{background:var(--green);}.btn.whatsapp:hover{background:var(--green-d);}
-.btn.demo{background:#3b6eea;}.btn.demo:hover{background:var(--blue-d);}
-.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1100;}
-.nav-ham span{display:block;width:22px;height:2px;background:var(--text-2);border-radius:2px;transition:all .3s;}
+nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);
+  backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid #e5e7eb;}
+.nav-content{display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;gap:16px;}
+.nav-logo img{height:44px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:0;align-items:center;flex-shrink:0;}
+.nav-links a{color:#374151;font-weight:500;font-size:13.5px;padding:0 11px;
+  white-space:nowrap;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#2563eb;}
+.btn-wrapper{display:flex;gap:8px;flex-shrink:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;
+  padding:9px 18px;font-size:13px;font-weight:600;color:#fff;border-radius:8px;
+  transition:all .25s;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.btn.whatsapp{background:#1fb981;}.btn.whatsapp:hover{background:#17a673;}
+.btn.demo{background:#2563eb;}.btn.demo:hover{background:#1d4ed8;}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;
+  padding:6px;background:none;border:none;z-index:1100;flex-shrink:0;}
+.nav-ham span{display:block;width:22px;height:2px;background:#374151;
+  border-radius:2px;transition:all .3s;}
 .nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
 .nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
 .nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-.mobile-drawer{display:none;position:fixed;top:82px;left:0;right:0;background:#fff;border-bottom:1px solid var(--border);z-index:999;padding:16px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.mobile-drawer{display:none;position:fixed;top:68px;left:0;right:0;
+  background:#fff;border-bottom:1px solid #e5e7eb;z-index:999;
+  padding:16px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,.08);}
 .mobile-drawer.open{display:block;}
 .mobile-drawer ul{list-style:none;margin-bottom:16px;}
-.mobile-drawer ul li{border-bottom:1px solid var(--border-l);}
-.mobile-drawer ul li a{display:block;padding:14px 0;font-size:16px;font-weight:500;color:var(--text-2);}
-.mobile-drawer ul li a:hover,.mobile-drawer ul li a.active{color:var(--blue);}
+.mobile-drawer ul li{border-bottom:1px solid #f3f4f6;}
+.mobile-drawer ul li a{display:block;padding:13px 0;font-size:15px;
+  font-weight:500;color:#374151;}
+.mobile-drawer ul li a:hover,.mobile-drawer ul li a.active{color:#2563eb;}
 .mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
-.mob-ctas a{display:block;text-align:center;padding:13px;border-radius:10px;font-size:15px;font-weight:600;color:#fff;}
-.mob-wa{background:var(--green);}.mob-demo{background:var(--blue);}
+.mob-ctas a{display:block;text-align:center;padding:12px;border-radius:10px;
+  font-size:15px;font-weight:600;color:#fff;}
+.mob-wa{background:#1fb981;}.mob-demo{background:#2563eb;}
+@media(max-width:1100px){
+  .nav-links a{font-size:12.5px;padding:0 9px;}
+  .btn{padding:8px 14px;font-size:12px;}
+}
+@media(max-width:968px){
+  .nav-links,.btn-wrapper{display:none;}
+  .nav-ham{display:flex;}
+}
+
 
 /* ── BUTTONS ─────────────────────────────────────────────────────────────── */
 .btn-primary{padding:14px 28px;font-size:15px;font-weight:700;background:var(--blue);color:#fff;border-radius:8px;display:inline-block;transition:all .2s;border:none;cursor:pointer;font-family:inherit;}
@@ -656,7 +676,7 @@ body.sticky-active{padding-bottom:60px;}
 <nav>
   <div class="container">
     <div class="nav-content">
-      <a href="index.html"><img src="img/logo/tashkatech_logo_web.png" height="52" alt="Tashka Healthcare — Hospital Management Software India"></a>
+      <a class="nav-logo" href="index.html"><img src="img/logo/tashka-logo-new.png" height="44" alt="Tashka Healthcare — Hospital Management Software India"></a>
       <ul class="nav-links"><li><a href="index.html" class="nav-item nav-link">Healthcare AI</a></li>
 <li><a href="epr-software.html" class="nav-item nav-link">EPR Software</a></li>
 <li><a href="clinical-ai.html" class="nav-item nav-link">Clinical AI</a></li>
@@ -1138,4 +1158,16 @@ if(hamBtn&&drawer){
   function upd(){
     const shouldShow=window.scrollY>hero.offsetHeight&&!(cta&&cta.getBoundingClientRect().top<window.innerHeight*.9);
     bar.classList.toggle('visible',shouldShow);
-    d
+
+    tick=false;
+  }
+  window.addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  if(dis){dis.addEventListener('click',()=>{
+    bar.classList.remove('visible');
+    document.body.classList.remove('sticky-active');
+    sessionStorage.setItem('tashka_sticky_off','1');
+  });}
+})();
+</script>
+</body>
+</html>

@@ -1254,4 +1254,16 @@ if(hamBtn&&drawer){
   function upd(){
     const shouldShow=window.scrollY>hero.offsetHeight&&!(cta&&cta.getBoundingClientRect().top<window.innerHeight*.9);
     bar.classList.toggle('visible',shouldShow);
-    d
+
+    tick=false;
+  }
+  window.addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+  if(dis){dis.addEventListener('click',()=>{
+    bar.classList.remove('visible');
+    document.body.classList.remove('sticky-active');
+    sessionStorage.setItem('tashka_sticky_off','1');
+  });}
+})();
+</script>
+</body>
+</html>

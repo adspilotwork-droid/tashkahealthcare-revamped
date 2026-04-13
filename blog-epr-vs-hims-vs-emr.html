@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EPR vs HIMS vs EMR — What's the Difference? | Tashka Healthcare Blog</title>
+<meta name="description" content="EPR, HIMS, and EMR are used interchangeably — but they mean very different things. Here's the definitive breakdown for Indian hospital administrators making purchasing decisions.">
+<link rel="canonical" href="https://tashkahealthcare.com/blog-epr-vs-hims-vs-emr">
+<meta property="og:title" content="EPR vs HIMS vs EMR — What's the Difference? | Tashka Healthcare Blog">
+<meta property="og:description" content="EPR, HIMS, and EMR are used interchangeably — but they mean very different things. Here's the definitive breakdown for Indian hospital administrators.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://tashkahealthcare.com/blog-epr-vs-hims-vs-emr">
+<meta property="og:image" content="https://tashkahealthcare.com/img/og/tashka-og.jpg">
+<link rel="icon" href="img/logo/tashkatech_logo_web.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"EPR vs HIMS vs EMR — What's the Difference and Which Does Your Hospital Actually Need?","author":{"@type":"Organization","name":"Tashka Healthcare"},"publisher":{"@type":"Organization","name":"Tashka Healthcare","url":"https://tashkahealthcare.com"},"datePublished":"2026-04-01","dateModified":"2026-04-01","description":"EPR, HIMS, and EMR are used interchangeably in hospital software conversations — but they mean very different things and lead to very different purchasing decisions."}</script>
+<style>
+:root{
+  --blue:#2563eb;--blue-d:#1d4ed8;--blue-l:#eff6ff;--blue-xl:#dbeafe;
+  --green:#1fb981;--green-d:#17a673;
+  --text:#0a0a0a;--text-2:#374151;--text-3:#6b7280;--text-4:#9ca3af;
+  --border:#e5e7eb;--border-l:#f3f4f6;
+  --bg:#f3f4f6;--bg-w:#fff;--bg-g:#f9fafb;
+  --navy:#0f172a;--navy-2:#1e293b;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.65;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;}
+.container{max-width:1280px;margin:0 auto;padding:0 24px;}
+a{text-decoration:none;transition:color .2s;}
+img{display:block;max-width:100%;}
+::selection{background:var(--blue);color:#fff;}
+
+/* DEV STRIP */
+.dev-strip{background:#1e293b;border-bottom:2px solid #f59e0b;padding:8px 0;position:sticky;top:0;z-index:2000;}
+.dev-strip-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.dev-strip-badge{display:inline-flex;align-items:center;gap:6px;background:#f59e0b;color:#0a0a0a;font-size:11px;font-weight:800;padding:4px 10px;border-radius:4px;letter-spacing:.06em;text-transform:uppercase;}
+.dev-strip p{font-size:12px;color:#94a3b8;flex:1;}
+.dev-strip p strong{color:#e2e8f0;}
+.dev-strip a.dev-link{font-size:12px;font-weight:700;color:#f59e0b;border:1px solid #f59e0b;padding:4px 12px;border-radius:4px;white-space:nowrap;transition:background .2s,color .2s;}
+.dev-strip a.dev-link:hover{background:#f59e0b;color:#0a0a0a;}
+
+/* NAV */
+nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid #e5e7eb;}
+.nav-content{display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:16px;}
+.nav-logo img{height:44px;width:auto;display:block;}
+.nav-links{display:flex;list-style:none;gap:0;align-items:center;flex-shrink:0;}
+.nav-links a{color:#374151;font-weight:500;font-size:13.5px;padding:0 11px;white-space:nowrap;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:#2563eb;}
+.btn-wrapper{display:flex;gap:8px;flex-shrink:0;}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:9px 18px;font-size:13px;font-weight:600;color:#fff;border-radius:8px;transition:all .25s;border:none;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.btn.whatsapp{background:#1fb981;}.btn.whatsapp:hover{background:#17a673;}
+.btn.demo{background:#2563eb;}.btn.demo:hover{background:#1d4ed8;}
+.nav-ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none;z-index:1100;flex-shrink:0;}
+.nav-ham span{display:block;width:22px;height:2px;background:#374151;border-radius:2px;transition:all .3s;}
+.nav-ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mobile-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:#fff;border-bottom:1px solid #e5e7eb;z-index:999;padding:16px 24px 24px;box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.mobile-drawer.open{display:block;}
+.mobile-drawer ul{list-style:none;margin-bottom:16px;}
+.mobile-drawer ul li{border-bottom:1px solid #f3f4f6;}
+.mobile-drawer ul li a{display:block;padding:13px 0;font-size:15px;font-weight:500;color:#374151;}
+.mobile-drawer ul li a:hover,.mobile-drawer ul li a.active{color:#2563eb;}
+.mob-ctas{display:flex;flex-direction:column;gap:10px;margin-top:8px;}
+.mob-ctas a{display:block;text-align:center;padding:12px;border-radius:10px;font-size:15px;font-weight:600;color:#fff;}
+.mob-wa{background:#1fb981;}.mob-demo{background:#2563eb;}
+@media(max-width:1100px){.nav-links a{font-size:12.5px;padding:0 9px;}.btn{padding:8px 14px;font-size:12px;}}
+@media(max-width:968px){.nav-links,.btn-wrapper{display:none;}.nav-ham{display:flex;}}
+
+/* ARTICLE LAYOUT */
+.article-hero{background:linear-gradient(135deg,var(--navy),#1e3a5f);padding:60px 0 48px;position:relative;overflow:hidden;}
+.article-hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;}
+.article-hero-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1;}
+.article-tag{display:inline-block;padding:5px 13px;background:rgba(37,99,235,.25);border:1px solid rgba(37,99,235,.4);color:#93c5fd;border-radius:99px;font-size:11px;font-weight:700;margin-bottom:14px;letter-spacing:.06em;text-transform:uppercase;}
+.article-hero h1{font-size:clamp(26px,4vw,44px);font-weight:800;color:#fff;line-height:1.12;letter-spacing:-1px;margin-bottom:16px;}
+.article-meta{display:flex;align-items:center;justify-content:center;gap:16px;font-size:13px;color:#94a3b8;flex-wrap:wrap;}
+.article-meta span{display:flex;align-items:center;gap:5px;}
+
+/* ARTICLE BODY */
+.article-layout{display:grid;grid-template-columns:1fr 320px;gap:40px;padding:56px 0 80px;align-items:start;}
+.article-content{}
+.article-content h2{font-size:26px;font-weight:800;color:var(--text);letter-spacing:-.5px;margin:40px 0 16px;padding-top:8px;border-top:2px solid var(--border);}
+.article-content h2:first-child{margin-top:0;border-top:none;}
+.article-content h3{font-size:18px;font-weight:700;color:var(--text);margin:28px 0 12px;}
+.article-content p{font-size:15px;color:var(--text-2);line-height:1.8;margin-bottom:18px;}
+.article-content ul,.article-content ol{margin:0 0 18px 20px;}
+.article-content li{font-size:15px;color:var(--text-2);line-height:1.75;margin-bottom:8px;}
+.article-content strong{color:var(--text);font-weight:700;}
+.article-content a{color:var(--blue);font-weight:600;}
+.article-content a:hover{text-decoration:underline;}
+
+/* Callout blocks */
+.callout{background:var(--blue-l);border-left:4px solid var(--blue);border-radius:0 8px 8px 0;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--text-2);line-height:1.75;}
+.callout strong{color:var(--blue);}
+.callout-amber{background:#fef3c7;border-left-color:#f59e0b;}
+.callout-amber strong{color:#b45309;}
+
+/* Comparison table */
+.compare-table{width:100%;border-collapse:collapse;margin:24px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+.compare-table th{background:var(--navy);color:#fff;padding:12px 16px;font-size:13px;font-weight:700;text-align:left;}
+.compare-table td{padding:12px 16px;font-size:13px;color:var(--text-2);border-bottom:1px solid var(--border-l);vertical-align:top;line-height:1.6;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table tr:nth-child(even) td{background:var(--bg-g);}
+.compare-table .td-check{color:#16a34a;font-weight:700;}
+.compare-table .td-x{color:#dc2626;font-weight:700;}
+.compare-table .td-partial{color:#d97706;font-weight:700;}
+
+/* TL;DR box */
+.tldr-box{background:var(--navy);border-radius:12px;padding:24px 28px;margin:0 0 40px;}
+.tldr-box h4{font-size:12px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.tldr-box p{font-size:14px;color:#e2e8f0;line-height:1.7;margin-bottom:0;}
+
+/* Sidebar */
+.article-sidebar{}
+.sidebar-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:20px;}
+.sidebar-card h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:12px;}
+.sidebar-card p{font-size:13px;color:var(--text-3);line-height:1.65;margin-bottom:14px;}
+.sidebar-card a.sidebar-btn{display:block;background:var(--blue);color:#fff;text-align:center;padding:11px;border-radius:8px;font-size:13px;font-weight:700;transition:background .2s;}
+.sidebar-card a.sidebar-btn:hover{background:var(--blue-d);}
+.sidebar-card a.sidebar-wa{display:block;background:var(--green);color:#fff;text-align:center;padding:11px;border-radius:8px;font-size:13px;font-weight:700;margin-top:8px;transition:background .2s;}
+.sidebar-card a.sidebar-wa:hover{background:var(--green-d);}
+.sidebar-toc{background:var(--bg-g);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:20px;}
+.sidebar-toc h4{font-size:12px;font-weight:700;color:var(--text-4);text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px;}
+.sidebar-toc ol{list-style:decimal;padding-left:18px;}
+.sidebar-toc li{font-size:13px;margin-bottom:7px;}
+.sidebar-toc li a{color:var(--blue);font-weight:500;}
+.sidebar-toc li a:hover{text-decoration:underline;}
+
+/* Related articles */
+.related-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;padding-top:40px;border-top:2px solid var(--border);}
+.related-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:20px;transition:all .2s;}
+.related-card:hover{border-color:var(--blue);transform:translateY(-2px);}
+.related-card .blog-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--blue);background:var(--blue-l);padding:3px 9px;border-radius:4px;display:inline-block;margin-bottom:8px;}
+.related-card h3{font-size:14px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:6px;}
+.related-card p{font-size:12px;color:var(--text-3);line-height:1.6;}
+
+/* Footer */
+.final-cta{padding:72px 0;background:linear-gradient(135deg,var(--blue),var(--blue-d));color:#fff;text-align:center;}
+.final-cta h2{font-size:clamp(22px,3vw,36px);font-weight:800;margin-bottom:14px;letter-spacing:-.8px;}
+.final-cta p{font-size:16px;margin-bottom:28px;opacity:.95;max-width:560px;margin-left:auto;margin-right:auto;}
+.btn-white{background:#fff;color:var(--blue);padding:12px 26px;font-size:14px;font-weight:700;border-radius:8px;display:inline-block;margin:0 7px 10px;transition:all .2s;}
+.btn-white:hover{background:var(--bg-g);transform:translateY(-2px);}
+.btn-outline-w{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45);padding:12px 26px;font-size:14px;font-weight:700;border-radius:8px;display:inline-block;margin:0 7px 10px;transition:all .2s;}
+.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.footer-modern{background:linear-gradient(135deg,#0f172a,#020617);color:#cbd5f5;}
+.footer-title{color:#fff;margin-bottom:13px;font-weight:600;font-size:15px;}
+.footer-text{color:#9ca3af;font-size:13px;line-height:1.7;}
+.footer-links{list-style:none;padding:0;}
+.footer-links li{margin-bottom:7px;}
+.footer-links a{color:#9ca3af;font-size:13px;transition:color .2s;}
+.footer-links a:hover{color:#3b82f6;}
+.footer-social a{display:inline-flex;width:33px;height:33px;border-radius:50%;background:#020617;align-items:center;justify-content:center;color:#cbd5f5;margin-right:6px;transition:.3s;}
+.footer-social a:hover{background:var(--blue);color:#fff;}
+.footer-row{display:grid;grid-template-columns:1.1fr 1.2fr 0.9fr 1fr;gap:36px;padding:52px 0 32px;}
+.footer-bottom{border-top:1px solid #1e293b;padding:13px 0;font-size:12px;color:#9ca3af;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.footer-bottom a{color:#9ca3af;margin-left:12px;transition:color .2s;}
+.footer-bottom a:hover{color:#3b82f6;}
+.f-btn-demo{display:block;text-align:center;background:var(--blue);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:9px;margin-bottom:8px;transition:background .2s;}
+.f-btn-demo:hover{background:var(--blue-d);}
+.f-btn-wa{display:block;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:9px;transition:background .2s;}
+.f-btn-wa:hover{background:var(--green-d);}
+
+@media(max-width:968px){
+  .article-layout{grid-template-columns:1fr;gap:32px;}
+  .article-sidebar{order:-1;}
+  .related-grid{grid-template-columns:1fr;}
+  .footer-row{grid-template-columns:1fr 1fr;gap:28px;}
+}
+@media(max-width:640px){
+  .footer-row{grid-template-columns:1fr;}
+  .article-content h2{font-size:22px;}
+  .compare-table{font-size:12px;}
+  .compare-table th,.compare-table td{padding:9px 12px;}
+}
+</style>
+</head>
+<body>
+
+<div class="dev-strip">
+  <div class="container">
+    <div class="dev-strip-inner">
+      <span class="dev-strip-badge">🛠 Dev Preview</span>
+      <p><strong>Client preview site</strong> — All pages live. For review only.</p>
+      <div style="display:flex;gap:8px;flex-shrink:0;">
+        <a href="developer-notes.html" class="dev-link">Dev Notes →</a>
+        <a href="seo-audit.html" class="dev-link" style="border-color:#60a5fa;color:#60a5fa;">SEO Audit →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <div class="container">
+    <div class="nav-content">
+      <a class="nav-logo" href="index.html">
+        <img src="img/logo/tashka-logo-new.png" alt="Tashka Healthcare — Hospital Management Software India" height="44">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Healthcare AI</a></li>
+        <li><a href="epr-software.html">EPR Software</a></li>
+        <li><a href="clinical-ai.html">Clinical AI</a></li>
+        <li><a href="hospital-management.html">Hospital Management</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="btn-wrapper">
+        <a href="https://wa.me/919845137472" target="_blank" class="btn whatsapp">Chat on WhatsApp</a>
+        <a href="contact.html" class="btn demo">Book a Demo</a>
+      </div>
+      <button class="nav-ham" id="hamBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-drawer" id="mobileDrawer">
+  <ul>
+    <li><a href="index.html">Healthcare AI</a></li>
+    <li><a href="epr-software.html">EPR Software</a></li>
+    <li><a href="clinical-ai.html">Clinical AI</a></li>
+    <li><a href="hospital-management.html">Hospital Management</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+  <div class="mob-ctas">
+    <a href="https://wa.me/919845137472" target="_blank" class="mob-wa">💬 Chat on WhatsApp</a>
+    <a href="contact.html" class="mob-demo">Book a Demo</a>
+  </div>
+</div>
+
+<section class="article-hero">
+  <div class="container">
+    <div class="article-hero-inner">
+      <span class="article-tag">⭐ Featured · EPR Software</span>
+      <h1>EPR vs HIMS vs EMR — What's the Difference and Which Does Your Hospital Actually Need?</h1>
+      <div class="article-meta">
+        <span>📅 April 2026</span>
+        <span>⏱ 8 min read</span>
+        <span>✍️ Tashka Clinical Team</span>
+        <span><a href="blog.html" style="color:#93c5fd;">← Back to Blog</a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:56px 0 0;background:#fff;">
+  <div class="container">
+    <div class="article-layout">
+
+      <!-- MAIN CONTENT -->
+      <article class="article-content">
+
+        <div class="tldr-box">
+          <h4>TL;DR — The Short Answer</h4>
+          <p><strong>EMR</strong> = a digital version of the doctor's notes. <strong>EPR</strong> = a unified record of everything that happens to a patient across every department. <strong>HIMS</strong> = the admin/operational layer on top. Most Indian hospitals need an EPR (which subsumes both EMR and HIMS). Most vendors sell HIMS but call it EPR. Here's how to tell the difference.</p>
+        </div>
+
+        <h2 id="problem">Why Three Terms for the Same Thing — And Why It Matters</h2>
+        <p>Walk into any hospital software sales conversation in India and you'll hear EPR, HIMS, and EMR used as if they're interchangeable. They're not. And the difference isn't just semantics — it directly affects whether the software you buy will solve the problems you actually have.</p>
+        <p>A hospital that buys an "EMR" expecting full billing integration will be disappointed. A hospital that buys a "HIMS" expecting clinical AI will be disappointed. Understanding what each term actually means is the first step to making the right purchasing decision.</p>
+
+        <h2 id="emr">What is an EMR (Electronic Medical Record)?</h2>
+        <p>An EMR is a digital version of the paper chart a doctor used to keep for each patient. It stores the clinical documentation generated by a single provider or practice — consultation notes, diagnoses, prescriptions, and follow-up instructions.</p>
+        <p>Key characteristics of a true EMR:</p>
+        <ul>
+          <li><strong>Physician-focused</strong> — designed for the doctor's workflow, not the hospital's operational workflow</li>
+          <li><strong>Single encounter</strong> — captures what happened during one visit</li>
+          <li><strong>Limited integration</strong> — typically does not connect to pharmacy, lab, billing, or imaging</li>
+          <li><strong>No billing</strong> — EMRs don't generate bills or handle insurance claims</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Real-world example:</strong> A GP's clinic that keeps digital notes of patient visits is using an EMR. The notes are there, but when the patient goes for a lab test, the result doesn't automatically appear in the EMR. When the patient pays, the billing system is separate. The EMR is just the clinical documentation.
+        </div>
+
+        <p>EMRs are adequate for solo practitioners or very small specialty practices where the doctor and the billing staff are essentially the same person, or where clinical documentation and billing are managed separately and don't need to speak to each other.</p>
+        <p>For a hospital of any meaningful size — even a 20-bed facility — an EMR alone is insufficient.</p>
+
+        <h2 id="epr">What is an EPR (Electronic Patient Record)?</h2>
+        <p>An EPR takes the EMR concept and extends it across the entire care continuum and every department of a hospital. Where an EMR captures one doctor's notes from one visit, an EPR captures the complete longitudinal record of a patient across every touchpoint: OPD registration, IPD admission, pharmacy dispensing, lab testing, imaging, nursing notes, billing, and discharge.</p>
+        <p>Key characteristics of a true EPR:</p>
+        <ul>
+          <li><strong>Longitudinal</strong> — spans the patient's entire history with the hospital, not just one encounter</li>
+          <li><strong>Cross-departmental</strong> — OPD, IPD, pharmacy, lab, imaging, billing all write to and read from the same record</li>
+          <li><strong>Real-time</strong> — when a doctor prescribes, the pharmacy sees it instantly. When a lab result comes in, the treating doctor sees it instantly</li>
+          <li><strong>Auto-billing</strong> — clinical events automatically generate billing entries</li>
+          <li><strong>Audit trail</strong> — every access, every modification, logged with timestamp and user identity</li>
+        </ul>
+
+        <div class="callout">
+          <strong>Real-world example:</strong> A patient admitted to Chirag Hospital registers at OPD. The doctor's consultation notes, prescription, and lab orders all flow into the same EPR. The pharmacy dispenses and it's recorded. The lab result auto-populates back to the doctor. When the patient is discharged, the bill is already generated from every clinical event that was captured — no manual re-entry.
+        </div>
+
+        <h2 id="hims">What is a HIMS (Hospital Information Management System)?</h2>
+        <p>HIMS is the broadest of the three terms. It encompasses everything an EPR covers, plus the administrative, financial, and operational management layer of a hospital: HR, payroll, supply chain, asset management, analytics, and more.</p>
+        <p>Key characteristics of a HIMS:</p>
+        <ul>
+          <li><strong>Admin-heavy</strong> — HR, payroll, purchase orders, vendor management</li>
+          <li><strong>Financial management</strong> — accounts receivable, general ledger, financial reporting</li>
+          <li><strong>Supply chain</strong> — procurement, inventory across departments</li>
+          <li><strong>Reporting</strong> — operational and financial MIS dashboards</li>
+        </ul>
+
+        <p>In theory, a full HIMS includes EPR functionality. In practice, most Indian software companies that call their product a "HIMS" have stronger admin/billing functionality and weaker clinical documentation tools. Always ask vendors to demonstrate their OPD consultation workflow, nursing notes, and IPD documentation before accepting the HIMS label at face value.</p>
+
+        <h2 id="comparison">Side-by-Side Comparison</h2>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Capability</th>
+              <th>EMR</th>
+              <th>EPR</th>
+              <th>HIMS</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Physician consultation notes</td>
+              <td class="td-check">✓</td>
+              <td class="td-check">✓</td>
+              <td class="td-partial">Varies</td>
+            </tr>
+            <tr>
+              <td>OPD queue management</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>IPD admission & ward management</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>Pharmacy integration</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>Lab result auto-capture</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-partial">Varies</td>
+            </tr>
+            <tr>
+              <td>Auto-billing from clinical events</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-partial">Varies</td>
+            </tr>
+            <tr>
+              <td>TPA &amp; insurance billing</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>NABH-compliant documentation</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-partial">Varies</td>
+            </tr>
+            <tr>
+              <td>Nursing notes &amp; MAR</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+              <td class="td-partial">Varies</td>
+            </tr>
+            <tr>
+              <td>Supply chain / procurement</td>
+              <td class="td-x">✗</td>
+              <td class="td-partial">Varies</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>HR &amp; payroll</td>
+              <td class="td-x">✗</td>
+              <td class="td-x">✗</td>
+              <td class="td-check">✓</td>
+            </tr>
+            <tr>
+              <td>AI medical coding</td>
+              <td class="td-x">✗</td>
+              <td class="td-partial">Modern EPRs only</td>
+              <td class="td-x">✗</td>
+            </tr>
+            <tr>
+              <td>Clinical AI chatbot</td>
+              <td class="td-x">✗</td>
+              <td class="td-partial">Modern EPRs only</td>
+              <td class="td-x">✗</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 id="india">The Indian Hospital Context</h2>
+        <p>In India, the terminology is used even more loosely than globally. Here's what you'll typically encounter:</p>
+
+        <h3>What vendors call "HIMS"</h3>
+        <p>Most established Indian software companies use the term HIMS. This typically means strong billing, administration, and MIS functionality — but clinical documentation is often basic, NABH templates are an add-on, and nursing workflows are underdeveloped. These systems were designed in an era when billing was the primary concern. Clinical documentation was secondary.</p>
+
+        <h3>What vendors call "EMR"</h3>
+        <p>Some smaller vendors and newer entrants use "EMR" to describe what is essentially a digital OPD consultation tool. Prescription writing, basic patient history — without billing, pharmacy, or lab integration. These are adequate for very small practices and completely inadequate for hospitals.</p>
+
+        <h3>What vendors call "EPR"</h3>
+        <p>EPR is the newer branding adopted by companies that want to signal comprehensive clinical-administrative integration. However, the label doesn't guarantee the functionality. Some vendors call their traditional HIMS an "EPR" as a rebranding exercise. The test is in the workflow demonstration, not the label.</p>
+
+        <div class="callout callout-amber">
+          <strong>Key question to ask any vendor:</strong> "Show me what happens when a patient is admitted, has a lab test ordered by the doctor, and the result comes back — without anyone manually entering anything twice." If there's friction, re-entry, or a break in the flow, the product is not a true EPR regardless of what it's called.
+        </div>
+
+        <h2 id="which">Which Does Your Hospital Actually Need?</h2>
+        <p>For the vast majority of Indian hospitals — from 20-bed specialty clinics to 500-bed enterprise hospital groups — the answer is an EPR.</p>
+
+        <p>You need an EPR if:</p>
+        <ul>
+          <li>You have separate OPD and IPD functions</li>
+          <li>You have an on-site pharmacy</li>
+          <li>You conduct lab testing (even basic diagnostics)</li>
+          <li>You bill TPA, insurance, or government schemes</li>
+          <li>You are pursuing or maintaining NABH accreditation</li>
+          <li>You manage more than one location</li>
+          <li>You currently run more than 2 disconnected software systems</li>
+        </ul>
+
+        <p>You might be able to get away with a standalone HIMS (without strong EPR functionality) if:</p>
+        <ul>
+          <li>You are primarily an administrative healthcare facility with minimal clinical documentation requirements</li>
+          <li>Clinical documentation happens on paper and you have no near-term plans to digitize it</li>
+          <li>Billing and administration is the primary problem you're trying to solve</li>
+        </ul>
+
+        <p>You only need an EMR if:</p>
+        <ul>
+          <li>You are a solo practitioner or very small specialty practice</li>
+          <li>You have no pharmacy, lab, or billing integration requirements</li>
+          <li>You are essentially digitizing your paper chart, not unifying hospital operations</li>
+        </ul>
+
+        <h2 id="tashka">How Tashka Approaches This</h2>
+        <p>Tashka is built as an EPR-first platform — meaning clinical record integrity and real-time data flow between departments is the core, not an add-on. When a doctor at Chirag Hospital prescribes medication, the pharmacy system sees it in real time. When a lab result comes in from the analyzer, it's auto-populated to the treating doctor's view and triggers a billing line. When a patient is discharged, the bill is effectively already complete because every clinical event was captured as it happened.</p>
+        <p>On top of that clinical EPR foundation, Tashka adds HIMS-level operational features: MIS reporting, multi-location management, supply chain basics, and financial dashboards. And uniquely, it adds AI capabilities — automated ICD-10/CPT medical coding and a hospital-specific clinical AI chatbot — that traditional HIMS and EPR vendors don't provide.</p>
+        <p>The practical outcome: hospitals that deploy Tashka replace the 5–7 disconnected systems they previously ran (registration, EMR, pharmacy, lab, billing, TPA, reporting) with one unified platform.</p>
+
+        <h2 id="checklist">Before You Buy: Questions to Ask Any Vendor</h2>
+        <ol>
+          <li><strong>Show me the OPD-to-pharmacy flow.</strong> Does a prescription written by the doctor automatically appear in the pharmacy system without anyone re-entering it?</li>
+          <li><strong>Show me the lab result flow.</strong> When a lab analyzer produces a result, how does it get to the treating doctor? How many steps? Who does what?</li>
+          <li><strong>Show me a discharge bill.</strong> How is the bill generated? Is it automatic from clinical events, or does a billing person need to enter services manually?</li>
+          <li><strong>Show me NABH documentation.</strong> Are discharge summaries, consent forms, and nursing notes pre-configured for NABH? Or do I need to build them from scratch?</li>
+          <li><strong>Show me multi-location management.</strong> If I have two branches, can I see both on one dashboard? Is pharmacy inventory shared?</li>
+          <li><strong>What AI does your system provide?</strong> Not marketing copy — show me the actual AI coding assistant or clinical chatbot in a live environment.</li>
+        </ol>
+
+        <p>The answers to those six questions will tell you more about a system than any brochure, demo deck, or G2 summary.</p>
+
+        <div class="callout">
+          <strong>Bottom line:</strong> Don't let terminology confuse your purchasing decision. Focus on the workflow. A system that solves the clinical-to-billing data flow problem — without manual re-entry, without disconnected silos, with NABH-ready documentation — is what your hospital needs. Whether the vendor calls it an EPR, HIMS, or HIS is secondary to whether it actually delivers that connected workflow.
+        </div>
+
+        <!-- Related articles -->
+        <div class="related-grid">
+          <a href="blog-ai-chatbot-hospital.html" class="related-card">
+            <span class="blog-tag">Clinical AI</span>
+            <h3>Why Generic AI Tools Like ChatGPT Don't Work in Hospitals</h3>
+            <p>RAG vs general AI — the clinical and technical case for hospital-specific AI.</p>
+          </a>
+          <a href="blog-nabh-software-checklist.html" class="related-card">
+            <span class="blog-tag">NABH Compliance</span>
+            <h3>NABH Accreditation for Indian Hospitals — The Complete Software Checklist</h3>
+            <p>What assessors actually look for in your hospital's software system.</p>
+          </a>
+        </div>
+
+      </article>
+
+      <!-- SIDEBAR -->
+      <aside class="article-sidebar">
+        <div class="sidebar-toc">
+          <h4>In This Article</h4>
+          <ol>
+            <li><a href="#problem">Why the terminology matters</a></li>
+            <li><a href="#emr">What is an EMR?</a></li>
+            <li><a href="#epr">What is an EPR?</a></li>
+            <li><a href="#hims">What is a HIMS?</a></li>
+            <li><a href="#comparison">Side-by-side comparison</a></li>
+            <li><a href="#india">The Indian hospital context</a></li>
+            <li><a href="#which">Which does your hospital need?</a></li>
+            <li><a href="#checklist">Questions to ask vendors</a></li>
+          </ol>
+        </div>
+        <div class="sidebar-card">
+          <h4>Book a Demo with Tashka</h4>
+          <p>See EPR, billing, pharmacy, and clinical AI in one live walkthrough — tailored to your hospital's modules and size.</p>
+          <a href="contact.html" class="sidebar-btn">Book a Free Demo →</a>
+          <a href="https://wa.me/919845137472" target="_blank" class="sidebar-wa">💬 Chat on WhatsApp</a>
+        </div>
+        <div class="sidebar-card" style="background:var(--bg-g);">
+          <h4>Related Articles</h4>
+          <p style="margin-bottom:10px;"><a href="blog-nabh-software-checklist.html" style="color:var(--blue);font-weight:600;">NABH Software Checklist →</a></p>
+          <p style="margin-bottom:10px;"><a href="blog-ai-chatbot-hospital.html" style="color:var(--blue);font-weight:600;">AI Chatbot vs ChatGPT in Hospitals →</a></p>
+          <p style="margin-bottom:0;"><a href="blog.html" style="color:var(--blue);font-weight:600;">← All Blog Articles</a></p>
+        </div>
+      </aside>
+
+    </div><!-- /article-layout -->
+  </div><!-- /container -->
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <h2>Ready to See a True EPR in Action?</h2>
+    <p>Book a 30-minute demo and we'll show you the complete OPD-to-discharge flow — no generic pitch.</p>
+    <div><a href="contact.html" class="btn-white">Book a Free Demo</a><a href="https://wa.me/919845137472" target="_blank" class="btn-outline-w">💬 Chat on WhatsApp</a></div>
+  </div>
+</section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<div class="footer-modern">
+  <div class="container">
+    <div class="footer-row">
+      <div>
+        <img src="img/logo/tashka-logo-new.png" height="52" style="margin-bottom:14px;" alt="Tashka Healthcare Logo">
+        <h6 class="footer-title">Healthcare AI &amp; Digital Transformation</h6>
+        <p class="footer-text">AI-powered hospital management software built by clinicians. Deployed across Karnataka, India.</p>
+      </div>
+      <div>
+        <h5 class="footer-title">Get In Touch</h5>
+        <p class="footer-text"><i class="fa fa-map-marker-alt" style="margin-right:7px;"></i>No.14, Whitely Layout, Whitefield, Bengaluru, Karnataka 560066</p>
+        <p class="footer-text" style="margin-top:8px;"><i class="fa fa-phone-alt" style="margin-right:7px;"></i><a href="tel:+919108198087" style="color:#fff;">+91 91081 98087</a></p>
+        <p class="footer-text" style="margin-top:8px;"><i class="fa fa-envelope" style="margin-right:7px;"></i><a href="mailto:sales@tashkahealthcare.com" style="color:#fff;">sales@tashkahealthcare.com</a></p>
+      </div>
+      <div>
+        <h5 class="footer-title">Our Services</h5>
+        <ul class="footer-links">
+          <li><a href="index.html">Healthcare AI Platform</a></li>
+          <li><a href="epr-software.html">EPR Software</a></li>
+          <li><a href="clinical-ai.html">Clinical AI</a></li>
+          <li><a href="hospital-management.html">Hospital Management Software</a></li>
+          <li><a href="blog.html">Blog &amp; Resources</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="footer-title">Ready to Get Started?</h5>
+        <p class="footer-text" style="margin-bottom:16px;">30-minute walkthrough tailored to your hospital.</p>
+        <a href="contact.html" class="f-btn-demo">Book a Free Demo →</a>
+        <a href="https://wa.me/919845137472" target="_blank" class="f-btn-wa">💬 Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+      <span>© 2026 Tashka Healthcare. Built by doctors. Bangalore &amp; Dublin.</span>
+      <div><a href="contact.html">Contact</a><a href="#">Privacy</a><a href="contact.html">Support</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const hamBtn=document.getElementById('hamBtn');
+const drawer=document.getElementById('mobileDrawer');
+if(hamBtn&&drawer){
+  hamBtn.addEventListener('click',()=>{const open=drawer.classList.toggle('open');hamBtn.classList.toggle('open',open);hamBtn.setAttribute('aria-expanded',open);document.body.style.overflow=open?'hidden':'';});
+  drawer.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>{drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}));
+  document.addEventListener('click',e=>{if(!drawer.contains(e.target)&&!hamBtn.contains(e.target)){drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+  window.addEventListener('resize',()=>{if(window.innerWidth>968){drawer.classList.remove('open');hamBtn.classList.remove('open');hamBtn.setAttribute('aria-expanded','false');document.body.style.overflow='';}});
+}
+</script>
+</body>
+</html>
