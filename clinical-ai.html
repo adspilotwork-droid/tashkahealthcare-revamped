@@ -48,7 +48,7 @@ img{display:block;max-width:100%;}
 .dev-strip a.dev-link:hover{background:#f59e0b;color:#0a0a0a;}
 
 /* ── NAV ─────────────────────────────────────────────────────────────────── */
-nav{position:sticky;top:41px;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid var(--border);}
+nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-filter:blur(20px);z-index:1000;border-bottom:1px solid var(--border);}
 .nav-content{display:flex;justify-content:space-between;align-items:center;padding:14px 0;}
 .nav-links{display:flex;list-style:none;}
 .nav-links a{color:var(--text-2);font-weight:500;font-size:14px;padding:0 13px;transition:color .2s;}
@@ -759,6 +759,82 @@ body.sticky-active{padding-bottom:60px;}
   box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;
 }
 
+
+/* ── INNER PRODUCT PAGE HERO — split with doctor photo ─────────────────── */
+
+/* ── INNER HERO — full bleed background photo treatment ────────────────── */
+.prod-hero{
+  position:relative;overflow:hidden;
+  background:#0f172a;
+}
+/* Full bleed background image */
+.prod-hero-bg-photo{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  z-index:0;
+  opacity:0.22;
+  filter:grayscale(20%);
+}
+/* Dark blue gradient overlay — strong on left where copy sits, lighter on right */
+.prod-hero::before{
+  content:'';
+  position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(to right,
+      rgba(15,23,42,0.97) 0%,
+      rgba(15,23,42,0.88) 45%,
+      rgba(15,23,42,0.60) 70%,
+      rgba(15,23,42,0.30) 100%
+    ),
+    linear-gradient(135deg,rgba(30,58,138,0.4) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* Grid texture on top */
+.prod-hero::after{
+  content:'';position:absolute;inset:0;z-index:2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+/* Remove the old photo column — no longer needed */
+.prod-hero-photo-col{display:none !important;}
+/* Inner content above overlays */
+.prod-hero-inner{
+  display:grid;
+  grid-template-columns:1fr;
+  min-height:520px;
+  position:relative;z-index:3;
+  max-width:1440px;margin:0 auto;
+}
+.prod-hero-copy{
+  padding:80px 56px 80px 24px;
+  max-width:720px;
+  display:flex;flex-direction:column;justify-content:center;
+}
+/* Trust strip */
+.prod-hero-trust{
+  background:rgba(0,0,0,.35);
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:14px 24px;
+  display:flex;align-items:center;gap:20px;flex-wrap:wrap;
+  font-size:12px;font-weight:600;color:#94a3b8;
+  position:relative;z-index:3;
+}
+
+@media(max-width:968px){
+  .prod-hero-copy{padding:56px 24px;max-width:100%;}
+}
+@media(max-width:640px){
+  .prod-hero-inner{min-height:auto;}
+  .prod-hero-copy{padding:48px 16px;}
+}
+
+
 </style>
 </head>
 <body>
@@ -784,7 +860,8 @@ body.sticky-active{padding-bottom:60px;}
 <li><a href="clinical-ai.html" class="nav-item nav-link active">Clinical AI</a></li>
 <li><a href="hospital-management.html" class="nav-item nav-link">Hospital Management</a></li>
 <li><a href="blog.html" class="nav-item nav-link">Blog</a></li>
-<li><a href="contact.html" class="nav-item nav-link">Contact Us</a></li></ul>
+<li><a href="contact.html" class="nav-item nav-link">Contact Us</a></li>
+</ul>
       <div class="btn-wrapper">
         <a href="https://wa.me/919845137472" target="_blank" class="btn whatsapp">Chat on WhatsApp</a>
         <a href="contact.html" class="btn demo">Book a Demo</a>
@@ -798,27 +875,64 @@ body.sticky-active{padding-bottom:60px;}
 <div class="mobile-drawer" id="mobileDrawer">
   <ul><li><a href="index.html" class="">Healthcare AI</a></li>
 <li><a href="epr-software.html" class="">EPR Software</a></li>
-<li><a href="clinical-ai.html" class=" active">Clinical AI</a></li>
+<li><a href="clinical-ai.html" class="active">Clinical AI</a></li>
 <li><a href="hospital-management.html" class="">Hospital Management</a></li>
 <li><a href="blog.html" class="">Blog</a></li>
-<li><a href="contact.html" class="">Contact Us</a></li></ul>
+<li><a href="contact.html" class="">Contact Us</a></li>
+</ul>
   <div class="mob-ctas">
     <a href="https://wa.me/919845137472" target="_blank" class="mob-wa">💬 Chat on WhatsApp</a>
     <a href="contact.html" class="mob-demo">Book a Demo</a>
   </div>
 </div>
 
-<section class="page-hero">
-  <div class="container"><div class="page-hero-inner">
-    <div class="hero-badge">Clinical AI for Hospitals</div>
-    <h1>Clinical AI Chat Box for <span>Real Hospital Workflows</span></h1>
-    <p>Tashka's Clinical AI Chat Box sits inside your hospital systems — letting doctors, nurses, and administrators ask questions in natural language and get answers from your own hospital data. Securely. Instantly. Accurately.</p>
-    <div class="ph-trust-row"><span>✓ RAG Architecture</span><span>✓ No External Training</span><span>✓ Role-Based Access</span><span>✓ 100% Audit-Logged</span><span>⭐ 5.0 G2 Rating</span></div>
-    <div class="cta-buttons" style="justify-content:center;">
-      <a href="contact.html" class="btn-primary">Get Started Today</a>
-      <a href="epr-software.html" class="btn-secondary">See EPR Platform →</a>
+<section class="prod-hero">
+  <img src="img/doctors/doctor3.jpg"
+       alt=""
+       class="prod-hero-bg-photo"
+       aria-hidden="true"
+       loading="eager">
+  <div class="prod-hero-inner">
+    <div class="prod-hero-copy">
+      <div class="prod-hero-badge">Clinical AI for Hospitals India</div>
+      <h1 class="prod-hero-h1">Your Hospital's Data.<br><span>Conversational.</span></h1>
+      <p class="prod-hero-sub">Tashka's Clinical AI Chat Box answers doctors, nurses, and administrators in natural language — from your hospital's own data. Not the internet. Not a generic AI. Your system, made queryable.</p>
+      <div class="prod-hero-solutions">
+          <div class="prod-sol-item">
+            <div class="prod-sol-icon">🔒</div>
+            <div class="prod-sol-text">
+              <div class="prod-sol-title">RAG architecture — your data only</div>
+              <div class="prod-sol-desc">Every response generated from your EMR, LIS, pharmacy, and billing data. Zero external training.</div>
+            </div>
+          </div>
+          <div class="prod-sol-item">
+            <div class="prod-sol-icon">🩺</div>
+            <div class="prod-sol-text">
+              <div class="prod-sol-title">Patient summaries in under 10 seconds</div>
+              <div class="prod-sol-desc">Full clinical context — labs, vitals, medications, pending discharge — before ward rounds.</div>
+            </div>
+          </div>
+          <div class="prod-sol-item">
+            <div class="prod-sol-icon">👥</div>
+            <div class="prod-sol-text">
+              <div class="prod-sol-title">Role-based — doctors see clinical, billing sees financial</div>
+              <div class="prod-sol-desc">Every staff member gets answers relevant to their role. Full audit trail on every query.</div>
+            </div>
+          </div>
+      </div>
+      <div class="prod-hero-ctas">
+        <a href="contact.html" class="prod-cta-primary">Get Started Today →</a>
+        <a href="epr-software.html" class="prod-cta-secondary">See EPR Platform →</a>
+      </div>
     </div>
-  </div></div>
+    <div class="prod-hero-photo-col">
+      <img src="img/doctors/doctor3.jpg"
+           alt="Doctor using Tashka Clinical AI chatbot in hospital India"
+           class="prod-hero-photo"
+           loading="eager">
+    </div>
+  </div>
+  <div class="prod-hero-trust"><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ RAG Architecture</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ Zero External Training</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ 100% Audit-Logged</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ DPDPA Compliant</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>⭐ G2 5.0 Rated</span></div></div>
 </section><section class="stats-bar"><div class="container"><div class="stats-bar-grid"><div class="stat-item"><h3>RAG</h3><p>Architecture — approved data only</p></div><div class="stat-item"><h3>0</h3><p>External training on patient data</p></div><div class="stat-item"><h3>100%</h3><p>Audit-logged responses</p></div><div class="stat-item"><h3>Role</h3><p>Based access per user type</p></div></div></div></section>
 <section class="pd-96 bg-grey">
   <div class="container">
