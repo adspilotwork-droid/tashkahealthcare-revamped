@@ -127,6 +127,24 @@ nav{position:sticky;top:0;width:100%;background:rgba(255,255,255,.98);backdrop-f
 .f-btn-wa{display:block;text-align:center;background:var(--green);color:#fff;font-weight:700;font-size:14px;padding:12px 16px;border-radius:9px;}
 @media(max-width:968px){.article-layout{grid-template-columns:1fr;}.related-grid{grid-template-columns:1fr;}.footer-row{grid-template-columns:1fr 1fr;gap:28px;}}
 @media(max-width:640px){.footer-row{grid-template-columns:1fr;}}
+
+/* ── ARTICLE SIDEBAR ─────────────────────────────────────────────────────── */
+.article-sidebar{}
+
+/* ── TLDR BOX — force light text (overrides article-content specificity) ── */
+.tldr-box,.tldr-box p,.tldr-box strong{color:#e2e8f0 !important;}
+.tldr-box strong{color:#93c5fd !important;font-weight:700;}
+.tldr-box h4{color:#60a5fa !important;}
+
+/* ── CALLOUT BOXES — force proper text colors ─────────────────────────────── */
+.callout,.callout p,.callout li{color:var(--text-2) !important;}
+.callout strong{color:var(--blue) !important;}
+.callout-amber,.callout-amber p,.callout-amber li{color:#92400e !important;}
+.callout-amber strong{color:#b45309 !important;}
+.callout-red,.callout-red p,.callout-red li{color:#991b1b !important;}
+.callout-red strong{color:#b91c1c !important;}
+/* Compare table text on dark rows */
+.compare-table strong{color:inherit;}
 </style>
 </head>
 <body>
