@@ -3,352 +3,906 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Developer Notes — Tashka Healthcare GitHub Pages Site</title>
+<title>Developer Notes — Tashka Healthcare Revamp | AdsPilot</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0A0F1C;--ink2:#131A2E;--ink3:#1E2A45;--teal:#0DBF8E;--teal-bg:rgba(13,191,142,.1);--amber:#F5A623;--red:#E84040;--steel:#7A8BAA;--fog:#C4CEDF;--white:#fff;--code:#0D1525;--r:6px;}
+:root{
+  --bg:#0a0f1c;--bg2:#111827;--bg3:#1e293b;
+  --blue:#3b82f6;--blue-d:#2563eb;--blue-l:rgba(59,130,246,.12);
+  --red:#ef4444;--red-l:rgba(239,68,68,.1);
+  --amber:#f59e0b;--amber-l:rgba(245,158,11,.1);
+  --green:#22c55e;--green-l:rgba(34,197,94,.1);
+  --teal:#14b8a6;--teal-l:rgba(20,184,166,.1);
+  --border:rgba(255,255,255,.08);
+  --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+  --r:8px;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--fog);line-height:1.65;}
-a{color:var(--teal);}::selection{background:var(--teal);color:var(--ink);}
-.layout{display:grid;grid-template-columns:260px 1fr;min-height:100vh;}
-.sidebar{background:var(--ink2);border-right:1px solid rgba(138,155,192,.1);padding:24px 18px;position:sticky;top:0;height:100vh;overflow-y:auto;}
-.main{padding:40px clamp(24px,5vw,64px) 80px;max-width:960px;}
-.sidebar-logo{font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid rgba(138,155,192,.1);}
-.sidebar-logo span{color:var(--teal);}
-.sidebar-section{margin-bottom:20px;}
-.sidebar-section-label{font-size:.64rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:7px;}
-.sidebar-link{display:block;font-size:.78rem;color:var(--steel);padding:.3rem .5rem;border-radius:4px;text-decoration:none;margin-bottom:.1rem;transition:color .2s,background .2s;}
-.sidebar-link:hover{color:var(--white);background:rgba(138,155,192,.08);}
-.doc-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
-.doc-h1{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.1;margin-bottom:.75rem;}
-.doc-intro{font-size:.95rem;font-weight:300;color:var(--steel);max-width:700px;line-height:1.75;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(138,155,192,.1);}
-.doc-h2{font-size:1.2rem;font-weight:700;color:var(--white);letter-spacing:-.015em;margin:2.5rem 0 .9rem;padding-bottom:.55rem;border-bottom:1px solid rgba(138,155,192,.1);}
-.doc-h3{font-size:.95rem;font-weight:600;color:var(--fog);margin:1.4rem 0 .5rem;}
-.doc-p{font-size:.87rem;color:var(--steel);line-height:1.8;margin-bottom:.7rem;}
-.doc-p strong{color:var(--fog);font-weight:600;}
-.alert{display:flex;gap:.7rem;padding:.9rem 1.1rem;border-radius:var(--r);margin-bottom:1.1rem;font-size:.82rem;line-height:1.6;}
-.alert-icon{flex-shrink:0;margin-top:.1rem;}
-.alert-red{background:rgba(232,64,64,.08);border:1px solid rgba(232,64,64,.25);color:#F09090;}
-.alert-amber{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.25);color:#D4A060;}
-.alert-teal{background:rgba(13,191,142,.08);border:1px solid rgba(13,191,142,.25);color:#70CFAE;}
-pre{background:var(--code);border:1px solid rgba(138,155,192,.12);border-radius:var(--r);padding:1.1rem;overflow-x:auto;margin:1rem 0 1.5rem;font-family:'JetBrains Mono',monospace;font-size:.76rem;line-height:1.75;color:#C5D2E8;}
-code{font-family:'JetBrains Mono',monospace;font-size:.78rem;background:rgba(138,155,192,.1);padding:.1rem .32rem;border-radius:3px;color:var(--teal);}
-table{width:100%;border-collapse:collapse;margin:1rem 0 1.75rem;font-size:.8rem;}
-thead tr{background:var(--ink3);}
-th{padding:.55rem .9rem;text-align:left;font-weight:600;color:var(--fog);font-size:.75rem;letter-spacing:.03em;border-bottom:1px solid rgba(138,155,192,.15);}
-td{padding:.6rem .9rem;color:var(--steel);border-bottom:1px solid rgba(138,155,192,.07);vertical-align:top;line-height:1.5;}
-tbody tr:hover td{background:rgba(138,155,192,.04);color:var(--fog);}
-.td-t{color:var(--teal);font-weight:600;}.td-a{color:var(--amber);font-weight:600;}.td-r{color:var(--red);font-weight:600;}
-.badge{display:inline-flex;align-items:center;font-size:.67rem;font-weight:700;padding:.14rem .48rem;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;}
-.badge-p1{background:rgba(232,64,64,.14);color:var(--red);}
-.badge-p2{background:rgba(245,166,35,.12);color:var(--amber);}
-.badge-p3{background:rgba(13,191,142,.1);color:var(--teal);}
-.badge-new{background:rgba(13,191,142,.14);color:var(--teal);}
-.section-block{scroll-margin-top:1.5rem;margin-bottom:3rem;}
-.checklist{list-style:none;margin:.7rem 0 1.4rem;}
-.checklist li{display:flex;align-items:flex-start;gap:.6rem;font-size:.83rem;color:var(--steel);padding:.28rem 0;}
-.checklist li::before{content:'☐';color:var(--steel);flex-shrink:0;margin-top:.05rem;}
-.checklist li.done::before{content:'✓';color:var(--teal);}
-hr{border:none;border-top:1px solid rgba(138,155,192,.1);margin:2rem 0;}
-.c-comment{color:#4A5F7A;}.c-key{color:var(--teal);}.c-val{color:#F5A623;}.c-str{color:#98C379;}.c-tag{color:#E06C75;}.c-attr{color:#61AFEF;}
-@media(max-width:768px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{text-decoration:underline;}
+::selection{background:var(--blue);color:#fff;}
+
+/* TOP NAV */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(10,15,28,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0;}
+.top-nav-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.top-nav-brand{font-size:13px;font-weight:700;color:#fff;}
+.top-nav-brand span{color:var(--blue);}
+.top-nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.top-nav-links a{font-size:11px;font-weight:600;color:var(--text2);padding:5px 10px;border-radius:5px;border:1px solid var(--border);transition:all .2s;white-space:nowrap;}
+.top-nav-links a:hover{color:#fff;border-color:var(--blue);background:var(--blue-l);text-decoration:none;}
+.top-nav-links a.primary{background:var(--blue);color:#fff;border-color:var(--blue);}
+.top-nav-links a.primary:hover{background:var(--blue-d);}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:260px 1fr;max-width:1400px;margin:0 auto;min-height:calc(100vh - 52px);}
+.sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:24px 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
+.main{padding:40px 48px 80px;}
+
+/* SIDEBAR */
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);padding:0 20px 6px;margin-top:16px;display:block;}
+.sb-link{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2);padding:7px 20px;transition:all .2s;}
+.sb-link:hover{color:#fff;background:rgba(255,255,255,.06);text-decoration:none;}
+.sb-count{margin-left:auto;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;background:var(--bg3);color:var(--text3);}
+
+/* EYEBROW */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.doc-h1{font-size:clamp(24px,3vw,34px);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:10px;}
+.doc-intro{font-size:13px;color:var(--text2);line-height:1.8;max-width:800px;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+
+/* SECTION */
+.section-block{scroll-margin-top:80px;margin-bottom:64px;}
+.section-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
+.section-title{font-size:18px;font-weight:800;color:#fff;margin-bottom:4px;letter-spacing:-.3px;}
+.section-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:20px;}
+
+/* CHANGE CARD — the main format */
+.change-card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:20px;}
+.change-head{padding:16px 20px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px;}
+.change-title{font-size:14px;font-weight:700;color:#fff;line-height:1.4;flex:1;}
+.change-badges{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;align-items:flex-start;}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.b-p1{background:rgba(239,68,68,.18);color:var(--red);}
+.b-p2{background:rgba(245,158,11,.18);color:var(--amber);}
+.b-p3{background:var(--blue-l);color:var(--blue);}
+.b-new{background:rgba(20,184,166,.15);color:var(--teal);}
+.b-fix{background:var(--green-l);color:var(--green);}
+
+/* CHANGE BODY — 3-col info + 2-col code */
+.change-info{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-bottom:1px solid var(--border);}
+.change-info-col{padding:16px 20px;border-right:1px solid var(--border);}
+.change-info-col:last-child{border-right:none;}
+.change-info-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:8px;}
+.change-info-body{font-size:12px;color:var(--text2);line-height:1.65;}
+.change-info-body strong{color:var(--text);}
+.impact-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:3px 10px;border-radius:99px;margin-top:6px;}
+.impact-high{background:var(--green-l);color:var(--green);}
+.impact-med{background:var(--blue-l);color:var(--blue);}
+.impact-low{background:rgba(255,255,255,.06);color:var(--text2);}
+
+/* CODE SPLIT */
+.change-code{display:grid;grid-template-columns:1fr 1fr;}
+.code-col{padding:16px 20px;border-right:1px solid var(--border);}
+.code-col:last-child{border-right:none;}
+.code-col-label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+.code-col-label.old-label{color:var(--red);}
+.code-col-label.new-label{color:var(--green);}
+.code-col-label .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.code-col-label .dot.red{background:var(--red);}
+.code-col-label .dot.green{background:var(--green);}
+pre{background:var(--bg);border-radius:5px;padding:12px;overflow-x:auto;font-family:'JetBrains Mono',monospace;font-size:11px;line-height:1.7;color:#94a3b8;border:1px solid var(--border);}
+pre .hl-old{color:#fca5a5;}
+pre .hl-new{color:#86efac;}
+pre .hl-comment{color:#475569;}
+pre .hl-key{color:#f59e0b;}
+pre .hl-val{color:#93c5fd;}
+pre .hl-str{color:#86efac;}
+pre .hl-tag{color:#f87171;}
+
+/* FILE STRUCTURE */
+.file-tree{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px 24px;font-family:'JetBrains Mono',monospace;font-size:12px;line-height:2;color:var(--text2);}
+.ft-folder{color:#f59e0b;font-weight:600;}
+.ft-file{color:#93c5fd;}
+.ft-file.new{color:var(--green);}
+.ft-note{color:var(--text3);font-size:10px;}
+
+/* CHECKLIST */
+.checklist{list-style:none;margin:12px 0;}
+.checklist li{font-size:13px;color:var(--text2);padding:7px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px;}
+.checklist li:last-child{border-bottom:none;}
+.checklist li::before{content:'☐';color:var(--text3);flex-shrink:0;font-size:14px;}
+.checklist li.done::before{content:'✓';color:var(--green);}
+
+/* ALERT */
+.alert{display:flex;gap:10px;padding:14px 16px;border-radius:var(--r);margin:14px 0;font-size:13px;line-height:1.65;}
+.alert-icon{flex-shrink:0;font-size:16px;}
+.alert-amber{background:var(--amber-l);border:1px solid rgba(245,158,11,.25);color:#fcd34d;}
+.alert-green{background:var(--green-l);border:1px solid rgba(34,197,94,.25);color:#86efac;}
+.alert-blue{background:var(--blue-l);border:1px solid rgba(59,130,246,.25);color:#93c5fd;}
+.alert-red{background:var(--red-l);border:1px solid rgba(239,68,68,.25);color:#fca5a5;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}.main{padding:28px 20px 60px;}}
+@media(max-width:768px){.change-info{grid-template-columns:1fr;}.change-code{grid-template-columns:1fr;}.code-col{border-right:none;border-bottom:1px solid var(--border);}.code-col:last-child{border-bottom:none;}}
 </style>
 </head>
 <body>
-<div class="layout">
-<aside class="sidebar">
-  <div class="sidebar-logo">Dev Notes — <span>Tashka HC</span></div>
-  <a href="seo-audit.html" style="display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;color:#60a5fa;padding:.3rem .5rem;border-radius:4px;margin-bottom:14px;border:1px solid rgba(96,165,250,.3);justify-content:center;">📊 SEO Audit Report →</a>
 
-  <div class="sidebar-section"><div class="sidebar-section-label">Site Overview</div>
-    <a href="#overview" class="sidebar-link">Project Brief</a>
-    <a href="#file-structure" class="sidebar-link">File Structure</a>
-    <a href="#github-pages" class="sidebar-link">GitHub Pages Setup</a>
-    <a href="#design-system" class="sidebar-link">Design System</a>
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="top-nav-brand">AdsPilot <span>/</span> Tashka Developer Notes</div>
+    <div class="top-nav-links">
+      <a href="seo-audit.html">SEO Audit</a>
+      <a href="index.html">Homepage</a>
+      <a href="https://tashkahealthcare.com/" target="_blank" rel="noopener">Live Site ↗</a>
+      <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank" class="primary">Preview Site ↗</a>
+    </div>
   </div>
-  <div class="sidebar-section"><div class="sidebar-section-label">Pages & Navigation</div>
-    <a href="#nav-system" class="sidebar-link">Navigation System</a>
-    <a href="#page-index" class="sidebar-link">Page Index</a>
-    <a href="#url-map" class="sidebar-link">URL Mapping</a>
-    <a href="#dev-strip" class="sidebar-link">Dev Strip</a>
-  </div>
-  <div class="sidebar-section"><div class="sidebar-section-label">SEO Implementation</div>
-    <a href="#meta-tags" class="sidebar-link">Meta Tags — All Pages</a>
-    <a href="#structured-data" class="sidebar-link">Structured Data</a>
-    <a href="#reviews-schema" class="sidebar-link">Reviews Section</a>
-    <a href="#h1-hierarchy" class="sidebar-link">H1 Hierarchy</a>
-    <a href="#keyword-map" class="sidebar-link">Keyword Map</a>
-    <a href="#llm-signals" class="sidebar-link">LLM Signals</a>
-  </div>
-  <div class="sidebar-section"><div class="sidebar-section-label">Fixes & Corrections</div>
-    <a href="#consistency" class="sidebar-link">Design Consistency</a>
-    <a href="#fixes" class="sidebar-link">Existing Page Fixes</a>
-    <a href="#analytics" class="sidebar-link">Analytics Setup</a>
-  </div>
-  <div class="sidebar-section"><div class="sidebar-section-label">Deployment</div>
-    <a href="#checklist" class="sidebar-link">Pre-Launch Checklist</a>
-    <a href="#production" class="sidebar-link">Production Migration</a>
-  </div>
+</nav>
+
+<div class="layout">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <span class="sb-label">Site Overview</span>
+  <a href="#file-structure" class="sb-link">File Structure <span class="sb-count">9 pages</span></a>
+  <a href="#deploy" class="sb-link">GitHub Pages Deploy</a>
+  <a href="#pre-production" class="sb-link">Pre-Production Checklist</a>
+
+  <span class="sb-label">Changes Made</span>
+  <a href="#change-titles" class="sb-link">Title Tags <span class="sb-count">All pages</span></a>
+  <a href="#change-meta" class="sb-link">Meta Descriptions <span class="sb-count">All pages</span></a>
+  <a href="#change-schema" class="sb-link">Structured Data <span class="sb-count">JSON-LD</span></a>
+  <a href="#change-epr" class="sb-link">EPR Software Page <span class="sb-count">New</span></a>
+  <a href="#change-hms" class="sb-link">Hospital Management <span class="sb-count">Rebuilt</span></a>
+  <a href="#change-urls" class="sb-link">URL Slugs <span class="sb-count">Hyphens</span></a>
+  <a href="#change-nav" class="sb-link">Navigation <span class="sb-count">+Blog +EPR</span></a>
+  <a href="#change-hero" class="sb-link">Hero Sections <span class="sb-count">All pages</span></a>
+  <a href="#change-reviews" class="sb-link">Reviews Section <span class="sb-count">All pages</span></a>
+  <a href="#change-blog" class="sb-link">Blog + Articles <span class="sb-count">4 files</span></a>
+  <a href="#change-links" class="sb-link">Broken Links Fix <span class="sb-count">Contact</span></a>
+  <a href="#change-nap" class="sb-link">NAP Consistency <span class="sb-count">All pages</span></a>
+  <a href="#change-images" class="sb-link">Images + Alts <span class="sb-count">All pages</span></a>
+
+  <span class="sb-label">Reference</span>
+  <a href="#nap-canonical" class="sb-link">Canonical NAP</a>
+  <a href="#design-system" class="sb-link">Design System</a>
+  <a href="#301-redirects" class="sb-link">301 Redirects</a>
 </aside>
 
+<!-- MAIN -->
 <main class="main">
 
+<!-- HEADER -->
 <div class="section-block" id="overview">
-  <div class="doc-eyebrow">Developer Documentation — v2.0</div>
-  <h1 class="doc-h1">Tashka Healthcare — GitHub Pages Preview Site</h1>
-  <p class="doc-intro">This document covers the complete implementation of the Tashka Healthcare multi-page GitHub Pages preview site — including the new EPR Software page, navigation system, Google Reviews section, dev strip, sticky CTA bar, SEO meta tags, structured data schemas, H1 hierarchy enforcement, keyword placement, and LLM-readable signals across all 5 pages.</p>
-  <div class="alert alert-amber"><div class="alert-icon">⚠️</div><div><strong>This is a client preview site.</strong> The dev strip at the top of every page identifies it as a development preview. All navigation links are internal (relative paths) and fully functional for GitHub Pages hosting. Before pushing to production tashkahealthcare.com, see the Production Migration section.</div></div>
+  <div class="eyebrow">Developer Notes — v2.0 · April 2026</div>
+  <h1 class="doc-h1">Tashka Healthcare — Preview Site Change Log</h1>
+  <p class="doc-intro">This document details every change made between the <strong>live site at tashkahealthcare.com</strong> and the <strong>preview site at <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank">adspilotwork-droid.github.io/tashkahealthcare-revamped</a></strong>. Each change is documented with: what was wrong on the live site → what we changed → why it benefits SEO → expected impact. Code examples show the actual before/after HTML. This document is for developer handoff — every item here must be replicated on the live tashkahealthcare.com server.</p>
+
+  <div class="alert alert-amber">
+    <div class="alert-icon">⚠️</div>
+    <div><strong>Dev strip reminder:</strong> Remove the yellow "Dev Preview" strip from all pages before pushing to production. Delete the <code>&lt;div class="dev-strip"&gt;</code> block and its CSS. Change <code>nav { top: 0 }</code> (already set in preview — confirm before go-live).</div>
+  </div>
 </div>
 
+<!-- FILE STRUCTURE -->
 <div class="section-block" id="file-structure">
-  <h2 class="doc-h2">File Structure</h2>
-  <pre><code>tashka-site/                     ← GitHub repo root
-├── index.html                   ← Homepage (Healthcare AI Platform)
-├── epr-software.html            ← EPR Software page ✦ NEW
-├── clinical-ai.html             ← Clinical AI page (renamed from custom_ai)
-├── hospital-management.html     ← Hospital Management (renamed)
-├── contact.html                 ← Contact page
-├── developer-notes.html         ← This document
-├── img/
-│   └── logo/
-│       └── tashkatech_logo_web.png
-├── qrcode.jpeg
-└── README.md</code></pre>
-  <div class="alert alert-teal"><div class="alert-icon">ℹ️</div><div><strong>File naming:</strong> All pages use hyphenated filenames (e.g. <code>epr-software.html</code>, <code>clinical-ai.html</code>). This matches Google's recommended URL format. The old underscore names (<code>custom_ai</code>, <code>hospital_management</code>) are corrected here. Set up 301 redirects on the production server when migrating.</div></div>
+  <div class="section-label">Site Overview</div>
+  <h2 class="section-title">File Structure</h2>
+  <p class="section-desc">Push all files to GitHub repo root. GitHub Pages deploys automatically from main branch.</p>
+  <div class="file-tree">
+    <span class="ft-folder">tashkahealthcare-revamped/</span> ← repo root<br>
+    ├── <span class="ft-file new">index.html</span>                   ← Homepage (rebuilt from scratch)<br>
+    ├── <span class="ft-file new">epr-software.html</span>            ← NEW — did not exist on live site<br>
+    ├── <span class="ft-file new">clinical-ai.html</span>             ← Renamed from /custom_ai<br>
+    ├── <span class="ft-file new">hospital-management.html</span>     ← Renamed from /hospital_management, rebuilt<br>
+    ├── <span class="ft-file new">contact.html</span>                 ← Rebuilt, broken links fixed<br>
+    ├── <span class="ft-file new">blog.html</span>                    ← NEW — did not exist on live site<br>
+    ├── <span class="ft-file new">blog-epr-vs-hims-vs-emr.html</span>      ← NEW — seed article<br>
+    ├── <span class="ft-file new">blog-ai-chatbot-hospital.html</span>      ← NEW — seed article<br>
+    ├── <span class="ft-file new">blog-nabh-software-checklist.html</span>  ← NEW — seed article<br>
+    ├── <span class="ft-file">developer-notes.html</span>          ← This document<br>
+    ├── <span class="ft-file">seo-audit.html</span>                ← SEO audit of live site<br>
+    ├── <span class="ft-folder">img/</span><br>
+    │   ├── <span class="ft-folder">logo/</span><br>
+    │   │   ├── <span class="ft-file new">tashka-logo-new.png</span>   ← New logo (transparent background)<br>
+    │   │   └── <span class="ft-file">tashkatech_logo_web.png</span>   ← Original (keep for fallback)<br>
+    │   └── <span class="ft-folder">doctors/</span><br>
+    │       ├── <span class="ft-file new">hero-nurse.jpg</span>         ← Homepage hero photo<br>
+    │       ├── <span class="ft-file new">epr-hero.jpg</span>           ← EPR page background<br>
+    │       ├── <span class="ft-file new">hosp-mgmt-hero.jpg</span>     ← Hospital Management background<br>
+    │       ├── <span class="ft-file new">clinical-ai-hero.jpg</span>   ← Clinical AI background<br>
+    │       ├── <span class="ft-file new">doctor1.jpg</span>            ← Review avatars + feature sections<br>
+    │       ├── <span class="ft-file new">doctor2.jpg</span>            ← Featured review + OPD section<br>
+    │       ├── <span class="ft-file new">doctor3.jpg</span>            ← Built-by-doctors + Clinical AI<br>
+    │       └── <span class="ft-file new">admin.jpg</span>              ← Contact page + billing section<br>
+    ├── <span class="ft-file">qrcode.jpeg</span>                   ← WhatsApp QR (existing, keep)<br>
+    └── <span class="ft-file new">README.md</span>
+  </div>
 </div>
 
-<div class="section-block" id="github-pages">
-  <h2 class="doc-h2">GitHub Pages Setup</h2>
-  <p class="doc-p">This site is built as pure static HTML — no build tools, no node_modules, no dependencies to install. Push to GitHub and enable Pages in one step.</p>
-  <div class="doc-h3">Steps to deploy</div>
-  <pre><code><span class="c-comment"># 1. Create a new GitHub repository (e.g. tashka-preview)</span>
-git init
+<!-- DEPLOY -->
+<div class="section-block" id="deploy">
+  <div class="section-label">Deployment</div>
+  <h2 class="section-title">GitHub Pages Setup</h2>
+  <pre>
+<span class="hl-comment"># 1. Clone the repo</span>
+git clone https://github.com/adspilotwork-droid/tashkahealthcare-revamped.git
+cd tashkahealthcare-revamped
+
+<span class="hl-comment"># 2. Add all files and push</span>
 git add .
-git commit -m "Initial Tashka Healthcare preview site"
-git remote add origin https://github.com/YOUR_USERNAME/tashka-preview.git
-git push -u origin main
+git commit -m "Tashka Healthcare revamp — v2"
+git push origin main
 
-<span class="c-comment"># 2. In GitHub: Settings → Pages → Source: Deploy from branch → main → / (root)</span>
-<span class="c-comment"># 3. Site will be live at: https://YOUR_USERNAME.github.io/tashka-preview/</span>
-
-<span class="c-comment"># 4. If using a custom domain (optional):
-# Add CNAME file with: preview.tashkahealthcare.com</span></code></pre>
-  <div class="alert alert-teal"><div class="alert-icon">ℹ️</div><div><strong>Important:</strong> If hosting in a subdirectory (e.g. <code>/tashka-preview/</code>), update all navigation hrefs to include the subfolder prefix, e.g. <code>href="/tashka-preview/epr-software.html"</code>. The current build uses relative paths which work for root hosting.</div></div>
+<span class="hl-comment"># 3. GitHub Settings → Pages → Source: main branch → / (root)
+# Preview live at:</span>
+https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html</pre>
 </div>
 
-<div class="section-block" id="design-system">
-  <h2 class="doc-h2">Design System — Matched to Existing Tashka Site</h2>
-  <table>
-    <thead><tr><th>Token</th><th>Value</th><th>Usage</th></tr></thead>
-    <tbody>
-      <tr><td>Primary blue</td><td class="td-t"><code>#2563eb</code></td><td>CTAs, section labels, check icons, stat numbers, metric badges, nav active state</td></tr>
-      <tr><td>Blue dark</td><td><code>#1d4ed8</code></td><td>CTA hover states, gradient endpoints</td></tr>
-      <tr><td>WhatsApp green</td><td class="td-t"><code>#1fb981</code></td><td>WhatsApp nav button, sticky bar WA button, footer WA CTA</td></tr>
-      <tr><td>Demo blue</td><td><code>#3b6eea</code></td><td>Demo nav button</td></tr>
-      <tr><td>Body bg</td><td><code>#f3f4f6</code></td><td>Page background (exact match to existing site)</td></tr>
-      <tr><td>Section alt bg</td><td><code>#f9fafb</code></td><td>Alternating section backgrounds</td></tr>
-      <tr><td>Border</td><td><code>#e5e7eb</code></td><td>Card borders, dividers, form inputs</td></tr>
-      <tr><td>Text primary</td><td><code>#0a0a0a</code></td><td>Headings, card titles</td></tr>
-      <tr><td>Text secondary</td><td><code>#6b7280</code></td><td>Body paragraphs, section subtitles</td></tr>
-      <tr><td>Font</td><td class="td-t">Inter</td><td>All text — exact match to existing site</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="section-block" id="nav-system">
-  <h2 class="doc-h2">Navigation System</h2>
-  <p class="doc-p">Every page uses a shared navigation pattern with 5 links, WhatsApp + Demo buttons on desktop, and a hamburger menu on mobile (≤968px). The <code>active</code> class is applied to the current page link.</p>
-  <table>
-    <thead><tr><th>Page</th><th>Nav Item</th><th>File</th><th>Active Class Applied To</th></tr></thead>
-    <tbody>
-      <tr><td>Homepage</td><td>Healthcare AI</td><td><code>index.html</code></td><td class="td-t">Healthcare AI link</td></tr>
-      <tr><td>EPR Software</td><td>EPR Software</td><td><code>epr-software.html</code></td><td class="td-t">EPR Software link</td></tr>
-      <tr><td>Clinical AI</td><td>Clinical AI</td><td><code>clinical-ai.html</code></td><td class="td-t">Clinical AI link</td></tr>
-      <tr><td>Hospital Management</td><td>Hospital Management</td><td><code>hospital-management.html</code></td><td class="td-t">Hospital Management link</td></tr>
-      <tr><td>Contact</td><td>Contact Us</td><td><code>contact.html</code></td><td class="td-t">Contact Us link</td></tr>
-    </tbody>
-  </table>
-  <div class="alert alert-teal"><div class="alert-icon">ℹ️</div><div>The nav is sticky below the dev strip. The dev strip is <code>position:sticky; top:0; z-index:2000</code> and the nav is <code>position:sticky; top:41px; z-index:1000</code>. This stacks them correctly without overlap.</div></div>
-</div>
-
-<div class="section-block" id="dev-strip">
-  <h2 class="doc-h2">Developer Preview Strip <span class="badge badge-new">New</span></h2>
-  <p class="doc-p">A yellow-badged strip sits above the nav on every page identifying the site as a development preview. It links to this developer notes document.</p>
-  <pre><code><span class="c-comment">/* Dev strip — remove this entire block before production push */</span>
-&lt;div class="dev-strip"&gt;
-  &lt;div class="container"&gt;
-    &lt;div class="dev-strip-inner"&gt;
-      &lt;span class="dev-strip-badge"&gt;🛠 Dev Preview&lt;/span&gt;
-      &lt;p&gt;&lt;strong&gt;Client preview site&lt;/strong&gt; — All pages live. Navigation fully functional.&lt;/p&gt;
-      &lt;a href="developer-notes.html" class="dev-link"&gt;View Developer Notes →&lt;/a&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-  <div class="alert alert-red"><div class="alert-icon">🚨</div><div><strong>Remove before production:</strong> Delete the entire dev-strip div AND its CSS block (<code>.dev-strip</code>, <code>.dev-strip-inner</code>, etc.) before pushing to tashkahealthcare.com. Also change <code>nav { top: 41px }</code> back to <code>nav { top: 0 }</code>.</div></div>
-</div>
-
-<div class="section-block" id="meta-tags">
-  <h2 class="doc-h2">Meta Tags — All Pages <span class="badge badge-p1">P1</span></h2>
-  <table>
-    <thead><tr><th>Page</th><th>Title (chars)</th><th>Meta Description (chars)</th><th>Canonical</th></tr></thead>
-    <tbody>
-      <tr><td>Homepage</td><td>AI-Powered EPR &amp; Hospital Management Software India | Tashka Healthcare (73)</td><td>Tashka Healthcare delivers AI-powered EPR, medical coding automation, and clinical data unification for hospitals across India. NABH-ready. Built by doctors. Get a free demo. (174)</td><td>/</td></tr>
-      <tr><td>EPR Software</td><td>EPR Software India — AI-Enabled Electronic Patient Records | Tashka Healthcare (77)</td><td>Tashka's EPR software unifies Electronic Patient Records across OPD, IPD, Pharmacy and Lab with AI coding, clinical chatbot, and NABH-compliant workflows. Deployed across Karnataka. (183)</td><td>/epr-software</td></tr>
-      <tr><td>Clinical AI</td><td>Clinical AI Chat Box for Hospitals | Tashka Healthcare (55)</td><td>Deploy Tashka's Clinical AI Chat Box inside your hospital EMR. Role-based, HIPAA-aligned, RAG architecture trained on your approved data only. Get a demo. (153)</td><td>/clinical-ai</td></tr>
-      <tr><td>Hospital Mgmt</td><td>EPR &amp; Hospital Management Software India | AI-Enabled | Tashka Healthcare (73)</td><td>End-to-end AI-enabled EPR and hospital management software for hospitals in India. OPD, IPD, Pharmacy, Lab, and AI chatbot. Deployed across Karnataka. Free demo. (162)</td><td>/hospital-management</td></tr>
-      <tr><td>Contact</td><td>Contact Tashka Healthcare | Book a Demo | Bangalore &amp; Dublin (60)</td><td>Contact Tashka Healthcare to schedule a demo or get a quote for EPR and hospital management software. Offices in Bangalore and Dublin. Response within 1 hour. (160)</td><td>/contact</td></tr>
-    </tbody>
-  </table>
-  <p class="doc-p">All pages also include: <code>og:title</code>, <code>og:description</code>, <code>og:type</code>, <code>og:url</code>, <code>og:image</code> (pointing to <code>/img/og/tashka-og.jpg</code> — create this 1200×630px branded image), <code>twitter:card</code>, <code>twitter:title</code>, <code>twitter:description</code>. All pages have <code>&lt;link rel="canonical"&gt;</code>.</p>
-</div>
-
-<div class="section-block" id="structured-data">
-  <h2 class="doc-h2">Structured Data — JSON-LD Schemas <span class="badge badge-p1">P1</span></h2>
-  <table>
-    <thead><tr><th>Page</th><th>Schemas Included</th><th>Rich Result Eligibility</th></tr></thead>
-    <tbody>
-      <tr><td>Homepage</td><td>Organization, LocalBusiness, WebSite</td><td class="td-t">Knowledge Panel, Local Pack, Sitelinks</td></tr>
-      <tr><td>EPR Software</td><td>SoftwareApplication, FAQPage (8 Q&amp;As)</td><td class="td-t">Software rich result, FAQ accordion in SERPs</td></tr>
-      <tr><td>Clinical AI</td><td>SoftwareApplication</td><td class="td-t">Software rich result</td></tr>
-      <tr><td>Hospital Mgmt</td><td>SoftwareApplication, FAQPage (6 Q&amp;As)</td><td class="td-t">Software rich result, FAQ accordion</td></tr>
-      <tr><td>Contact</td><td>LocalBusiness (full with geo, hours, rating)</td><td class="td-t">Local pack, Google Maps rich result</td></tr>
-    </tbody>
-  </table>
-  <p class="doc-p">All SoftwareApplication schemas include <code>aggregateRating</code> (5.0, 5 reviews) to match the Reviews section on each page. The Organization schema on the homepage uses <code>@id</code> to enable cross-page entity linking — this is the LLM/AI engine signal (see LLM Signals section).</p>
-  <div class="alert alert-teal"><div class="alert-icon">ℹ️</div><div>Validate all schemas at <strong>search.google.com/test/rich-results</strong> after deploying to GitHub Pages. Test the LocalBusiness schema separately at <strong>developers.google.com/search/docs/appearance/structured-data</strong>.</div></div>
-</div>
-
-<div class="section-block" id="reviews-schema">
-  <h2 class="doc-h2">Google Reviews Section <span class="badge badge-new">New — All Pages</span></h2>
-  <p class="doc-p">A reviews section appears on <strong>every page</strong>, just before the sticky bar and footer. It contains 5 verified reviews from hospital leaders across Karnataka, styled as cards with star ratings, reviewer avatars (initials), role, and hospital name.</p>
-  <p class="doc-p">The reviews section uses <code>itemscope itemtype="https://schema.org/Review"</code> microdata inline, with <code>itemprop="reviewBody"</code>, <code>itemprop="author"</code>, and <code>itemprop="reviewRating"</code> on each card.</p>
-  <div class="alert alert-amber"><div class="alert-icon">⚠️</div><div><strong>Client action required:</strong> The GBP review link at the bottom of the reviews section (<code>https://maps.app.goo.gl/jXKy1bp1iDax4QeU6</code>) is live. Once the client has 5+ Google reviews on their GBP, replace the 5 placeholder review cards with actual verbatim review text and verified reviewer details from the GBP listing.</div></div>
-  <p class="doc-p">The "Read all reviews on Google Maps" link opens the GBP in a new tab with <code>rel="noopener"</code> for security.</p>
-</div>
-
-<div class="section-block" id="h1-hierarchy">
-  <h2 class="doc-h2">H1 Hierarchy — All Pages <span class="badge badge-p1">P1</span></h2>
-  <p class="doc-p">Each page has exactly one H1 tag containing the primary keyword for that page. H2s follow a logical hierarchy supporting the H1. No heading levels are skipped.</p>
-  <table>
-    <thead><tr><th>Page</th><th>H1</th><th>Primary Keyword in H1</th></tr></thead>
-    <tbody>
-      <tr><td>Homepage</td><td>Transform Healthcare Operations with AI-Powered Infrastructure</td><td class="td-t">Healthcare AI, hospital operations</td></tr>
-      <tr><td>EPR Software</td><td>Electronic Patient Records. AI-Enabled. Built for Indian Hospitals.</td><td class="td-t">Electronic Patient Records, EPR, Indian Hospitals</td></tr>
-      <tr><td>Clinical AI</td><td>Clinical AI Chat Box for Real Hospital Workflows</td><td class="td-t">Clinical AI, hospital workflows</td></tr>
-      <tr><td>Hospital Mgmt</td><td>EPR &amp; End-to-End Hospital Management — AI-Enabled</td><td class="td-t">EPR, hospital management software, AI-enabled</td></tr>
-      <tr><td>Contact</td><td>Book a Demo or Get a Quote</td><td class="td-t">Demo, quote (conversion intent)</td></tr>
-    </tbody>
-  </table>
-  <div class="alert alert-teal"><div class="alert-icon">ℹ️</div><div>The Hospital Management page H1 now includes "EPR" — this was the critical missing keyword identified in the SEO audit. "EPR software India" is a Tier 1 commercial keyword with no previous targeting on any page.</div></div>
-</div>
-
-<div class="section-block" id="keyword-map">
-  <h2 class="doc-h2">Keyword Placement Map</h2>
-  <table>
-    <thead><tr><th>Target Keyword</th><th>Page</th><th>Placement</th></tr></thead>
-    <tbody>
-      <tr><td>EPR software India</td><td>EPR Software, Hospital Mgmt</td><td class="td-t">H1, hero badge, meta title, meta desc, body paragraphs, FAQ questions</td></tr>
-      <tr><td>hospital management software India</td><td>Hospital Mgmt</td><td class="td-t">H1, meta title, meta desc, page hero badge, section headings</td></tr>
-      <tr><td>electronic patient records India</td><td>EPR Software</td><td class="td-t">H1, meta title, section heading, body copy</td></tr>
-      <tr><td>NABH compliant EPR</td><td>EPR Software, Hospital Mgmt</td><td class="td-t">Trust bar cert pill, FAQ answer, feature list, security section</td></tr>
-      <tr><td>clinical AI chatbot hospital India</td><td>Clinical AI</td><td class="td-t">H1, meta title, stats bar, section heading</td></tr>
-      <tr><td>OPD EMR software</td><td>Hospital Mgmt, EPR Software</td><td class="td-t">Module card heading (H3), feature lists, case studies</td></tr>
-      <tr><td>hospital management software Bangalore</td><td>Hospital Mgmt, Contact</td><td class="td-t">Contact page office section, LocalBusiness schema, body copy</td></tr>
-      <tr><td>AI medical coding India</td><td>Homepage, EPR Software</td><td class="td-t">Platform capabilities section, module card H3, metric badges</td></tr>
-      <tr><td>FHIR HL7 integration India</td><td>Homepage, EPR Software</td><td class="td-t">Architecture diagram, integration section, platform features list</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="section-block" id="llm-signals">
-  <h2 class="doc-h2">LLM-Readable Structured Signals <span class="badge badge-new">New</span></h2>
-  <p class="doc-p">LLMs (ChatGPT, Gemini, Perplexity, Claude) increasingly pull business information from structured data, semantic HTML, and entity signals. The following implementation makes Tashka Healthcare understandable to AI answer engines:</p>
-  <table>
-    <thead><tr><th>Signal Type</th><th>Implementation</th><th>File</th></tr></thead>
-    <tbody>
-      <tr><td>Entity identification</td><td>Organization schema with <code>@id</code> URI (<code>https://tashkahealthcare.com/#org</code>) — persistent entity anchor across all pages</td><td>index.html</td></tr>
-      <tr><td>Business type</td><td>LocalBusiness schema with <code>geo</code> coordinates, <code>openingHours</code>, and <code>aggregateRating</code></td><td>contact.html</td></tr>
-      <tr><td>Product identity</td><td>SoftwareApplication schema on each product page with <code>featureList</code>, <code>operatingSystem</code>, and <code>applicationCategory: HealthcareApplication</code></td><td>epr-software.html, clinical-ai.html, hospital-management.html</td></tr>
-      <tr><td>Q&amp;A signals</td><td>FAQPage schema with 8 Q&amp;As on EPR page, 6 on Hospital Management — LLMs use FAQs to understand what questions the business answers</td><td>epr-software.html, hospital-management.html</td></tr>
-      <tr><td>Review signals</td><td>Review microdata (Schema.org) on all 5 review cards on every page + AggregateRating 5.0 on product schemas</td><td>All pages (shared component)</td></tr>
-      <tr><td>NAP consistency</td><td>Identical address string in: footer (all pages), LocalBusiness schema, Contact page office section. This consistency is a strong entity signal.</td><td>All pages</td></tr>
-      <tr><td>Semantic HTML</td><td>Correct heading hierarchy (H1→H2→H3), <code>role="complementary"</code> on sticky bar, <code>aria-label</code> on nav buttons, <code>alt</code> on all images</td><td>All pages</td></tr>
-      <tr><td>GBP link</td><td>Reviews section links to GBP with <code>rel="noopener"</code> — builds association between the website and the Google Maps entity</td><td>All pages</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="section-block" id="consistency">
-  <h2 class="doc-h2">Design Consistency Corrections Applied</h2>
-  <table>
-    <thead><tr><th>Issue Found</th><th>Fix Applied</th><th>Pages Affected</th></tr></thead>
-    <tbody>
-      <tr><td>Inconsistent nav — some pages missing WhatsApp/Demo buttons</td><td class="td-t">Unified shared nav with consistent 5 links + 2 buttons across all pages</td><td>All</td></tr>
-      <tr><td>Homepage had no EPR Software nav link</td><td class="td-t">Added EPR Software as nav item (2nd position)</td><td>All</td></tr>
-      <tr><td>3 different address strings across pages</td><td class="td-t">Standardized canonical NAP in all footers and schemas</td><td>All</td></tr>
-      <tr><td>Broken mailto: links on Contact page (href="/support@...")</td><td class="td-t">Fixed to correct <code>href="mailto:..."</code> format</td><td>contact.html</td></tr>
-      <tr><td>Logo img missing alt attribute</td><td class="td-t">Added <code>alt="Tashka Healthcare Logo"</code> to all logo instances</td><td>All</td></tr>
-      <tr><td>Hero image on Hospital Mgmt had alt="Image description"</td><td class="td-t">Removed placeholder image; replaced with stat cards for semantic content</td><td>hospital-management.html</td></tr>
-      <tr><td>Footer had 6-field form (zero SEO value, low conversion)</td><td class="td-t">Replaced with Quick CTA (Demo + WhatsApp buttons + trust signals)</td><td>All</td></tr>
-      <tr><td>No reviews section on any page</td><td class="td-t">Added shared 5-card Google Reviews section to all pages</td><td>All</td></tr>
-      <tr><td>No sticky CTA bar on existing pages</td><td class="td-t">Sticky bar added to all pages (appears after hero scroll, hides near final CTA)</td><td>All</td></tr>
-      <tr><td>URL slugs used underscores (/custom_ai, /hospital_management)</td><td class="td-t">Corrected to hyphens in preview site (/clinical-ai, /hospital-management)</td><td>All nav links</td></tr>
-      <tr><td>"EPR" keyword absent from Hospital Management page</td><td class="td-t">Added to H1, hero badge, meta title, meta description, body copy</td><td>hospital-management.html</td></tr>
-      <tr><td>No canonical tags on any page</td><td class="td-t">Added <code>&lt;link rel="canonical"&gt;</code> to all pages</td><td>All</td></tr>
-      <tr><td>No Open Graph tags</td><td class="td-t">Full OG + Twitter card tags on all pages</td><td>All</td></tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="section-block" id="analytics">
-  <h2 class="doc-h2">Analytics Setup <span class="badge badge-p1">P1 — Before Production</span></h2>
-  <p class="doc-p">No analytics are tracking the current live site. Add these before production deployment. For the GitHub Pages preview, analytics are optional (you can add them to test the setup).</p>
-  <pre><code><span class="c-comment">&lt;!-- Add to &lt;head&gt; of ALL pages — replace G-XXXXXXXXXX with real Measurement ID --&gt;</span>
-<span class="c-tag">&lt;script</span> <span class="c-attr">async</span> <span class="c-attr">src</span>=<span class="c-str">"https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"</span><span class="c-tag">&gt;&lt;/script&gt;</span>
-<span class="c-tag">&lt;script&gt;</span>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-<span class="c-tag">&lt;/script&gt;</span></code></pre>
-  <p class="doc-p">Also create <code>robots.txt</code> and <code>sitemap.xml</code> at domain root for production:</p>
-  <pre><code><span class="c-comment"># robots.txt</span>
-User-agent: *
-Allow: /
-Sitemap: https://tashkahealthcare.com/sitemap.xml</code></pre>
-  <pre><code><span class="c-comment">&lt;!-- sitemap.xml --&gt;</span>
-&lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
-  &lt;url&gt;&lt;loc&gt;https://tashkahealthcare.com/&lt;/loc&gt;&lt;priority&gt;1.0&lt;/priority&gt;&lt;/url&gt;
-  &lt;url&gt;&lt;loc&gt;https://tashkahealthcare.com/epr-software&lt;/loc&gt;&lt;priority&gt;0.9&lt;/priority&gt;&lt;/url&gt;
-  &lt;url&gt;&lt;loc&gt;https://tashkahealthcare.com/hospital-management&lt;/loc&gt;&lt;priority&gt;0.9&lt;/priority&gt;&lt;/url&gt;
-  &lt;url&gt;&lt;loc&gt;https://tashkahealthcare.com/clinical-ai&lt;/loc&gt;&lt;priority&gt;0.8&lt;/priority&gt;&lt;/url&gt;
-  &lt;url&gt;&lt;loc&gt;https://tashkahealthcare.com/contact&lt;/loc&gt;&lt;priority&gt;0.7&lt;/priority&gt;&lt;/url&gt;
-&lt;/urlset&gt;</code></pre>
-</div>
-
-<div class="section-block" id="production">
-  <h2 class="doc-h2">Production Migration Checklist</h2>
-  <p class="doc-p">Steps required when moving from GitHub Pages preview → live tashkahealthcare.com:</p>
+<!-- PRE-PRODUCTION CHECKLIST -->
+<div class="section-block" id="pre-production">
+  <div class="section-label">Deployment</div>
+  <h2 class="section-title">Pre-Production Checklist — Before Pushing to tashkahealthcare.com</h2>
   <ul class="checklist">
-    <li>Remove dev strip div + CSS from all pages</li>
-    <li>Change <code>nav { top: 41px }</code> back to <code>top: 0 }</code> in all pages</li>
-    <li>Add 301 redirects: <code>/custom_ai → /clinical-ai</code> and <code>/hospital_management → /hospital-management</code></li>
-    <li>Create branded OG image at <code>/img/og/tashka-og.jpg</code> (1200×630px)</li>
-    <li>Add GA4 tracking code to all pages (replace <code>G-XXXXXXXXXX</code>)</li>
-    <li>Create and upload <code>robots.txt</code> to domain root</li>
-    <li>Create and upload <code>sitemap.xml</code> to domain root</li>
-    <li>Submit sitemap to Google Search Console</li>
-    <li>Claim and verify Google Business Profile for Bengaluru office</li>
-    <li>Replace placeholder reviews with actual GBP review text once 5+ reviews exist</li>
-    <li>Test all pages with Google Rich Results Test tool</li>
-    <li>Test mobile on Android Chrome + iOS Safari</li>
-    <li>Verify sticky bar dismiss works (sessionStorage)</li>
-    <li>Submit all 5 URLs in GSC URL Inspection for indexing</li>
+    <li>Remove <code>&lt;div class="dev-strip"&gt;</code> block and its CSS from all 9 pages</li>
+    <li>Confirm <code>nav { top: 0 }</code> in all pages (already set — double-check)</li>
+    <li>Set up 301 redirects on server: /custom_ai → /clinical-ai and /hospital_management → /hospital-management</li>
+    <li>Replace <code>G-XXXXXXXXXX</code> with real GA4 Measurement ID in all pages</li>
+    <li>Create <code>robots.txt</code> at domain root (template in SEO audit)</li>
+    <li>Create <code>sitemap.xml</code> at domain root listing all 9 pages</li>
+    <li>Submit sitemap in Google Search Console → Sitemaps</li>
+    <li>Use GSC URL Inspection to request indexing for all 9 pages immediately</li>
+    <li>Create OG image at <code>/img/og/tashka-og.jpg</code> — 1200×630px branded image</li>
+    <li>Replace placeholder G2/review cards with actual review text from GBP listing</li>
+    <li>Replace placeholder case study metrics with real numbers from Chirag/Soukhyada/CSI</li>
+    <li>Test all mailto: links on contact page — confirm they open email client correctly</li>
+    <li>Test on mobile Chrome + iOS Safari — confirm hamburger menu works</li>
+    <li>Run Google Rich Results Test on epr-software.html and hospital-management.html — confirm FAQPage schema valid</li>
+    <li>Validate LocalBusiness schema on contact.html at schema.org validator</li>
   </ul>
 </div>
 
-<hr>
-<p class="doc-p" style="font-size:.76rem;color:var(--steel);">Document v2.0 · Prepared by AdsPilot / FirstDial · April 2026 · For: Tashka Healthcare (tashkahealthcare.com)</p>
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+<!-- CHANGES SECTION -->
+<!-- ══════════════════════════════════════════════════════════════════════ -->
+
+<!-- CHANGE: TITLE TAGS -->
+<div class="section-block" id="change-titles">
+  <div class="section-label">SEO Change #1</div>
+  <h2 class="section-title">Title Tags — All 4 Live Pages Fixed</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">All pages used an identical placeholder title from the HTML theme. Google was indexing the site as "Artificial Intelligence HTML Template".</div>
+      <div class="change-badges"><span class="badge b-p1">P1 · Critical</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">All 4 live pages (homepage, /hospital_management, /custom_ai, /contact) had the exact same title: <strong>"Tashka Tech - Artificial Intelligence HTML Template"</strong>. This is a placeholder from the HTML theme that was never updated. Google uses the title tag as its #1 on-page ranking signal.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Unique keyword-optimised titles tell Google exactly what each page is about. Title tags directly influence: (1) which keywords each page ranks for, (2) SERP click-through rate — a compelling title increases clicks, which signals quality to Google. Fixing duplicate titles is the single highest-impact technical SEO change possible.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">Immediate — Google re-crawls and re-indexes within 1–2 weeks of deployment. Pages will begin appearing for brand keyword searches within days. Organic impressions for target keywords should begin growing within 4–6 weeks.<br><span class="impact-pill impact-high">⬆ High Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live Site (same on ALL pages)</div>
+        <pre><span class="hl-old">&lt;title&gt;Tashka Tech - Artificial Intelligence HTML Template&lt;/title&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Preview Site (unique per page)</div>
+        <pre><span class="hl-comment">&lt;!-- index.html --&gt;</span>
+<span class="hl-new">&lt;title&gt;AI-Powered Hospital Management Software India | Tashka Healthcare&lt;/title&gt;</span>
+
+<span class="hl-comment">&lt;!-- epr-software.html --&gt;</span>
+<span class="hl-new">&lt;title&gt;EPR Software India — AI-Enabled Electronic Patient Records | Tashka Healthcare&lt;/title&gt;</span>
+
+<span class="hl-comment">&lt;!-- hospital-management.html --&gt;</span>
+<span class="hl-new">&lt;title&gt;Hospital Management Software India — AI-Enabled | Tashka Healthcare&lt;/title&gt;</span>
+
+<span class="hl-comment">&lt;!-- clinical-ai.html --&gt;</span>
+<span class="hl-new">&lt;title&gt;Clinical AI Chat Box for Hospitals India | Tashka Healthcare&lt;/title&gt;</span>
+
+<span class="hl-comment">&lt;!-- contact.html --&gt;</span>
+<span class="hl-new">&lt;title&gt;Contact Tashka Healthcare | Book a Demo | Bangalore &amp; Dublin&lt;/title&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: META DESCRIPTIONS -->
+<div class="section-block" id="change-meta">
+  <div class="section-label">SEO Change #2</div>
+  <h2 class="section-title">Meta Descriptions + Open Graph Tags — Added to All Pages</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">No meta descriptions existed. No Open Graph tags. Social sharing showed blank previews. SERP snippets were auto-generated from random body text.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">Zero meta descriptions on any live page. Zero Open Graph tags (og:title, og:description, og:image). Zero Twitter card tags. When pages were shared on LinkedIn or WhatsApp — primary B2B discovery channels — no preview appeared. Google auto-generated SERP snippets from whatever body text it found first.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Meta descriptions control the SERP snippet text below the title. A well-written description increases click-through rate (CTR). Google uses CTR as a quality signal — higher CTR pages get ranking boosts. OG tags enable rich social previews on LinkedIn, WhatsApp, Twitter — critical for B2B content sharing where decision-makers discover software.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">CTR improvement of 15–40% from better SERP snippets. Improved social sharing engagement. LinkedIn previews showing product name and description instead of blank preview. Effect visible within 2–3 weeks of Google re-indexing.<br><span class="impact-pill impact-high">⬆ High Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live Site &lt;head&gt;</div>
+        <pre><span class="hl-old">&lt;!-- No meta description --&gt;
+&lt;!-- No canonical tag --&gt;
+&lt;!-- No Open Graph tags --&gt;
+&lt;!-- No Twitter card tags --&gt;</span>
+
+<span class="hl-comment">&lt;!-- Only tag present: --&gt;</span>
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;</pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Preview Site &lt;head&gt; (epr-software.html example)</div>
+        <pre>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+
+<span class="hl-new">&lt;title&gt;EPR Software India — AI-Enabled Electronic Patient Records | Tashka Healthcare&lt;/title&gt;
+&lt;meta name="description" content="Tashka's EPR software unifies Electronic Patient Records across OPD, IPD, Pharmacy and Lab with AI coding, clinical chatbot, and NABH-compliant workflows. Deployed across Karnataka."&gt;
+&lt;link rel="canonical" href="https://tashkahealthcare.com/epr-software"&gt;
+&lt;meta property="og:title" content="EPR Software India — AI-Enabled | Tashka Healthcare"&gt;
+&lt;meta property="og:description" content="Tashka's EPR software unifies OPD, IPD, Pharmacy and Lab..."&gt;
+&lt;meta property="og:type" content="website"&gt;
+&lt;meta property="og:url" content="https://tashkahealthcare.com/epr-software"&gt;
+&lt;meta property="og:image" content="https://tashkahealthcare.com/img/og/tashka-og.jpg"&gt;
+&lt;meta name="twitter:card" content="summary_large_image"&gt;
+&lt;meta name="twitter:title" content="EPR Software India | Tashka Healthcare"&gt;
+&lt;meta name="twitter:description" content="..."&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: STRUCTURED DATA -->
+<div class="section-block" id="change-schema">
+  <div class="section-label">SEO Change #3</div>
+  <h2 class="section-title">Structured Data (JSON-LD) — Added Across All Pages</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Zero structured data on the live site. Google could not surface rich results. LLMs (ChatGPT, Gemini, Perplexity) had no entity signal to cite Tashka Healthcare in AI-generated answers.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">Not a single JSON-LD, Microdata, or RDFa tag on any live page. The /hospital_management page has 4 FAQs in its body content but no FAQPage schema — meaning Google cannot show them as expandable SERP accordions. No LocalBusiness schema = no rich local results. No SoftwareApplication schema = no software rich results.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Structured data enables: (1) FAQ accordions in SERPs — doubles SERP real estate for commercial queries, (2) Knowledge Panel eligibility for brand searches, (3) Local pack rich results for "hospital software Bangalore", (4) Software rich results with ratings, (5) LLM citations — ChatGPT and Gemini use Organization @id to cite specific businesses in AI answers about hospital software in India.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">FAQ schema → SERP accordion features within 4–8 weeks. LocalBusiness schema → local pack eligibility. Organization @id → brand Knowledge Panel within 8–16 weeks. LLM citation likelihood increases progressively as content is indexed and cited.<br><span class="impact-pill impact-high">⬆ High Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — No structured data on any page</div>
+        <pre><span class="hl-old">&lt;!-- Zero JSON-LD on live site --&gt;
+&lt;!-- /hospital_management has 4 FAQ questions
+     in body text but zero FAQPage schema --&gt;
+&lt;!-- No Organization, LocalBusiness,
+     SoftwareApplication, or Article schema --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Organization schema (index.html)</div>
+        <pre><span class="hl-new">&lt;script type="application/ld+json"&gt;
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://tashkahealthcare.com/#org",
+      "name": "Tashka Healthcare",
+      "url": "https://tashkahealthcare.com",
+      "description": "AI-powered hospital management software...",
+      "telephone": "+91-91081-98087",
+      "email": "sales@tashkahealthcare.com",
+      "knowsAbout": [
+        "Hospital Management Software",
+        "Electronic Patient Records",
+        "AI Medical Coding",
+        "Clinical AI Chatbot",
+        "NABH Compliance"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "No.14, Whitely Layout...",
+        "addressLocality": "Bengaluru",
+        "addressRegion": "Karnataka",
+        "postalCode": "560066",
+        "addressCountry": "IN"
+      }
+    },
+    {
+      "@type": "FAQPage",</span><span class="hl-comment"> // epr-software.html — 8 Q&As</span>
+<span class="hl-new">      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is EPR software and how is it different from HIMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "EPR captures every clinical interaction..."
+        }
+      }]
+    }
+  ]
+}
+&lt;/script&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: EPR PAGE -->
+<div class="section-block" id="change-epr">
+  <div class="section-label">SEO Change #4</div>
+  <h2 class="section-title">EPR Software Page — Created from Scratch</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">"EPR software India" (1,000–3,000 monthly searches) had zero target page on the live site. The most commercially valuable keyword cluster for Tashka was completely unaddressed.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-new">New Page</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">https://tashkahealthcare.com/epr-software returned 404. The /hospital_management page attempted to cover both "EPR software" and "hospital management software" simultaneously — diluting both keyword targets. No single page owned the EPR keyword cluster.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Dedicated page = full keyword ownership for the EPR cluster. Page is 2,400+ words, has 8 module cards, EPR vs HIMS explainer, VS comparison table, FAQPage schema with 8 Q&As, SoftwareApplication schema with featureList, and internal links from every other page. Google can now unambiguously understand this page targets "EPR software India".</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">First rankings for long-tail EPR queries within 8–12 weeks. Competitive head terms within 4–8 months. This is the most strategically important new page in the entire revamp — it creates a keyword asset that previously did not exist.<br><span class="impact-pill impact-high">⬆ High Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live Site</div>
+        <pre><span class="hl-old">&lt;!-- https://tashkahealthcare.com/epr-software
+     → 404 Not Found --&gt;
+
+&lt;!-- /hospital_management H1: --&gt;
+&lt;h1&gt;End-to-End Hospital Management — AI-Enabled&lt;/h1&gt;
+&lt;!-- Body mixes EPR terminology with HMS content.
+     No keyword differentiation between EPR and HMS. --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — epr-software.html</div>
+        <pre><span class="hl-new">&lt;!-- New page at /epr-software --&gt;
+&lt;!-- H1 targets primary keyword: --&gt;
+&lt;h1 class="prod-hero-h1"&gt;
+  Electronic Patient Records.
+  &lt;span&gt;AI-Enabled. NABH-Ready.&lt;/span&gt;
+&lt;/h1&gt;
+
+&lt;!-- 3 solution liner cards in hero: --&gt;
+&lt;!-- 1. One unified patient record --&gt;
+&lt;!-- 2. AI medical coding built in --&gt;
+&lt;!-- 3. 100+ MIS reports — real-time --&gt;
+
+&lt;!-- 8 module sections below fold --&gt;
+&lt;!-- EPR vs HIMS explainer + VS table --&gt;
+&lt;!-- FAQPage JSON-LD — 8 Q&As --&gt;
+&lt;!-- SoftwareApplication schema --&gt;
+&lt;!-- Internal links from all 8 other pages --&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: HMS SEPARATION -->
+<div class="section-block" id="change-hms">
+  <div class="section-label">SEO Change #5</div>
+  <h2 class="section-title">Hospital Management Page — Rebuilt with Zero EPR Content</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Live /hospital_management mixed EPR and HMS content. Broken hero image. Serving two personas on one page with conflicting keyword signals.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Rebuilt</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">The live page has "EPR" in its H1, uses "EPR" throughout the body, yet also targets "hospital management software". Hero image (image.jpeg) does not load. Page attempts to rank for two competing keyword clusters. Result: likely ranking for neither.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Clean separation: EPR page targets clinical buyers (CIO, IT Head) with clinical language. HMS page targets operational buyers (CEO, COO, Finance Head) with zero "EPR" in body content — only operational language: billing, TPA, supply chain, MIS reports, bed management. Google can now rank each page for its own distinct keyword cluster without cannibalisation.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">Removes keyword cannibalisation between two pages. Both pages can now rank independently. HMS page targets "hospital management software India" (2,000–5,000/mo) cleanly without EPR dilution.<br><span class="impact-pill impact-high">⬆ High Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — /hospital_management</div>
+        <pre><span class="hl-comment">&lt;!-- Hero image broken: --&gt;</span>
+<span class="hl-old">&lt;img src="image.jpeg" alt="Image description"&gt;
+&lt;!-- 404 — image.jpeg does not exist --&gt;
+
+&lt;!-- H1 contains EPR: --&gt;
+&lt;h1&gt;End-to-End Hospital Management — AI-Enabled&lt;/h1&gt;
+
+&lt;!-- Body copy uses "EPR" repeatedly: --&gt;
+"Lightweight, fast-to-deploy EPR for outpatient practices"
+"Full EPR covering OPD, IPD, Pharmacy, Lab..."
+"Enterprise EPR for multi-facility groups..."</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — hospital-management.html</div>
+        <pre><span class="hl-comment">&lt;!-- Full-bleed hero photo with overlay --&gt;</span>
+<span class="hl-new">&lt;img src="img/doctors/hosp-mgmt-hero.jpg"
+     class="prod-hero-bg-photo"
+     alt="Hospital doctor and nurse with patient records"
+     opacity: 0.35 over dark navy overlay&gt;
+
+&lt;!-- H1 — operational angle, zero EPR: --&gt;
+&lt;h1&gt;Run Your Entire Hospital.
+  &lt;span&gt;One Unified Platform.&lt;/span&gt;
+&lt;/h1&gt;
+
+&lt;!-- Zero "EPR" in body content.
+     EPR only appears in nav links (unavoidable).
+     All content uses operational language:
+     billing, TPA, MIS, bed management,
+     pharmacy inventory, supply chain. --&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: URLs -->
+<div class="section-block" id="change-urls">
+  <div class="section-label">SEO Change #6</div>
+  <h2 class="section-title">URL Slugs — Underscores Replaced with Hyphens</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Live site uses underscore URLs (/custom_ai, /hospital_management). Google treats underscores as word connectors — "custom_ai" reads as one word "customai", not "custom ai".</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">Google's John Mueller has explicitly stated underscores in URLs are treated as word connectors. /hospital_management = "hospitalmanagement" in Google's index. This prevents the URL from providing keyword relevance signals for "hospital management" as two separate words.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Hyphenated URLs: /hospital-management reads as "hospital" + "management" — two words that match keyword searches. Also applies to /clinical-ai (was /custom_ai — wrong name entirely, "custom ai" has near-zero search volume; "clinical AI" is the correct search term).</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">Incremental ranking improvement from URL keyword signals. More important: 301 redirects must be set up on production server to preserve any existing backlinks. Without 301s, all current backlinks pointing to /custom_ai and /hospital_management become dead links.<br><span class="impact-pill impact-med">↗ Medium Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live Site URLs</div>
+        <pre><span class="hl-old">https://tashkahealthcare.com/custom_ai
+https://tashkahealthcare.com/hospital_management</span>
+
+<span class="hl-comment">&lt;!-- Issues:
+1. Underscores = word connectors in Google
+2. "custom_ai" is not a keyword anyone searches
+3. No EPR page exists at all --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Preview Site + Required 301s</div>
+        <pre><span class="hl-new">https://tashkahealthcare.com/clinical-ai
+https://tashkahealthcare.com/hospital-management
+https://tashkahealthcare.com/epr-software  &lt;!-- NEW --&gt;</span>
+
+<span class="hl-comment">&lt;!-- Required 301 redirects on production server: --&gt;</span>
+<span class="hl-new">Redirect 301 /custom_ai /clinical-ai
+Redirect 301 /hospital_management /hospital-management</span>
+
+<span class="hl-comment">&lt;!-- Apache .htaccess or Nginx config --&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: CONTACT BROKEN LINKS -->
+<div class="section-block" id="change-links">
+  <div class="section-label">SEO Change #7</div>
+  <h2 class="section-title">Contact Page — 3 Broken Mailto Links Fixed</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Three email links on the live contact page use href="/support@tashkatech.com" — routing users to a 404 page instead of opening their email client. Critical conversion blocker.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">Three separate anchor tags on the live /contact page have the email address formatted as a URL path instead of a mailto link. Clicking any of them navigates the user to <code>https://tashkahealthcare.com/support@tashkatech.com</code> — which returns a 404. Users cannot contact Tashka via email from the contact page.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Not directly an SEO factor — but broken links on the contact page signal poor site quality to Google. More importantly: every visitor who clicks these links and hits a 404 is a lost lead. Contact page conversion is the most important business metric on the entire site.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">Immediate — every user who previously hit a 404 when trying to email Tashka will now be able to contact the team. Direct revenue impact from recovered leads.<br><span class="impact-pill impact-high">⬆ High Business Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live /contact (3 instances)</div>
+        <pre><span class="hl-old">&lt;a href="/support@tashkatech.com"&gt;
+  support@tashkatech.com
+&lt;/a&gt;
+&lt;!-- ↑ Routes to: tashkahealthcare.com/support@tashkatech.com --&gt;
+&lt;!-- Result: 404 Not Found --&gt;
+
+&lt;a href="https://tashkahealthcare.com/support@tashkatech.com"&gt;
+  support@tashkatech.com
+&lt;/a&gt;
+&lt;!-- ↑ Also 404 --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — contact.html</div>
+        <pre><span class="hl-new">&lt;a href="mailto:sales@tashkahealthcare.com"&gt;
+  sales@tashkahealthcare.com
+&lt;/a&gt;
+&lt;!-- ↑ Opens user's email client correctly --&gt;
+
+&lt;a href="mailto:support@tashkatech.com"&gt;
+  support@tashkatech.com
+&lt;/a&gt;
+&lt;!-- ↑ Opens user's email client correctly --&gt;
+
+&lt;a href="tel:+919108198087"&gt;+91 91081 98087&lt;/a&gt;
+&lt;!-- ↑ Phone link also added and working --&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: NAP -->
+<div class="section-block" id="change-nap">
+  <div class="section-label">SEO Change #8</div>
+  <h2 class="section-title">NAP Consistency — Standardised Across All Pages and Schemas</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Live site has two different addresses and two different phone numbers across its pages. NAP inconsistency is a confirmed local SEO ranking negative.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col">
+        <div class="change-info-label">What Was Wrong</div>
+        <div class="change-info-body">Homepage footer: "No.14, Whitely Layout Subba Rao Compound... 560066" / +91 91081 98087. Contact page: "No 5, Whitely Layout, Whitefiled, Bengaluru - 560066" / +91 99728 60316. Google's local ranking algorithm uses NAP (Name, Address, Phone) consistency across web citations as a quality signal. Inconsistency creates confusion and depresses local rankings.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">SEO Benefit</div>
+        <div class="change-info-body">Consistent NAP across all pages, all schemas, and all citations (when submitted to G2, Clutch, etc.) builds a strong entity signal. Google's local algorithm associates the NAP with the Google Business Profile listing — consistency strengthens local pack ranking for "hospital software Bangalore" type searches.</div>
+      </div>
+      <div class="change-info-col">
+        <div class="change-info-label">Expected Impact</div>
+        <div class="change-info-body">Foundational for local SEO. Effect compounds as more external citations are built with the canonical NAP. Local pack ranking improvement within 8–12 weeks after consistent citations are established.<br><span class="impact-pill impact-med">↗ Medium Impact</span></div>
+      </div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Two Conflicting NAPs on Live Site</div>
+        <pre><span class="hl-comment">&lt;!-- Homepage footer: --&gt;</span>
+<span class="hl-old">"No.14, Whitely Layout Subba Rao Compound,
+ in front of Ganesha Temple, Whitefield,
+ Bengaluru, Karnataka 560066"
+Phone: +91 91081 98087</span>
+
+<span class="hl-comment">&lt;!-- Contact page: --&gt;</span>
+<span class="hl-old">"No 5, Whitely Layout, Whitefiled,
+ Bengaluru - 560066"
+Phone: +91 99728 60316</span>
+<span class="hl-comment">&lt;!-- Different address, different phone --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Canonical NAP (all 9 pages + all schemas)</div>
+        <pre><span class="hl-new">&lt;!-- CANONICAL NAP — use verbatim everywhere --&gt;
+Name: Tashka Healthcare
+Address: No.14, Whitely Layout Subba Rao
+         Compound, in front of Ganesha Temple,
+         Whitefield, Bengaluru, Karnataka 560066
+Phone: +91 91081 98087
+Email: sales@tashkahealthcare.com
+GBP: https://maps.app.goo.gl/jXKy1bp1iDax4QeU6
+
+&lt;!-- Also in LocalBusiness JSON-LD: --&gt;
+"telephone": "+91-91081-98087",
+"address": {
+  "@type": "PostalAddress",
+  "streetAddress": "No.14, Whitely Layout...",
+  "addressLocality": "Bengaluru",
+  "postalCode": "560066",
+  "addressCountry": "IN"
+},
+"geo": {
+  "@type": "GeoCoordinates",
+  "latitude": 12.837903,
+  "longitude": 77.6783678
+}</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: NAVIGATION -->
+<div class="section-block" id="change-nav">
+  <div class="section-label">SEO Change #9</div>
+  <h2 class="section-title">Navigation — Expanded from 4 to 6 Items</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Live nav has 4 items with no EPR Software link and no Blog. Internal linking structure prevented Google from discovering and crawling these new pages.</div>
+      <div class="change-badges"><span class="badge b-p2">P2</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col"><div class="change-info-label">What Was Wrong</div><div class="change-info-body">Live nav: Healthcare AI | Clinical AI | Hospital Management Software | Contact Us. No EPR page linked (because it didn't exist). No Blog. Google discovers pages primarily through internal links — pages not linked from the nav have significantly slower crawl and indexing.</div></div>
+      <div class="change-info-col"><div class="change-info-label">SEO Benefit</div><div class="change-info-body">Nav links are the highest-authority internal links on a site — they appear on every page. Adding EPR Software and Blog to the nav means every one of the 9 pages passes link equity to these new pages on every crawl, accelerating indexing and ranking.</div></div>
+      <div class="change-info-col"><div class="change-info-label">Expected Impact</div><div class="change-info-body">EPR Software page indexed within days of deployment (vs weeks without nav link). Blog articles picked up on first crawl. Active nav state also correctly highlights current page — fixing the broken state on the live contact page.<br><span class="impact-pill impact-med">↗ Medium Impact</span></div></div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — Live Nav (4 items)</div>
+        <pre><span class="hl-old">&lt;ul&gt;
+  &lt;li&gt;&lt;a href="/"&gt;Healthcare AI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/custom_ai"&gt;Clinical AI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/hospital_management"&gt;
+    Hospital Management Software&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/contact"&gt;Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- No EPR Software link --&gt;
+&lt;!-- No Blog link --&gt;
+&lt;!-- Underscored URLs --&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — Preview Nav (6 items)</div>
+        <pre><span class="hl-new">&lt;ul class="nav-links"&gt;
+  &lt;li&gt;&lt;a href="index.html" class="nav-item nav-link active"&gt;
+    Healthcare AI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="epr-software.html" class="nav-item nav-link"&gt;
+    EPR Software&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="clinical-ai.html" class="nav-item nav-link"&gt;
+    Clinical AI&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="hospital-management.html" class="nav-item nav-link"&gt;
+    Hospital Management&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="blog.html" class="nav-item nav-link"&gt;
+    Blog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="contact.html" class="nav-item nav-link"&gt;
+    Contact Us&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CHANGE: IMAGES -->
+<div class="section-block" id="change-images">
+  <div class="section-label">SEO Change #10</div>
+  <h2 class="section-title">Images — Broken Image Fixed, Alt Text Added to All</h2>
+  <div class="change-card">
+    <div class="change-head">
+      <div class="change-title">Hero image on /hospital_management returns 404. Logo has no alt text. Multiple images have placeholder or blank alt text throughout.</div>
+      <div class="change-badges"><span class="badge b-p1">P1</span><span class="badge b-fix">Fixed</span></div>
+    </div>
+    <div class="change-info">
+      <div class="change-info-col"><div class="change-info-label">What Was Wrong</div><div class="change-info-body">&lt;img src="image.jpeg" alt="Image description"&gt; on /hospital_management — image file doesn't exist. Logo: &lt;img src="..." /&gt; with no alt attribute. Several other images have blank or generic alt text. Missing alt text is an accessibility failure and a lost keyword signal.</div></div>
+      <div class="change-info-col"><div class="change-info-label">SEO Benefit</div><div class="change-info-body">Alt text provides keyword signals to Google's image crawler. Descriptive alt text on doctor photos signals page is about healthcare. Logo alt text "Tashka Healthcare — Hospital Management Software India" reinforces the brand-keyword association. Fixing broken images removes 404 errors from the crawl log.</div></div>
+      <div class="change-info-col"><div class="change-info-label">Expected Impact</div><div class="change-info-body">Image search traffic (minor). More importantly: removes crawl errors that signal poor site health. Alt text improvements compound with other on-page signals.<br><span class="impact-pill impact-med">↗ Medium Impact</span></div></div>
+    </div>
+    <div class="change-code">
+      <div class="code-col">
+        <div class="code-col-label old-label"><span class="dot red"></span>Before — /hospital_management</div>
+        <pre><span class="hl-old">&lt;img src="image.jpeg" alt="Image description"&gt;
+&lt;!-- image.jpeg → 404 Not Found --&gt;
+&lt;!-- alt="Image description" = placeholder --&gt;
+
+&lt;!-- Logo (no alt): --&gt;
+&lt;img src="/img/logo/tashkatech_logo_web.png"&gt;</span></pre>
+      </div>
+      <div class="code-col">
+        <div class="code-col-label new-label"><span class="dot green"></span>After — hospital-management.html</div>
+        <pre><span class="hl-new">&lt;!-- Full-bleed background photo, opacity 0.35: --&gt;
+&lt;img src="img/doctors/hosp-mgmt-hero.jpg"
+     alt=""
+     class="prod-hero-bg-photo"
+     aria-hidden="true"
+     loading="eager"&gt;
+&lt;!-- ↑ Decorative bg image: alt="" is correct
+        aria-hidden prevents screen reader noise --&gt;
+
+&lt;!-- Logo (with descriptive alt): --&gt;
+&lt;img src="img/logo/tashka-logo-new.png"
+     alt="Tashka Healthcare — Hospital Management Software India"
+     height="44"&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CANONICAL NAP -->
+<div class="section-block" id="nap-canonical">
+  <div class="section-label">Reference</div>
+  <h2 class="section-title">Canonical NAP — Use Verbatim Everywhere</h2>
+  <pre><span class="hl-comment"># Use this exact NAP on all pages, all schemas, all external citations</span>
+<span class="hl-new">Name:    Tashka Healthcare
+Address: No.14, Whitely Layout Subba Rao Compound, in front of Ganesha Temple, Whitefield, Bengaluru, Karnataka 560066
+Phone:   +91 91081 98087
+Email:   sales@tashkahealthcare.com
+GBP:     https://maps.app.goo.gl/jXKy1bp1iDax4QeU6
+Lat/Lng: 12.837903, 77.6783678</span></pre>
+</div>
+
+<!-- DESIGN SYSTEM -->
+<div class="section-block" id="design-system">
+  <div class="section-label">Reference</div>
+  <h2 class="section-title">Design System — Colours, Fonts, Breakpoints</h2>
+  <pre><span class="hl-comment">/* CSS Variables — consistent across all 9 pages */</span>
+<span class="hl-new">--blue:   #2563eb;   /* Primary blue — CTAs, active nav, metrics */
+--blue-d: #1d4ed8;   /* Blue hover state */
+--blue-l: #eff6ff;   /* Blue tint backgrounds */
+--green:  #1fb981;   /* WhatsApp button */
+--navy:   #0f172a;   /* Hero backgrounds, dark sections */
+--navy-2: #1e293b;   /* Dev strip, secondary dark */
+--text:   #0a0a0a;   /* Body text */
+--text-2: #374151;   /* Secondary text */
+--text-3: #6b7280;   /* Tertiary text, placeholders */
+--border: #e5e7eb;   /* All borders */
+--bg:     #f3f4f6;   /* Page background */
+--bg-g:   #f9fafb;   /* Alternating section background */
+--g2-red: #ff492c;   /* G2 brand red */
+
+Font: Inter (Google Fonts) — weights 400, 500, 600, 700, 800
+Breakpoints: 1200px (two-col hero collapses), 968px (hamburger), 640px (single col), 400px (xs)</span></pre>
+</div>
+
+<!-- 301 REDIRECTS -->
+<div class="section-block" id="301-redirects">
+  <div class="section-label">Reference</div>
+  <h2 class="section-title">301 Redirects — Required on Production Server</h2>
+  <div class="alert alert-red">
+    <div class="alert-icon">🚨</div>
+    <div><strong>Critical:</strong> Set these up BEFORE removing the old pages. Without 301s, any existing backlinks to the old URLs become dead links and link equity is lost.</div>
+  </div>
+  <pre><span class="hl-comment"># Apache .htaccess</span>
+<span class="hl-new">Redirect 301 /custom_ai /clinical-ai
+Redirect 301 /hospital_management /hospital-management
+Redirect 301 /medical_coding /epr-software</span>
+
+<span class="hl-comment"># Nginx config</span>
+<span class="hl-new">location = /custom_ai { return 301 /clinical-ai; }
+location = /hospital_management { return 301 /hospital-management; }
+location = /medical_coding { return 301 /epr-software; }</span>
+
+<span class="hl-comment"># Verify 301s are working:</span>
+<span class="hl-val">curl -I https://tashkahealthcare.com/custom_ai
+# Should return: HTTP/2 301
+# Location: https://tashkahealthcare.com/clinical-ai</span></pre>
+</div>
+
+<hr style="border:none;border-top:1px solid var(--border);margin:32px 0;">
+<p style="font-size:12px;color:var(--text3);">Developer Notes v2.0 · Prepared by AdsPilot / FirstDial · April 2026 · For: Tashka Healthcare (tashkahealthcare.com) · Preview: <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank">adspilotwork-droid.github.io/tashkahealthcare-revamped</a></p>
 
 </main>
 </div>

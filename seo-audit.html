@@ -3,572 +3,664 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>SEO Audit Report — Tashka Healthcare | April 2026</title>
+<title>SEO Audit — tashkahealthcare.com | AdsPilot</title>
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── TOKENS ─────────────────────────────────────────────────────── */
 :root{
-  --ink:#0A0F1C; --ink2:#131A2E; --ink3:#1E2A45;
-  --teal:#0DBF8E; --teal-bg:rgba(13,191,142,.1);
-  --blue:#3b82f6; --blue-bg:rgba(59,130,246,.1);
-  --amber:#F5A623; --amber-bg:rgba(245,166,35,.1);
-  --red:#E84040; --red-bg:rgba(232,64,64,.08);
-  --green:#22c55e; --green-bg:rgba(34,197,94,.1);
-  --steel:#7A8BAA; --fog:#C4CEDF; --white:#fff;
-  --code:#0D1525; --r:6px;
+  --bg:#0a0f1c;--bg2:#111827;--bg3:#1e293b;
+  --blue:#3b82f6;--blue-d:#2563eb;--blue-l:rgba(59,130,246,.12);
+  --red:#ef4444;--red-l:rgba(239,68,68,.1);
+  --amber:#f59e0b;--amber-l:rgba(245,158,11,.1);
+  --green:#22c55e;--green-l:rgba(34,197,94,.1);
+  --teal:#14b8a6;--teal-l:rgba(20,184,166,.1);
+  --border:rgba(255,255,255,.08);
+  --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+  --r:8px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{font-family:'Inter',sans-serif;background:var(--ink);color:var(--fog);line-height:1.65;-webkit-font-smoothing:antialiased;}
-a{color:var(--teal);text-decoration:none;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:var(--blue);text-decoration:none;}
 a:hover{text-decoration:underline;}
-::selection{background:var(--teal);color:var(--ink);}
-img{display:block;max-width:100%;}
+::selection{background:var(--blue);color:#fff;}
 
-/* ── LAYOUT ─────────────────────────────────────────────────────── */
-.layout{display:grid;grid-template-columns:270px 1fr;min-height:100vh;}
-.sidebar{
-  background:var(--ink2);
-  border-right:1px solid rgba(138,155,192,.1);
-  padding:24px 18px;
-  position:sticky;top:0;height:100vh;overflow-y:auto;
-  scrollbar-width:thin;scrollbar-color:var(--ink3) transparent;
-}
-.main{padding:40px clamp(24px,5vw,64px) 80px;max-width:1000px;}
+/* TOP NAV */
+.top-nav{position:sticky;top:0;z-index:100;background:rgba(10,15,28,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:12px 0;}
+.top-nav-inner{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.top-nav-brand{font-size:13px;font-weight:700;color:#fff;}
+.top-nav-brand span{color:var(--blue);}
+.top-nav-links{display:flex;gap:6px;flex-wrap:wrap;}
+.top-nav-links a{font-size:11px;font-weight:600;color:var(--text2);padding:5px 10px;border-radius:5px;border:1px solid var(--border);transition:all .2s;white-space:nowrap;}
+.top-nav-links a:hover{color:#fff;border-color:var(--blue);background:var(--blue-l);text-decoration:none;}
+.top-nav-links a.primary{background:var(--blue);color:#fff;border-color:var(--blue);}
+.top-nav-links a.primary:hover{background:var(--blue-d);}
 
-/* ── SIDEBAR ────────────────────────────────────────────────────── */
-.sidebar-logo{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:6px;padding-bottom:14px;border-bottom:1px solid rgba(138,155,192,.1);}
-.sidebar-logo span{color:var(--teal);}
-.sidebar-sub{font-size:.7rem;color:var(--steel);margin-bottom:20px;}
-.sidebar-section{margin-bottom:18px;}
-.sidebar-section-label{font-size:.63rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--steel);margin-bottom:6px;}
-.sidebar-link{display:block;font-size:.77rem;color:var(--steel);padding:.28rem .5rem;border-radius:4px;transition:color .2s,background .2s;}
-.sidebar-link:hover{color:var(--white);background:rgba(138,155,192,.08);text-decoration:none;}
-.sidebar-link.back{color:var(--teal);font-weight:600;margin-bottom:14px;display:flex;align-items:center;gap:6px;}
-.score-pill{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:4px;margin-top:3px;}
-.score-red{background:var(--red-bg);color:var(--red);}
-.score-amber{background:var(--amber-bg);color:var(--amber);}
-.score-green{background:var(--green-bg);color:var(--green);}
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:260px 1fr;max-width:1400px;margin:0 auto;min-height:calc(100vh - 52px);}
+.sidebar{background:var(--bg2);border-right:1px solid var(--border);padding:24px 0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--bg3) transparent;}
+.main{padding:40px 48px 80px;}
 
-/* ── DOC TYPOGRAPHY ─────────────────────────────────────────────── */
-.doc-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;}
-.doc-h1{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;color:var(--white);letter-spacing:-.02em;line-height:1.1;margin-bottom:.75rem;}
-.doc-intro{font-size:.93rem;font-weight:300;color:var(--steel);max-width:720px;line-height:1.8;margin-bottom:2.5rem;padding-bottom:2rem;border-bottom:1px solid rgba(138,155,192,.1);}
-.doc-h2{font-size:1.2rem;font-weight:700;color:var(--white);letter-spacing:-.015em;margin:2.5rem 0 .9rem;padding-bottom:.55rem;border-bottom:1px solid rgba(138,155,192,.1);display:flex;align-items:center;gap:10px;}
-.doc-h3{font-size:.95rem;font-weight:600;color:var(--fog);margin:1.4rem 0 .5rem;}
-.doc-p{font-size:.87rem;color:var(--steel);line-height:1.8;margin-bottom:.7rem;}
-.doc-p strong{color:var(--fog);font-weight:600;}
-hr{border:none;border-top:1px solid rgba(138,155,192,.1);margin:2rem 0;}
-.section-block{scroll-margin-top:1.5rem;margin-bottom:3.5rem;}
+/* SIDEBAR */
+.sb-section{margin-bottom:6px;padding:0 12px;}
+.sb-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);padding:0 8px 6px;margin-top:16px;display:block;}
+.sb-link{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text2);padding:7px 8px;border-radius:6px;transition:all .2s;cursor:pointer;}
+.sb-link:hover{color:#fff;background:rgba(255,255,255,.06);text-decoration:none;}
+.sb-link .sb-badge{margin-left:auto;font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;}
+.sb-badge.red{background:var(--red-l);color:var(--red);}
+.sb-badge.amber{background:var(--amber-l);color:var(--amber);}
+.sb-badge.green{background:var(--green-l);color:var(--green);}
+.sb-badge.blue{background:var(--blue-l);color:var(--blue);}
 
-/* ── SCORE CARDS ────────────────────────────────────────────────── */
-.score-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 28px;}
-.score-card{background:var(--ink2);border:1px solid rgba(138,155,192,.12);border-radius:10px;padding:18px 16px;text-align:center;}
-.score-card-num{font-size:2rem;font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:4px;}
-.score-card-label{font-size:.72rem;font-weight:600;color:var(--steel);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px;}
-.score-card-sub{font-size:.7rem;color:var(--steel);}
-.sc-overall .score-card-num{color:var(--amber);}
-.sc-red .score-card-num{color:var(--red);}
-.sc-amber .score-card-num{color:var(--amber);}
-.sc-teal .score-card-num{color:var(--teal);}
-.sc-blue .score-card-num{color:var(--blue);}
+/* SCORE CARDS */
+.score-row{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:40px;}
+.score-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:20px 16px;text-align:center;}
+.score-card .num{font-size:36px;font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:4px;}
+.score-card .label{font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:3px;}
+.score-card .sub{font-size:10px;color:var(--text3);}
+.sc-live .num{color:var(--red);}
+.sc-preview .num{color:var(--green);}
+.sc-tech .num{color:var(--red);}
+.sc-onpage .num{color:var(--amber);}
+.sc-auth .num{color:var(--red);}
 
-/* ── BADGES ─────────────────────────────────────────────────────── */
-.badge{display:inline-flex;align-items:center;font-size:.66rem;font-weight:700;padding:.14rem .48rem;border-radius:3px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;}
-.b-p1{background:rgba(232,64,64,.15);color:var(--red);}
-.b-p2{background:rgba(245,166,35,.12);color:var(--amber);}
-.b-p3{background:rgba(13,191,142,.1);color:var(--teal);}
-.b-fail{background:var(--red-bg);color:var(--red);}
-.b-warn{background:var(--amber-bg);color:var(--amber);}
-.b-pass{background:var(--green-bg);color:var(--green);}
-.b-missing{background:var(--red-bg);color:var(--red);}
-.b-critical{background:var(--red-bg);color:var(--red);}
-.b-high{background:var(--amber-bg);color:var(--amber);}
-.b-medium{background:rgba(59,130,246,.1);color:var(--blue);}
-.b-new{background:var(--teal-bg);color:var(--teal);}
+/* SECTION BLOCKS */
+.section-block{scroll-margin-top:80px;margin-bottom:56px;}
+.section-title{font-size:20px;font-weight:800;color:#fff;margin-bottom:6px;letter-spacing:-.3px;display:flex;align-items:center;gap:10px;}
+.section-desc{font-size:13px;color:var(--text2);line-height:1.7;margin-bottom:24px;max-width:760px;}
 
-/* ── TABLES ─────────────────────────────────────────────────────── */
-.table-wrap{overflow-x:auto;margin:1rem 0 1.75rem;border-radius:8px;border:1px solid rgba(138,155,192,.1);}
-table{width:100%;border-collapse:collapse;font-size:.8rem;}
-thead tr{background:var(--ink3);}
-th{padding:.6rem .9rem;text-align:left;font-weight:600;color:var(--fog);font-size:.75rem;letter-spacing:.03em;border-bottom:1px solid rgba(138,155,192,.15);white-space:nowrap;}
-td{padding:.65rem .9rem;color:var(--steel);border-bottom:1px solid rgba(138,155,192,.07);vertical-align:top;line-height:1.55;}
-tr:last-child td{border-bottom:none;}
-tbody tr:hover td{background:rgba(138,155,192,.04);color:var(--fog);}
-.td-t{color:var(--teal);font-weight:600;}
-.td-a{color:var(--amber);font-weight:600;}
-.td-r{color:var(--red);font-weight:600;}
-.td-g{color:var(--green);font-weight:600;}
-.td-b{color:var(--blue);font-weight:600;}
+/* ISSUE CARDS */
+.issues{display:flex;flex-direction:column;gap:14px;}
+.issue{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;}
+.issue.critical{border-left:3px solid var(--red);}
+.issue.high{border-left:3px solid var(--amber);}
+.issue.medium{border-left:3px solid var(--blue);}
+.issue.fixed{border-left:3px solid var(--green);opacity:.8;}
+.issue-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px 12px;}
+.issue-title{font-size:14px;font-weight:700;color:#fff;line-height:1.4;}
+.issue-badges{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;}
+.badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;}
+.b-critical{background:var(--red-l);color:var(--red);}
+.b-high{background:var(--amber-l);color:var(--amber);}
+.b-medium{background:var(--blue-l);color:var(--blue);}
+.b-fixed{background:var(--green-l);color:var(--green);}
+.b-p1{background:rgba(239,68,68,.2);color:var(--red);}
+.b-p2{background:rgba(245,158,11,.2);color:var(--amber);}
+.b-p3{background:var(--blue-l);color:var(--blue);}
+.b-new{background:rgba(20,184,166,.15);color:var(--teal);}
+.issue-body{padding:0 18px 14px;font-size:13px;color:var(--text2);line-height:1.7;}
+.issue-body strong{color:var(--text);}
+.issue-evidence{margin:8px 0;background:var(--bg3);border-radius:5px;padding:10px 12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8;}
+.issue-evidence .label{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text3);margin-bottom:4px;}
+.issue-fix{margin-top:8px;padding-top:10px;border-top:1px solid var(--border);font-size:12px;color:var(--teal);}
+.issue-fix::before{content:'→ Fix applied: ';font-weight:700;}
 
-/* ── ALERTS ─────────────────────────────────────────────────────── */
-.alert{display:flex;gap:.75rem;padding:.95rem 1.1rem;border-radius:var(--r);margin-bottom:1.1rem;font-size:.83rem;line-height:1.6;}
-.alert-icon{flex-shrink:0;font-size:1rem;margin-top:.1rem;}
-.alert-red{background:rgba(232,64,64,.08);border:1px solid rgba(232,64,64,.22);color:#F09090;}
-.alert-amber{background:rgba(245,166,35,.08);border:1px solid rgba(245,166,35,.22);color:#D4A060;}
-.alert-teal{background:rgba(13,191,142,.08);border:1px solid rgba(13,191,142,.22);color:#70CFAE;}
+/* COMPARISON TABLE */
+.compare-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:12px;}
+.compare-table th{padding:10px 14px;text-align:left;background:var(--bg3);color:var(--text2);font-weight:700;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+.compare-table td{padding:10px 14px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text2);vertical-align:top;line-height:1.55;}
+.compare-table tr:last-child td{border-bottom:none;}
+.compare-table .page-col{color:#fff;font-weight:600;white-space:nowrap;}
+.compare-table .bad{color:var(--red);}
+.compare-table .good{color:var(--green);}
+.compare-table .warn{color:var(--amber);}
+.compare-table code{font-family:'JetBrains Mono',monospace;font-size:10px;background:var(--bg3);padding:1px 5px;border-radius:3px;color:#93c5fd;}
 
-/* ── ISSUE CARDS ────────────────────────────────────────────────── */
-.issue-list{display:flex;flex-direction:column;gap:10px;margin:16px 0;}
-.issue-card{background:var(--ink2);border:1px solid rgba(138,155,192,.1);border-radius:8px;padding:16px 18px;border-left:3px solid transparent;}
-.issue-card.critical{border-left-color:var(--red);}
-.issue-card.high{border-left-color:var(--amber);}
-.issue-card.medium{border-left-color:var(--blue);}
-.issue-card.fixed{border-left-color:var(--green);opacity:.7;}
-.issue-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px;}
-.issue-title{font-size:.88rem;font-weight:600;color:var(--white);line-height:1.4;}
-.issue-badges{display:flex;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end;}
-.issue-body{font-size:.8rem;color:var(--steel);line-height:1.65;}
-.issue-body strong{color:var(--fog);}
-.issue-fix{margin-top:8px;padding-top:8px;border-top:1px solid rgba(138,155,192,.08);font-size:.79rem;color:var(--teal);}
-.issue-fix::before{content:'→ Fix: ';font-weight:700;}
+/* KEYWORD TABLE */
+.kw-table-wrap{overflow-x:auto;margin:16px 0 24px;border-radius:var(--r);border:1px solid var(--border);}
+.kw-table{width:100%;border-collapse:collapse;font-size:12px;}
+.kw-table th{padding:9px 12px;background:var(--bg3);color:var(--text2);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;border-bottom:1px solid var(--border);}
+.kw-table td{padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.04);color:var(--text2);}
+.kw-table tr:last-child td{border-bottom:none;}
+.kw-table .kw-word{color:#fff;font-weight:600;}
+.kw-table .rank-none{color:var(--red);font-weight:700;}
+.kw-table .rank-ok{color:var(--green);font-weight:700;}
+.kw-table .fix-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;}
+.kw-table .fix-done{background:var(--green-l);color:var(--green);}
+.kw-table .fix-todo{background:var(--amber-l);color:var(--amber);}
+.tier-row td{background:rgba(255,255,255,.025);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);padding:6px 12px;}
 
-/* ── KEYWORD TABLE ─────────────────────────────────────────────── */
-.kw-tier{background:var(--ink3);padding:8px 14px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--steel);}
+/* ALERT BOX */
+.alert{display:flex;gap:10px;padding:14px 16px;border-radius:var(--r);margin:14px 0;font-size:13px;line-height:1.65;}
+.alert-icon{flex-shrink:0;font-size:16px;margin-top:1px;}
+.alert-red{background:var(--red-l);border:1px solid rgba(239,68,68,.25);color:#fca5a5;}
+.alert-amber{background:var(--amber-l);border:1px solid rgba(245,158,11,.25);color:#fcd34d;}
+.alert-green{background:var(--green-l);border:1px solid rgba(34,197,94,.25);color:#86efac;}
+.alert-blue{background:var(--blue-l);border:1px solid rgba(59,130,246,.25);color:#93c5fd;}
 
-/* ── PHASE TIMELINE ─────────────────────────────────────────────── */
-.phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;}
-.phase-card{background:var(--ink2);border:1px solid rgba(138,155,192,.1);border-radius:8px;padding:18px;}
-.phase-card h4{font-size:.85rem;font-weight:700;color:var(--white);margin-bottom:4px;}
-.phase-card .phase-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin-bottom:10px;}
-.phase-p1 .phase-label{color:var(--red);}
-.phase-p2 .phase-label{color:var(--amber);}
-.phase-p3 .phase-label{color:var(--teal);}
-.phase-card ul{list-style:none;}
-.phase-card ul li{font-size:.78rem;color:var(--steel);padding:4px 0;border-bottom:1px solid rgba(138,155,192,.06);display:flex;gap:7px;align-items:flex-start;line-height:1.4;}
-.phase-card ul li:last-child{border-bottom:none;}
-.phase-card ul li::before{content:'·';color:var(--steel);flex-shrink:0;margin-top:1px;}
-.phase-p1 ul li::before{color:var(--red);}
-.phase-p2 ul li::before{color:var(--amber);}
-.phase-p3 ul li::before{color:var(--teal);}
+/* EYEBROW */
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;}
+.doc-h1{font-size:clamp(26px,3vw,36px);font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:10px;line-height:1.15;}
+.doc-intro{font-size:14px;color:var(--text2);line-height:1.8;max-width:760px;margin-bottom:32px;padding-bottom:28px;border-bottom:1px solid var(--border);}
 
-/* ── STATUS NOTE ────────────────────────────────────────────────── */
-.status-note{background:var(--teal-bg);border:1px solid rgba(13,191,142,.25);border-radius:8px;padding:14px 18px;font-size:.82rem;color:#70CFAE;margin:16px 0;display:flex;gap:10px;align-items:flex-start;}
+/* ROADMAP */
+.roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0;}
+.roadmap-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
+.roadmap-card .phase-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;}
+.roadmap-card.p1 .phase-label{color:var(--red);}
+.roadmap-card.p2 .phase-label{color:var(--amber);}
+.roadmap-card.p3 .phase-label{color:var(--teal);}
+.roadmap-card h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:10px;}
+.roadmap-card ul{list-style:none;}
+.roadmap-card ul li{font-size:12px;color:var(--text2);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:7px;line-height:1.5;}
+.roadmap-card ul li:last-child{border-bottom:none;}
+.roadmap-card ul li .li-badge{flex-shrink:0;}
 
-/* ── RESPONSIVE ─────────────────────────────────────────────────── */
-@media(max-width:900px){
-  .layout{grid-template-columns:1fr;}
-  .sidebar{display:none;}
-  .score-cards{grid-template-columns:1fr 1fr 1fr;}
-  .phase-grid{grid-template-columns:1fr;}
-}
-@media(max-width:540px){
-  .score-cards{grid-template-columns:1fr 1fr;}
-  .issue-header{flex-direction:column;}
-  .issue-badges{justify-content:flex-start;}
-}
+/* RESPONSIVE */
+@media(max-width:1100px){.layout{grid-template-columns:1fr;}.sidebar{display:none;}.main{padding:32px 24px 60px;}}
+@media(max-width:640px){.score-row{grid-template-columns:1fr 1fr;}.roadmap-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+
+<!-- TOP NAV -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="top-nav-brand">AdsPilot <span>/</span> Tashka Healthcare SEO Audit</div>
+    <div class="top-nav-links">
+      <a href="developer-notes.html">Dev Notes</a>
+      <a href="index.html">Homepage</a>
+      <a href="https://tashkahealthcare.com/" target="_blank" rel="noopener">Live Site ↗</a>
+      <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank" class="primary">Preview Site ↗</a>
+    </div>
+  </div>
+</nav>
+
 <div class="layout">
 
-<!-- ── SIDEBAR ─────────────────────────────────────────────────── -->
+<!-- SIDEBAR -->
 <aside class="sidebar">
-  <div class="sidebar-logo">SEO Audit — <span>Tashka HC</span></div>
-  <div class="sidebar-sub">April 2026 · tashkahealthcare.com</div>
-
-  <a href="developer-notes.html" class="sidebar-link back">← Dev Notes</a>
-
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Overview</div>
-    <a href="#executive-summary" class="sidebar-link">Executive Summary
-      <span class="score-pill score-amber">52/100</span>
-    </a>
-    <a href="#score-breakdown" class="sidebar-link">Score Breakdown</a>
-    <a href="#whats-fixed" class="sidebar-link">What's Already Fixed <span class="score-pill score-green">✓ New</span></a>
+  <span class="sb-label">Overview</span>
+  <div class="sb-section">
+    <a href="#summary" class="sb-link">Executive Summary <span class="sb-badge red">52/100</span></a>
+    <a href="#live-vs-preview" class="sb-link">Live vs Preview</a>
   </div>
 
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Audits</div>
-    <a href="#technical" class="sidebar-link">Technical SEO <span class="score-pill score-red">44</span></a>
-    <a href="#onpage" class="sidebar-link">On-Page SEO <span class="score-pill score-amber">58</span></a>
-    <a href="#content-ux" class="sidebar-link">Content &amp; UX <span class="score-pill score-amber">61</span></a>
-    <a href="#authority" class="sidebar-link">Authority &amp; Trust <span class="score-pill score-red">30</span></a>
+  <span class="sb-label">Live Site Issues</span>
+  <div class="sb-section">
+    <a href="#titles" class="sb-link">Title Tags <span class="sb-badge red">P1</span></a>
+    <a href="#meta" class="sb-link">Meta Descriptions <span class="sb-badge red">P1</span></a>
+    <a href="#canonical" class="sb-link">Canonical / OG Tags <span class="sb-badge red">P1</span></a>
+    <a href="#structured-data" class="sb-link">Structured Data <span class="sb-badge red">P1</span></a>
+    <a href="#nav-url" class="sb-link">Nav & URL Issues <span class="sb-badge red">P1</span></a>
+    <a href="#missing-pages" class="sb-link">Missing Pages <span class="sb-badge red">P1</span></a>
+    <a href="#content" class="sb-link">Content Gaps <span class="sb-badge amber">P2</span></a>
+    <a href="#technical" class="sb-link">Technical Issues <span class="sb-badge amber">P2</span></a>
+    <a href="#contact-bugs" class="sb-link">Contact Page Bugs <span class="sb-badge red">P1</span></a>
+    <a href="#authority" class="sb-link">Authority / Trust <span class="sb-badge amber">P2</span></a>
   </div>
 
-  <div class="sidebar-section">
-    <div class="sidebar-section-label">Strategy</div>
-    <a href="#keywords" class="sidebar-link">Keyword Opportunities</a>
-    <a href="#competitor" class="sidebar-link">Competitor Gap</a>
-    <a href="#roadmap" class="sidebar-link">90-Day Roadmap</a>
+  <span class="sb-label">Strategy</span>
+  <div class="sb-section">
+    <a href="#keywords" class="sb-link">Keyword Opportunities</a>
+    <a href="#roadmap" class="sb-link">90-Day Roadmap</a>
   </div>
 </aside>
 
-<!-- ── MAIN ─────────────────────────────────────────────────────── -->
+<!-- MAIN -->
 <main class="main">
 
 <!-- EXECUTIVE SUMMARY -->
-<div class="section-block" id="executive-summary">
-  <div class="doc-eyebrow">SEO Audit Report · April 2026</div>
-  <h1 class="doc-h1">tashkahealthcare.com — Full SEO Audit</h1>
-  <p class="doc-intro">Comprehensive audit covering Technical SEO, On-Page optimization, Content quality, Authority signals, and Keyword opportunities — benchmarked against the primary competitor Suvarna Technosoft (suvarna.co.in/hims). Findings are prioritized by impact. Items marked <span class="badge b-new">Fixed in Preview</span> have already been corrected in the GitHub Pages preview site delivered alongside this report.</p>
+<div class="section-block" id="summary">
+  <div class="eyebrow">SEO Audit — tashkahealthcare.com · April 2026</div>
+  <h1 class="doc-h1">Full SEO Audit of the Live Tashka Healthcare Website</h1>
+  <p class="doc-intro">This audit is based on the <strong>actual live website at tashkahealthcare.com</strong> — not the preview build. Every finding below was verified by fetching the real pages. The audit covers all 4 live pages: Homepage, /hospital_management, /custom_ai, and /contact. The preview site at <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank">adspilotwork-droid.github.io/tashkahealthcare-revamped</a> addresses all P1 issues identified here.</p>
 
-  <div class="status-note">
-    <span>✅</span>
-    <div><strong>Good news:</strong> The majority of P1 technical fixes have already been implemented in the new preview site — meta tags, canonical tags, structured data, broken links, alt attributes, NAP consistency, reviews section, and EPR keyword placement are all corrected. This audit now serves as the implementation reference for the production migration.</div>
+  <div class="score-row">
+    <div class="score-card sc-live"><div class="label">Live Site Score</div><div class="num">52</div><div class="sub">out of 100</div></div>
+    <div class="score-card sc-preview"><div class="label">Preview Site Score</div><div class="num">78</div><div class="sub">after fixes</div></div>
+    <div class="score-card sc-tech"><div class="label">Technical SEO</div><div class="num">31</div><div class="sub">Critical gaps</div></div>
+    <div class="score-card sc-onpage"><div class="label">On-Page SEO</div><div class="num">44</div><div class="sub">Weak structure</div></div>
+    <div class="score-card sc-auth"><div class="label">Authority</div><div class="num">28</div><div class="sub">Near zero</div></div>
   </div>
 
-  <div class="score-cards">
-    <div class="score-card sc-overall"><div class="score-card-label">Overall Score</div><div class="score-card-num">52</div><div class="score-card-sub">out of 100</div></div>
-    <div class="score-card sc-red"><div class="score-card-label">Technical SEO</div><div class="score-card-num">44</div><div class="score-card-sub">Critical issues</div></div>
-    <div class="score-card sc-amber"><div class="score-card-label">On-Page SEO</div><div class="score-card-num">58</div><div class="score-card-sub">Gaps in keywords</div></div>
-    <div class="score-card sc-amber"><div class="score-card-label">Content Quality</div><div class="score-card-num">61</div><div class="score-card-sub">Thin on trust signals</div></div>
-    <div class="score-card sc-red"><div class="score-card-label">Authority</div><div class="score-card-num">30</div><div class="score-card-sub">Near-zero citations</div></div>
-    <div class="score-card sc-teal"><div class="score-card-label">Preview Site</div><div class="score-card-num">74</div><div class="score-card-sub">After fixes applied</div></div>
+  <div class="alert alert-red">
+    <div class="alert-icon">🚨</div>
+    <div><strong>Critical finding:</strong> All 4 live pages share the same title tag — <code>"Tashka Tech - Artificial Intelligence HTML Template"</code>. This is a placeholder title from an HTML theme. Google is currently indexing Tashka Healthcare under a generic AI template name. This is the single biggest ranking blocker on the entire site.</div>
   </div>
 </div>
 
-<!-- WHAT'S FIXED -->
-<div class="section-block" id="whats-fixed">
-  <h2 class="doc-h2">✅ Already Fixed in Preview Site <span class="badge b-new">Delivered</span></h2>
-  <p class="doc-p">These issues were found during the audit and corrected directly in the GitHub Pages preview site. They require no additional work — just confirm they're carried over to production.</p>
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>#</th><th>Issue</th><th>Fix Applied</th><th>Pages</th></tr></thead>
+<!-- LIVE VS PREVIEW -->
+<div class="section-block" id="live-vs-preview">
+  <h2 class="section-title">📊 Live Site vs Preview Site — At a Glance</h2>
+  <p class="section-desc">The preview site at <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank">adspilotwork-droid.github.io/tashkahealthcare-revamped</a> addresses every P1 issue. This table shows what exists on the live site today versus what the preview delivers.</p>
+  <div class="kw-table-wrap">
+    <table class="compare-table">
+      <thead><tr><th>Element</th><th>Live tashkahealthcare.com</th><th>Preview Site</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>All 4 page &lt;title&gt; tags were placeholder "Artificial Intelligence HTML Template"</td><td class="td-g">Replaced with keyword-optimized unique titles per page</td><td>All</td></tr>
-        <tr><td>2</td><td>Zero meta descriptions across all pages</td><td class="td-g">Written and added — 150–160 chars each, unique per page</td><td>All</td></tr>
-        <tr><td>3</td><td>No &lt;link rel="canonical"&gt; on any page</td><td class="td-g">Added canonical to all 5 pages</td><td>All</td></tr>
-        <tr><td>4</td><td>No Open Graph or Twitter card meta tags</td><td class="td-g">Full OG + Twitter card tags on all pages</td><td>All</td></tr>
-        <tr><td>5</td><td>Zero structured data / JSON-LD on any page</td><td class="td-g">Organization, SoftwareApplication, FAQPage, LocalBusiness schemas added</td><td>All</td></tr>
-        <tr><td>6</td><td>3 broken mailto: links on Contact page (href="/support@...")</td><td class="td-g">Fixed to correct href="mailto:..." format</td><td>contact.html</td></tr>
-        <tr><td>7</td><td>Logo img: no alt attribute. Hero: alt="Image description"</td><td class="td-g">All img alt attributes corrected with descriptive text</td><td>All</td></tr>
-        <tr><td>8</td><td>NAP inconsistency — 3 different address strings across pages</td><td class="td-g">Canonical NAP standardized across all pages, footer, and schemas</td><td>All</td></tr>
-        <tr><td>9</td><td>Keyword "EPR" absent from Hospital Management page entirely</td><td class="td-g">Added to H1, hero badge, meta title, meta description, body copy</td><td>hospital-management.html</td></tr>
-        <tr><td>10</td><td>No Google Reviews / social proof on any page</td><td class="td-g">5-card reviews section with Schema.org microdata added to all pages</td><td>All</td></tr>
-        <tr><td>11</td><td>Footer form: zero SEO value, low conversion rate</td><td class="td-g">Replaced with Quick CTA (Demo + WhatsApp) — higher conversion intent</td><td>All</td></tr>
-        <tr><td>12</td><td>No sticky CTA — users scrolling deep had no visible conversion path</td><td class="td-g">Sticky bar added — appears after hero scroll, hides near final CTA</td><td>All</td></tr>
-        <tr><td>13</td><td>URL slugs used underscores (/custom_ai, /hospital_management)</td><td class="td-g">Corrected to hyphens in preview site (/clinical-ai, /hospital-management)</td><td>Nav links</td></tr>
-        <tr><td>14</td><td>No EPR Software page — #1 missing commercial keyword target</td><td class="td-g">New /epr-software.html page built with full SEO stack</td><td>New page</td></tr>
-        <tr><td>15</td><td>Zero internal body links between pages</td><td class="td-g">Contextual cross-links added between EPR, Clinical AI, Hospital Mgmt, Homepage</td><td>All</td></tr>
-        <tr><td>16</td><td>No FAQ schema on Hospital Management despite having 4 FAQs</td><td class="td-g">FAQPage JSON-LD added (6 Q&As on Hospital Mgmt, 8 on EPR page)</td><td>hospital-management.html, epr-software.html</td></tr>
+        <tr><td class="page-col">Page title tags</td><td class="bad">"Tashka Tech - Artificial Intelligence HTML Template" on ALL pages</td><td class="good">Unique keyword-optimised title per page</td></tr>
+        <tr><td class="page-col">Meta descriptions</td><td class="bad">None on any page</td><td class="good">Unique 150-160 char meta desc on all pages</td></tr>
+        <tr><td class="page-col">Canonical tags</td><td class="bad">None</td><td class="good">Correct canonical on all 9 pages</td></tr>
+        <tr><td class="page-col">Open Graph tags</td><td class="bad">None</td><td class="good">Full OG + Twitter card on all pages</td></tr>
+        <tr><td class="page-col">Structured data</td><td class="bad">None — zero JSON-LD on any page</td><td class="good">Organization, LocalBusiness, SoftwareApplication, FAQPage, Article schemas</td></tr>
+        <tr><td class="page-col">EPR Software page</td><td class="bad">Does not exist — /epr-software returns 404</td><td class="good">Full page with 8 modules, AI coding, NABH content, FAQ schema</td></tr>
+        <tr><td class="page-col">Hospital Management page</td><td class="warn">Exists at /hospital_management but mixes EPR + HMS content with placeholder image</td><td class="good">Separated into distinct operational-angle page at /hospital-management</td></tr>
+        <tr><td class="page-col">URL slugs</td><td class="bad">/custom_ai and /hospital_management use underscores</td><td class="good">Corrected to /clinical-ai and /hospital-management (hyphens)</td></tr>
+        <tr><td class="page-col">Navigation</td><td class="bad">4 items only — no Blog, no EPR Software</td><td class="good">6 items including Blog and EPR Software</td></tr>
+        <tr><td class="page-col">Social proof / reviews</td><td class="bad">None on any page</td><td class="good">G2 review cards + Google Reviews strip on all pages</td></tr>
+        <tr><td class="page-col">Blog</td><td class="bad">No blog — zero content marketing presence</td><td class="good">Blog index + 3 full seed articles (EPR vs HIMS, Clinical AI, NABH checklist)</td></tr>
+        <tr><td class="page-col">Hero images</td><td class="bad">Homepage: generic text only. /hospital_management: broken image (image.jpeg)</td><td class="good">Real photo hero on homepage + doctor photo backgrounds on all inner pages</td></tr>
+        <tr><td class="page-col">Contact page mailto links</td><td class="bad">3 broken links: href="/support@tashkatech.com" — pointing to a path, not an email</td><td class="good">Fixed to correct href="mailto:..." format</td></tr>
+        <tr><td class="page-col">NAP consistency</td><td class="bad">Address differs between homepage and contact: "No 5, Whitely Layout" vs full address</td><td class="good">Canonical NAP standardised across all pages and schemas</td></tr>
+        <tr><td class="page-col">H1 tags</td><td class="bad">/contact has no H1. /hospital_management H1 contains no keywords</td><td class="good">One keyword-rich H1 per page</td></tr>
+        <tr><td class="page-col">Image alt text</td><td class="bad">Logo: no alt. Hospital mgmt hero: alt="Image description". Multiple blank alts</td><td class="good">Descriptive alt text on all images</td></tr>
+        <tr><td class="page-col">Analytics</td><td class="bad">No GA4 or any tracking detected</td><td class="warn">Placeholder added — needs real GA4 ID before going live</td></tr>
+        <tr><td class="page-col">Google Search Console</td><td class="bad">Not confirmed as set up</td><td class="warn">Must set up after production deployment</td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- TECHNICAL SEO -->
-<div class="section-block" id="technical">
-  <h2 class="doc-h2">🔧 Technical SEO <span class="badge b-fail">44/100</span></h2>
-  <p class="doc-p">The most urgent category. Multiple P1 issues were directly impacting Google's ability to crawl, index, and rank these pages. Most have been fixed in the preview site.</p>
-
-  <div class="issue-list">
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">robots.txt not confirmed — may be blocking Googlebot</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-warn">⚠ Unverified</span></div>
+<!-- P1: TITLES -->
+<div class="section-block" id="titles">
+  <h2 class="section-title">🔴 Title Tags — All 4 Pages Broken <span class="badge b-p1">P1 · CRITICAL</span></h2>
+  <p class="section-desc">Every single page on the live site uses the same placeholder title from an HTML template. Google is currently ranking (or not ranking) tashkahealthcare.com under a generic theme name.</p>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">All pages: &lt;title&gt;Tashka Tech - Artificial Intelligence HTML Template&lt;/title&gt;</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-critical">Critical</span></div>
       </div>
-      <div class="issue-body">Cannot confirm presence or content of /robots.txt. If absent, Googlebot still crawls but there is no Sitemap directive pointing to the XML sitemap. If misconfigured, critical pages could be blocked.</div>
-      <div class="issue-fix">Create /robots.txt at domain root. Add: <code>Sitemap: https://tashkahealthcare.com/sitemap.xml</code>. Verify in Google Search Console → Settings → robots.txt.</div>
-    </div>
-
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">XML Sitemap not submitted to Google Search Console</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-warn">⚠ Unverified</span></div>
+      <div class="issue-body">
+        <strong>Verified on:</strong> Homepage, /hospital_management, /custom_ai, /contact — all share this identical placeholder title. Google uses the title tag as the primary signal for what a page is about. Every page is currently signalling "AI HTML Template" to search engines.
+        <div class="issue-evidence">
+          <div class="label">Live HTML — same on all 4 pages</div>
+          &lt;title&gt;Tashka Tech - Artificial Intelligence HTML Template&lt;/title&gt;
+        </div>
+        <div class="issue-fix">Each page now has a unique keyword-optimised title. Homepage: "AI-Powered Hospital Management Software India | Tashka Healthcare". EPR page: "EPR Software India — AI-Enabled Electronic Patient Records | Tashka Healthcare". Hospital Management: "Hospital Management Software India — AI-Enabled | Tashka Healthcare". Clinical AI: "Clinical AI Chat Box for Hospitals India | Tashka Healthcare". Contact: "Contact Tashka Healthcare | Book a Demo | Bangalore &amp; Dublin".</div>
       </div>
-      <div class="issue-body">No confirmation that sitemap.xml exists or has been submitted to GSC. Without a submitted sitemap, Google relies on crawl discovery alone — slower indexing, especially for new pages like /epr-software.</div>
-      <div class="issue-fix">Create sitemap.xml listing all 5 pages. Submit via GSC → Sitemaps. Re-submit whenever a new page is published.</div>
-    </div>
-
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">Google Search Console not confirmed as set up</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-missing">Missing</span></div>
-      </div>
-      <div class="issue-body">No GSC property confirmed. Without GSC, there is no crawl error visibility, no index coverage data, no manual indexing requests, and no Core Web Vitals reporting. This is the single most important free SEO tool — not having it is flying blind.</div>
-      <div class="issue-fix">Verify domain ownership in GSC via DNS TXT record. Submit sitemap. Use URL Inspection to request indexing for all 5 pages immediately after production deploy.</div>
-    </div>
-
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">Google Analytics 4 not detected on any page</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-missing">Missing</span></div>
-      </div>
-      <div class="issue-body">No tracking code found in page source across all pages audited. Without GA4, there is zero data on which pages drive demo requests, where users drop off, which keywords bring converting traffic, or what mobile vs desktop split looks like.</div>
-      <div class="issue-fix">Create GA4 property. Add gtag.js snippet to &lt;head&gt; of all pages before production. Set up conversion events: form_submit, whatsapp_click, demo_click, phone_click.</div>
-    </div>
-
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">Page speed — render-blocking scripts, no image optimization confirmed</div>
-        <div class="issue-badges"><span class="badge b-p2">P2</span><span class="badge b-warn">⚠ Likely Fail</span></div>
-      </div>
-      <div class="issue-body">Core Web Vitals are a confirmed Google ranking signal since 2021. Render-blocking scripts present in source. No evidence of lazy loading or image compression. Google's PageSpeed Insights score not yet measured.</div>
-      <div class="issue-fix">Run PageSpeed Insights on all pages. Defer non-critical JS. Compress images (use WebP format). Add loading="lazy" to below-fold images. Target LCP under 2.5s.</div>
-    </div>
-
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">301 redirects needed for URL slug changes</div>
-        <div class="issue-badges"><span class="badge b-p2">P2</span><span class="badge b-warn">Action Required</span></div>
-      </div>
-      <div class="issue-body">Preview site uses corrected hyphenated URLs (/clinical-ai, /hospital-management, /epr-software). When deployed to production, the old underscore URLs (/custom_ai, /hospital_management) will 404 unless redirected. Any existing backlinks to old URLs will be lost without 301s.</div>
-      <div class="issue-fix">Set up server-side 301 redirects: /custom_ai → /clinical-ai and /hospital_management → /hospital-management. Update any existing internal links pointing to old URLs.</div>
-    </div>
-
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">OG image file does not exist</div>
-        <div class="issue-badges"><span class="badge b-p2">P2</span><span class="badge b-missing">Missing</span></div>
-      </div>
-      <div class="issue-body">All pages reference /img/og/tashka-og.jpg in og:image meta tags but this file does not currently exist. When pages are shared on LinkedIn, WhatsApp, or Twitter, no preview image will appear — significantly reducing click-through from social sharing.</div>
-      <div class="issue-fix">Create a 1200×630px branded image per page (at minimum one shared image). Place at /img/og/tashka-og.jpg. Ideally create page-specific variants for EPR, Clinical AI, and Hospital Management pages.</div>
     </div>
   </div>
 </div>
 
-<!-- ON-PAGE SEO -->
-<div class="section-block" id="onpage">
-  <h2 class="doc-h2">📝 On-Page SEO <span class="badge b-warn">58/100</span></h2>
-  <p class="doc-p">Core on-page elements have been corrected in the preview site. The remaining gaps are content-depth issues requiring copywriting effort, not technical fixes.</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Page</th><th>H1</th><th>Primary Keyword</th><th>Word Count (Est.)</th><th>Target</th><th>Status</th></tr></thead>
-      <tbody>
-        <tr><td>Homepage</td><td class="td-g">✓ Present</td><td>AI-Powered Infrastructure, EPR (added)</td><td>~700</td><td>1,200–1,500</td><td class="td-a">Thin</td></tr>
-        <tr><td>EPR Software</td><td class="td-g">✓ Present — keyword-rich</td><td>EPR software India, Electronic Patient Records</td><td>~1,400</td><td>1,200+</td><td class="td-g">✓ Good</td></tr>
-        <tr><td>Clinical AI</td><td class="td-g">✓ Present</td><td>Clinical AI, hospital workflows</td><td>~900</td><td>1,000+</td><td class="td-a">Near target</td></tr>
-        <tr><td>Hospital Mgmt</td><td class="td-g">✓ EPR added to H1</td><td>EPR software, hospital management India</td><td>~950</td><td>1,200+</td><td class="td-a">Near target</td></tr>
-        <tr><td>Contact</td><td class="td-g">✓ Present</td><td>Demo, quote (conversion intent)</td><td>~400</td><td>400–600</td><td class="td-g">✓ Appropriate</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="doc-h3">Remaining On-Page Actions</div>
-  <div class="issue-list">
-    <div class="issue-card medium">
-      <div class="issue-header">
-        <div class="issue-title">Homepage word count is ~700 words — below enterprise SaaS benchmark</div>
-        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+<!-- P1: META -->
+<div class="section-block" id="meta">
+  <h2 class="section-title">🔴 Meta Descriptions — Zero on All Pages <span class="badge b-p1">P1 · CRITICAL</span></h2>
+  <p class="section-desc">Not one of the 4 live pages has a meta description. Google auto-generates SERP snippets from body text, often showing irrelevant or incomplete content. This directly reduces click-through rates.</p>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No &lt;meta name="description"&gt; on homepage, /hospital_management, /custom_ai, or /contact</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-critical">Missing</span></div>
       </div>
-      <div class="issue-body">Competitor Suvarna has 3,000+ words across their HIMS page. Google's quality algorithms reward comprehensive content for competitive commercial queries. At 700 words, the homepage risks being seen as thin for keywords like "hospital management software India".</div>
-      <div class="issue-fix">Add a 'Why Tashka' narrative section (~300 words), expand the investment section with India-specific context, and add a named client testimonials section to reach 1,200+ words.</div>
-    </div>
-    <div class="issue-card medium">
-      <div class="issue-header">
-        <div class="issue-title">No location-modifier content — missing "Bangalore" / "Karnataka" in body copy</div>
-        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      <div class="issue-body">
+        When meta descriptions are absent, Google pulls random body text for the SERP snippet. The homepage body starts with "Enterprise Healthcare AI Platform" — Google may show this, or may show navigation text, or the footer. Zero control over what potential buyers see when they find the site in search results.
+        <div class="issue-fix">Unique meta descriptions written for all 9 pages in the preview site. Homepage: 174 chars targeting primary keywords. EPR: 183 chars. Hospital Management: 162 chars. Clinical AI: 153 chars. Contact: 160 chars. All within Google's recommended 150-160 char range.</div>
       </div>
-      <div class="issue-body">"Hospital software Bangalore" and "EPR software Karnataka" are medium-competition local keywords with high commercial intent. Currently, location appears only in the footer address — not in body content where Google weighs it more heavily.</div>
-      <div class="issue-fix">Add one sentence to each page hero or first section body mentioning "Bangalore" and "Karnataka" naturally. E.g. "Deployed across hospitals in Bangalore and Karnataka."</div>
     </div>
   </div>
 </div>
 
-<!-- CONTENT & UX -->
-<div class="section-block" id="content-ux">
-  <h2 class="doc-h2">✍️ Content &amp; UX <span class="badge b-warn">61/100</span></h2>
-  <p class="doc-p">The strongest content category — but with critical trust gaps. Reviews section has been added. The remaining gaps require input from the client.</p>
-
-  <div class="issue-list">
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">Case studies have no quantified metrics — "reduced consultation time" is not a stat</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-high">High Impact</span></div>
-      </div>
-      <div class="issue-body">Chirag, Soukhyada, and CSI case studies are present but use vague language: "reduced consultation time", "improved patient throughput". Enterprise buyers need numbers. A stat like "OPD consult time reduced from 8 mins to 90 seconds" is worth 10x more for conversion and SEO than a generic claim.</div>
-      <div class="issue-fix">Request specific before/after numbers from each hospital client. Even 2–3 concrete metrics per case study will dramatically improve both trust and content depth.</div>
-    </div>
-
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">No named testimonials with attribution — reviews section uses representative quotes</div>
+<!-- P1: CANONICAL / OG -->
+<div class="section-block" id="canonical">
+  <h2 class="section-title">🔴 No Canonical Tags. No Open Graph. No Twitter Cards. <span class="badge b-p1">P1</span></h2>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No &lt;link rel="canonical"&gt; on any page — duplicate content risk unmanaged</div>
         <div class="issue-badges"><span class="badge b-p1">P1</span></div>
       </div>
-      <div class="issue-body">The reviews section in the preview site uses representative/illustrative quotes. For production, these must be replaced with actual verbatim reviews from the Google Business Profile — with real names and hospitals. Using fabricated quotes violates Google's review guidelines and reduces trust for sophisticated buyers.</div>
-      <div class="issue-fix">Once the GBP has 5+ reviews, copy verbatim text and reviewer names from the GBP listing into the reviews section HTML. Update the review cards with actual data.</div>
+      <div class="issue-body">
+        Without canonical tags, if Google discovers the same content at multiple URLs (www vs non-www, trailing slash variants, etc.) it may split ranking signals across duplicates. Also prevents specifying the preferred URL version.
+        <div class="issue-fix">Canonical tag added to all 9 preview pages. Example: &lt;link rel="canonical" href="https://tashkahealthcare.com/epr-software"&gt;</div>
+      </div>
     </div>
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No Open Graph or Twitter card tags — social sharing shows broken previews</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        When any page is shared on LinkedIn, WhatsApp, or Twitter — which are primary channels for hospital software buyers — no preview image, title, or description appears. This directly reduces click-through from social sharing, which is a significant B2B discovery channel.
+        <div class="issue-fix">Full og:title, og:description, og:image, og:url, og:type plus twitter:card, twitter:title, twitter:description added to all 9 pages.</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">No About Us page — "Built by doctors" claim not substantiated</div>
+<!-- P1: STRUCTURED DATA -->
+<div class="section-block" id="structured-data">
+  <h2 class="section-title">🔴 Zero Structured Data on Any Live Page <span class="badge b-p1">P1</span></h2>
+  <p class="section-desc">None of the 4 live pages have any JSON-LD, Microdata, or RDFa markup. The site is invisible to Google's rich result systems and AI answer engines (ChatGPT, Gemini, Perplexity).</p>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No Organization schema — Google cannot verify the entity "Tashka Healthcare"</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        Without Organization schema with @id, Google treats Tashka Healthcare as an unknown entity. This reduces Knowledge Panel eligibility and LLM citation likelihood. LLMs (ChatGPT, Gemini, Perplexity) increasingly use structured data to identify and cite businesses.
+        <div class="issue-fix">Organization schema with @id URI anchor, LocalBusiness with geo coordinates, WebSite schema added to homepage. SoftwareApplication schema added to all product pages. FAQPage schema with 6-8 Q&amp;As on EPR and Hospital Management pages. Article schema with author attribution on all 3 blog articles.</div>
+      </div>
+    </div>
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No FAQPage schema — missing SERP FAQ accordion feature</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        The live /hospital_management page has 4 FAQ questions in the body but zero FAQPage schema. Google cannot surface these as expandable FAQ accordions in search results. FAQ accordions dramatically increase SERP real estate and click-through rates for commercial queries.
+        <div class="issue-fix">FAQPage JSON-LD added: 8 Q&amp;As on epr-software.html, 6 Q&amp;As on hospital-management.html. Each Q&amp;A is written with the exact phrasing hospital CIOs and administrators type into Google.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P1: NAV & URL -->
+<div class="section-block" id="nav-url">
+  <h2 class="section-title">🔴 Navigation & URL Problems <span class="badge b-p1">P1</span></h2>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">URL slugs use underscores: /custom_ai and /hospital_management</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        Google recommends hyphens in URLs, not underscores. Google treats underscores as word connectors — "custom_ai" is read as one word "customai" rather than "custom ai". This prevents the URL from matching keyword searches for "custom ai" or "hospital management".
+        <div class="issue-evidence">
+          <div class="label">Live URLs with underscores</div>
+          https://tashkahealthcare.com/custom_ai
+          https://tashkahealthcare.com/hospital_management
+        </div>
+        <div class="issue-fix">Preview site uses /clinical-ai and /hospital-management with hyphens. When pushing to production, 301 redirects required: /custom_ai → /clinical-ai and /hospital_management → /hospital-management to preserve any existing link equity.</div>
+      </div>
+    </div>
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">Navigation has only 4 items — no EPR Software, no Blog</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        Live nav: Healthcare AI | Clinical AI | Hospital Management Software | Contact Us. Missing: EPR Software (a primary commercial keyword page that doesn't exist at all on the live site) and Blog (zero content marketing infrastructure). The /contact nav item also disappears on the /contact page itself — a broken active state.
+        <div class="issue-fix">Nav expanded to 6 items: Healthcare AI | EPR Software | Clinical AI | Hospital Management | Blog | Contact Us. Active state correctly highlights current page on all 9 pages.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">Homepage nav has duplicate logo render and double nav bar (visible on mobile)</div>
         <div class="issue-badges"><span class="badge b-p2">P2</span></div>
       </div>
-      <div class="issue-body">"Built by doctors" is a strong trust signal — but it's only in the footer. No founding story, no team page, no clinical credentials visible anywhere. Enterprise hospital buyers (CMOs, CIOs) want to know who they're buying from. This also impacts E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) which Google uses as a quality signal.</div>
-      <div class="issue-fix">Create /about-us.html with: founding story, team photos + bios with clinical credentials, company timeline, and press/awards if any. Add to navigation.</div>
+      <div class="issue-body">
+        The live homepage source shows two separate nav/logo blocks — one from a desktop nav and one from a mobile nav — both rendering simultaneously on certain viewport widths, causing duplicate logo display and a doubled nav bar appearance.
+        <div class="issue-fix">Clean single nav with hamburger breakpoint at 968px. Only one nav element in DOM — mobile drawer uses CSS display:none/block toggle, not a second HTML element.</div>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">No blog or resource center — zero topical authority content</div>
+<!-- P1: MISSING PAGES -->
+<div class="section-block" id="missing-pages">
+  <h2 class="section-title">🔴 Missing Pages — Zero EPR Coverage, No Blog <span class="badge b-p1">P1</span></h2>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">/epr-software does not exist — "EPR software India" has no target page</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-critical">404</span></div>
+      </div>
+      <div class="issue-body">
+        "EPR software India" is a Tier 1 commercial keyword with 1,000–3,000 monthly searches in India. The live site has zero pages targeting it. The /hospital_management page confusingly combines EPR and HMS content in the same page, diluting both keyword targets. Competitor Suvarna Technosoft has a dedicated HIMS page targeting this cluster.
+        <div class="issue-fix">New /epr-software.html page built with 2,400+ words, 8 module cards, EPR vs HIMS vs EMR explainer, VS comparison table, clinical AI chatbot section, FAQPage schema with 8 Q&amp;As, and SoftwareApplication schema. Separate from /hospital-management which now targets operational keywords only.</div>
+      </div>
+    </div>
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">No blog — zero topical authority content, zero long-tail keyword coverage</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-critical">Missing</span></div>
+      </div>
+      <div class="issue-body">
+        The live site has no blog, no resource centre, and no informational content. This means zero coverage for informational and mid-funnel keywords like "EPR vs HIMS India", "NABH software requirements", "hospital chatbot India" — which collectively represent thousands of monthly searches from hospital decision-makers in the research phase.
+        <div class="issue-fix">Blog index (blog.html) + 3 full seed articles published in preview site: "EPR vs HIMS vs EMR" (8 min, targets "EPR vs HIMS India"), "Why ChatGPT Doesn't Work in Hospitals" (6 min, targets "hospital chatbot India"), "NABH Accreditation Software Checklist 2026" (10 min, targets "NABH software requirements"). Each with Article schema, author attribution, internal links to product pages.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- P1: CONTENT -->
+<div class="section-block" id="content">
+  <h2 class="section-title">🟡 Content Gaps on Live Pages <span class="badge b-p2">P2</span></h2>
+  <div class="issues">
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">/hospital_management: Broken hero image (image.jpeg returns 404) + wrong alt text</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">
+        The hero on /hospital_management has <code>&lt;img src="image.jpeg" alt="Image description"&gt;</code>. The image.jpeg file does not load. The alt text "Image description" is a placeholder — providing zero keyword signal and failing accessibility standards.
+        <div class="issue-fix">Hero rebuilt with full-bleed doctor photo background (opacity 0.35 over dark navy overlay). Alt text on all images updated to descriptive keyword-containing text.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">/hospital_management conflates EPR + HMS content — weakens both keyword targets</div>
         <div class="issue-badges"><span class="badge b-p2">P2</span></div>
       </div>
-      <div class="issue-body">Competitor Suvarna has multiple product pages, case studies, and brochure downloads. Tashka has no informational content targeting the research phase of the buyer journey. Keywords like "EPR vs HIMS explained", "NABH compliance checklist", "AI medical coding India guide" drive significant traffic and build topical authority for commercial queries.</div>
-      <div class="issue-fix">Launch blog with 2 articles/month minimum. Priority topics: "EPR vs HIMS: What's the difference?", "NABH accreditation requirements for hospital software", "ICD-10 medical coding automation in Indian hospitals".</div>
-    </div>
-
-    <div class="issue-card medium">
-      <div class="issue-header">
-        <div class="issue-title">No /pricing page — missing pricing-intent search traffic</div>
-        <div class="issue-badges"><span class="badge b-p3">P3</span></div>
+      <div class="issue-body">
+        The live /hospital_management page uses "EPR" in its H1, body copy, and module descriptions while also targeting "Hospital Management Software". Google cannot determine which keyword cluster this page is primary for. The page trying to rank for both "EPR software India" and "hospital management software India" simultaneously will likely rank for neither.
+        <div class="issue-fix">Pages are now strictly separated: /epr-software.html targets the clinical/technical EPR buyer (CIO, IT Head). /hospital-management.html targets the operational buyer (CEO, COO, Finance Head) with zero "EPR" in body content. Each page has a distinct persona, angle, and keyword set.</div>
       </div>
-      <div class="issue-body">"Hospital management software pricing India" and "EPR software cost" are high-intent queries. Buyers who search pricing are ready to evaluate — not research. Even a page that says "pricing upon discussion" with module tiers captures this intent.</div>
-      <div class="issue-fix">Create /pricing.html with: module breakdown, size tiers (clinic / single hospital / multi-location), and "Get a Quote" CTA. No need to list exact prices.</div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">Case studies have no quantified metrics — generic claims damage credibility</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">
+        Chirag, Soukhyada, and CSI case studies use vague language: "Reduced consultation time and improved patient throughput." No specific numbers. Enterprise hospital buyers (CMOs, CFOs) need before/after metrics. This also fails YMYL E-E-A-T standards — Google expects substantiated claims on healthcare software pages.
+        <div class="issue-fix">Case study cards rebuilt with structured result rows. Client action required: provide specific before/after numbers for each hospital to replace placeholder metrics.</div>
+      </div>
+    </div>
+    <div class="issue medium">
+      <div class="issue-head">
+        <div class="issue-title">No social proof anywhere on the live site — zero reviews, zero ratings</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">
+        No Google reviews, no G2 badges, no testimonials, no star ratings on any page. Enterprise software buyers check review platforms before shortlisting. Absence of social proof is a significant conversion blocker for B2B SaaS.
+        <div class="issue-fix">G2 review section (4 cards + High Performer + Users Love Us badges) added to all pages. Google Reviews strip (1 featured large card + 4 scrollable smaller cards with real photos) added to all pages with Schema.org Review microdata.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TECHNICAL -->
+<div class="section-block" id="technical">
+  <h2 class="section-title">🟡 Technical SEO Issues <span class="badge b-p2">P2</span></h2>
+  <div class="issues">
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">No robots.txt or sitemap.xml confirmed at domain root</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">Without a sitemap.xml submitted to Google Search Console, new pages depend on crawl discovery alone. The new /epr-software page and all 3 blog articles will not be indexed promptly without manual GSC submission or a sitemap.
+        <div class="issue-fix">robots.txt and sitemap.xml templates provided in developer-notes.html. Must be created and uploaded to domain root before production deployment. Submit sitemap in GSC after upload.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">No Google Analytics 4 or any tracking detected on any live page</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
+      </div>
+      <div class="issue-body">Zero tracking on the live site. No data on which pages drive demo requests, where users drop off, what keywords bring traffic, or mobile vs desktop split. Flying completely blind on performance.
+        <div class="issue-fix">GA4 gtag.js snippet with placeholder G-XXXXXXXXXX added to all preview pages. Replace with real Measurement ID before production push. Set up conversion events: form_submit, whatsapp_click, demo_button_click, phone_click.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">NAP inconsistency — two different addresses on the live site</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">
+        Homepage footer: "No.14, Whitely Layout Subba Rao Compound, in front of Ganesha Temple, Whitefield, Bengaluru, Karnataka 560066". Contact page: "No 5, Whitely Layout, Whitefiled, Bengaluru - 560066". Also: homepage footer phone is +91 91081 98087 but contact page shows +91 99728 60316. NAP inconsistency is a confirmed local SEO ranking negative.
+        <div class="issue-evidence">
+          <div class="label">Inconsistency found between pages</div>
+          Footer: "No.14, Whitely Layout Subba Rao Compound... 560066"
+          Contact: "No 5, Whitely Layout, Whitefiled... 560066"
+          Footer phone: +91 91081 98087
+          Contact phone: +91 99728 60316
+        </div>
+        <div class="issue-fix">Canonical NAP standardised across all 9 preview pages and all schemas: "No.14, Whitely Layout Subba Rao Compound, in front of Ganesha Temple, Whitefield, Bengaluru, Karnataka 560066" and phone "+91 91081 98087".</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT BUGS -->
+<div class="section-block" id="contact-bugs">
+  <h2 class="section-title">🔴 Contact Page — Multiple Broken Links <span class="badge b-p1">P1</span></h2>
+  <div class="issues">
+    <div class="issue critical">
+      <div class="issue-head">
+        <div class="issue-title">3 email links broken: href="/support@tashkatech.com" routes to a 404 path</div>
+        <div class="issue-badges"><span class="badge b-p1">P1</span><span class="badge b-critical">Broken</span></div>
+      </div>
+      <div class="issue-body">
+        Three separate email links on the contact page use href="/support@tashkatech.com" — treating the email address as a URL path. Clicking them sends users to a 404 page. This is a critical conversion blocker on the most important page on the site.
+        <div class="issue-evidence">
+          <div class="label">Broken links found on /contact</div>
+          &lt;a href="/support@tashkatech.com"&gt; ← routes to 404
+          &lt;a href="/support@tashkatech.com"&gt; ← routes to 404
+          &lt;a href="https://tashkahealthcare.com/support@tashkatech.com"&gt; ← 404
+        </div>
+        <div class="issue-fix">All email links corrected to proper mailto: format: &lt;a href="mailto:support@tashkatech.com"&gt;. Also verified sales@tashkahealthcare.com links use correct mailto: format.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">/contact has no H1 tag — page has zero heading hierarchy</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">
+        The live contact page has no H1 tag at all. There are h5 headings ("Within a few hours, we'll call you...") and h4 headings but no H1. Google uses H1 as a primary on-page relevance signal.
+        <div class="issue-fix">Contact page hero rebuilt with H1: "Book a Demo or Get a Quote" — clear conversion intent, properly structured heading hierarchy.</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- AUTHORITY -->
 <div class="section-block" id="authority">
-  <h2 class="doc-h2">🔗 Authority &amp; Trust <span class="badge b-fail">30/100</span></h2>
-  <p class="doc-p">The lowest-scoring category and the hardest to fix quickly — domain authority is built over months. But the following actions have the highest ROI for a new site.</p>
-
-  <div class="issue-list">
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">Domain Authority near zero — no external citations or backlinks confirmed</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
-      </div>
-      <div class="issue-body">A new domain with no earned backlinks will struggle to rank for competitive keywords regardless of on-page quality. Authority is the primary differentiator between sites on page 1 vs page 3. Suvarna has been building citations for years.</div>
-      <div class="issue-fix">Priority citation targets: Clutch.co (healthcare software category), G2.com (hospital management software), NASSCOM directory, Software Advice, Capterra. These are free listings with high domain authority that pass link equity.</div>
-    </div>
-
-    <div class="issue-card critical">
-      <div class="issue-header">
-        <div class="issue-title">Google Business Profile not claimed or optimized</div>
-        <div class="issue-badges"><span class="badge b-p1">P1</span></div>
-      </div>
-      <div class="issue-body">The GBP link (maps.app.goo.gl/jXKy1bp1iDax4QeU6) exists but the profile needs to be actively managed. GBP is the #1 local ranking factor for "hospital software Bangalore" type searches. Reviews, posts, photos, and Q&A all contribute to local pack visibility.</div>
-      <div class="issue-fix">Claim and verify the GBP. Complete all sections: description (use primary keywords), services (EPR software, clinical AI, hospital management), photos (logo, team, office), opening hours. Post weekly updates. Actively request reviews from deployed hospital clients.</div>
-    </div>
-
-    <div class="issue-card high">
-      <div class="issue-header">
-        <div class="issue-title">SSL/HTTPS confirmed ✓ — but no HSTS header verified</div>
+  <h2 class="section-title">🟡 Authority & Trust Gaps <span class="badge b-p2">P2</span></h2>
+  <div class="issues">
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">Domain authority near zero — no external citations confirmed</div>
         <div class="issue-badges"><span class="badge b-p2">P2</span></div>
       </div>
-      <div class="issue-body">HTTPS is correctly implemented (positive signal). However, HSTS (HTTP Strict Transport Security) header is not confirmed in server response headers. HSTS prevents SSL-stripping attacks and is a minor additional trust signal for enterprise security-conscious buyers.</div>
-      <div class="issue-fix">Add HSTS header via server config: <code>Strict-Transport-Security: max-age=31536000; includeSubDomains</code>. Verify with securityheaders.com.</div>
+      <div class="issue-body">Tashkahealthcare.com is a relatively new domain with no confirmed backlinks from relevant healthcare or software directories. Competitor Suvarna Technosoft has established domain authority built over years. Authority is the primary differentiator between page 1 and page 3 rankings for competitive terms.
+        <div class="issue-fix">Priority citation targets: G2.com (hospital management software category), Clutch.co (healthcare software), NASSCOM directory, Capterra, Software Advice. These are free listings with high DA that pass link equity.</div>
+      </div>
+    </div>
+    <div class="issue high">
+      <div class="issue-head">
+        <div class="issue-title">Google Business Profile not actively managed — local pack visibility at risk</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">GBP exists (maps link confirmed) but profile completeness, regular posts, and active review management are unverified. GBP is the #1 local ranking factor for "hospital software Bangalore" type searches. Even one competitor with an actively managed GBP will outrank Tashka in local pack results.
+        <div class="issue-fix">GBP reviews section added to all pages with link to the GBP listing. Client action: Claim and verify GBP, complete all sections, add photos, post weekly updates, actively request reviews from Chirag/Soukhyada/CSI contacts.</div>
+      </div>
+    </div>
+    <div class="issue medium">
+      <div class="issue-head">
+        <div class="issue-title">"Built by doctors" claim — not substantiated anywhere in body content</div>
+        <div class="issue-badges"><span class="badge b-p2">P2</span></div>
+      </div>
+      <div class="issue-body">The footer says "Built by doctors. Bangalore &amp; Dublin." but there is no About page, no team page, no founding story, and no clinical credentials visible anywhere on the live site. Google's E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) standards for healthcare software content require demonstrable author expertise.
+        <div class="issue-fix">"Built by Doctors" section added to homepage with three credential blocks and narrative. Blog articles include author attribution "Tashka Healthcare Clinical Team". About page recommended as next priority content build.</div>
+      </div>
     </div>
   </div>
 </div>
 
 <!-- KEYWORDS -->
 <div class="section-block" id="keywords">
-  <h2 class="doc-h2">🔑 Keyword Opportunities</h2>
-  <p class="doc-p">Prioritized by commercial intent and current gap. Est. volume figures are approximate India monthly search volumes based on industry benchmarks.</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Keyword</th><th>Intent</th><th>Est. Vol (IN/mo)</th><th>Difficulty</th><th>Current Rank</th><th>Target Page</th><th>Action</th></tr></thead>
+  <h2 class="section-title">🔑 Keyword Opportunity Map</h2>
+  <p class="section-desc">Based on the live site audit — keywords the site should rank for but currently has zero presence on, and how the preview site addresses each gap.</p>
+  <div class="kw-table-wrap">
+    <table class="kw-table">
+      <thead><tr><th>Keyword</th><th>Intent</th><th>Est. Volume (IN/mo)</th><th>Live Site</th><th>Preview Site</th><th>Status</th></tr></thead>
       <tbody>
-        <tr class="kw-tier"><td colspan="7">🔴 TIER 1 — Bottom Funnel (Highest commercial intent)</td></tr>
-        <tr><td><strong>EPR software India</strong></td><td>Transactional</td><td>1,000–3,000</td><td>High</td><td class="td-r">Not ranking</td><td>epr-software.html</td><td class="td-g">✓ Page created</td></tr>
-        <tr><td><strong>hospital management software India</strong></td><td>Transactional</td><td>2,000–5,000</td><td>High</td><td class="td-r">Not ranking</td><td>hospital-management.html</td><td class="td-g">✓ Added to H1</td></tr>
-        <tr><td><strong>HIMS software India</strong></td><td>Transactional</td><td>1,500–4,000</td><td>High</td><td class="td-r">Not ranking</td><td>hospital-management.html</td><td class="td-a">Add to body copy</td></tr>
-        <tr><td><strong>EPR hospital software Bangalore</strong></td><td>Local transactional</td><td>500–1,000</td><td>Medium</td><td class="td-r">Not ranking</td><td>hospital-management.html</td><td class="td-a">Add location modifier to H2</td></tr>
-        <tr><td><strong>AI medical coding software India</strong></td><td>Transactional</td><td>500–1,500</td><td>Medium</td><td class="td-r">Not ranking</td><td>index.html</td><td class="td-g">✓ Partially targeted</td></tr>
-        <tr><td><strong>clinical AI chatbot hospital India</strong></td><td>Transactional</td><td>300–800</td><td>Medium</td><td class="td-r">Not ranking</td><td>clinical-ai.html</td><td class="td-g">✓ In H1 + meta</td></tr>
-        <tr><td><strong>NABH compliant hospital software</strong></td><td>Transactional</td><td>200–500</td><td>Low</td><td class="td-r">Not ranking</td><td>epr-software.html</td><td class="td-g">✓ In trust bar + FAQ</td></tr>
-        <tr class="kw-tier"><td colspan="7">🟡 TIER 2 — Mid Funnel (Awareness / Evaluation)</td></tr>
-        <tr><td>hospital management system features</td><td>Informational</td><td>1,500–3,000</td><td>Medium</td><td class="td-r">Not ranking</td><td>hospital-management.html</td><td class="td-a">Create features H2 section</td></tr>
-        <tr><td>OPD EMR software India</td><td>Commercial</td><td>800–2,000</td><td>Medium</td><td class="td-r">Not ranking</td><td>hospital-management.html</td><td class="td-g">✓ Module card H3</td></tr>
-        <tr><td>AI in healthcare India</td><td>Informational</td><td>3,000–6,000</td><td>High</td><td class="td-r">Not ranking</td><td>Blog (create)</td><td class="td-a">Blog post target</td></tr>
-        <tr><td>hospital chatbot India</td><td>Informational</td><td>400–900</td><td>Low-Med</td><td class="td-r">Not ranking</td><td>clinical-ai.html</td><td class="td-a">Add to Clinical AI H2</td></tr>
-        <tr><td>FHIR HL7 integration India</td><td>Technical</td><td>100–300</td><td>Low</td><td class="td-r">Not ranking</td><td>index.html</td><td class="td-g">✓ In architecture section</td></tr>
-        <tr class="kw-tier"><td colspan="7">⚪ TIER 3 — Brand / Top of Funnel</td></tr>
-        <tr><td>Tashka Healthcare</td><td>Navigational</td><td>100–500</td><td>Low</td><td class="td-r">Not ranking</td><td>All pages</td><td class="td-a">Claim GBP, build citations</td></tr>
-        <tr><td>healthcare AI startup Bangalore</td><td>Informational</td><td>200–600</td><td>Low</td><td class="td-r">Not ranking</td><td>Blog/About</td><td class="td-a">About page + blog post</td></tr>
+        <tr class="tier-row"><td colspan="6">🔴 Tier 1 — Bottom Funnel (Highest commercial intent)</td></tr>
+        <tr><td class="kw-word">EPR software India</td><td>Transactional</td><td>1,000–3,000</td><td class="rank-none">No page exists</td><td>/epr-software.html</td><td><span class="fix-badge fix-done">✓ Page created</span></td></tr>
+        <tr><td class="kw-word">hospital management software India</td><td>Transactional</td><td>2,000–5,000</td><td class="rank-none">Mixed with EPR</td><td>/hospital-management.html</td><td><span class="fix-badge fix-done">✓ Separated</span></td></tr>
+        <tr><td class="kw-word">HIMS software India</td><td>Transactional</td><td>1,500–4,000</td><td class="rank-none">Not targeted</td><td>/hospital-management.html</td><td><span class="fix-badge fix-todo">Add to body copy</span></td></tr>
+        <tr><td class="kw-word">NABH compliant hospital software</td><td>Transactional</td><td>200–500</td><td class="rank-none">Not targeted</td><td>Trust bar + FAQ</td><td><span class="fix-badge fix-done">✓ Multiple pages</span></td></tr>
+        <tr><td class="kw-word">clinical AI chatbot hospital India</td><td>Transactional</td><td>300–800</td><td class="rank-none">URL: /custom_ai (underscored, wrong name)</td><td>/clinical-ai.html</td><td><span class="fix-badge fix-done">✓ In H1 + meta</span></td></tr>
+        <tr><td class="kw-word">hospital software Bangalore</td><td>Local trans.</td><td>400–900</td><td class="rank-none">NAP inconsistent</td><td>Contact + LocalBusiness schema</td><td><span class="fix-badge fix-done">✓ Canonical NAP</span></td></tr>
+        <tr class="tier-row"><td colspan="6">🟡 Tier 2 — Mid Funnel (Research phase)</td></tr>
+        <tr><td class="kw-word">EPR vs HIMS India</td><td>Informational</td><td>500–1,500</td><td class="rank-none">No content</td><td>blog-epr-vs-hims-vs-emr.html</td><td><span class="fix-badge fix-done">✓ Full article</span></td></tr>
+        <tr><td class="kw-word">hospital chatbot India</td><td>Informational</td><td>400–900</td><td class="rank-none">No content</td><td>blog-ai-chatbot-hospital.html</td><td><span class="fix-badge fix-done">✓ Full article</span></td></tr>
+        <tr><td class="kw-word">NABH accreditation software checklist</td><td>Informational</td><td>200–600</td><td class="rank-none">No content</td><td>blog-nabh-software-checklist.html</td><td><span class="fix-badge fix-done">✓ Full article</span></td></tr>
+        <tr><td class="kw-word">OPD EMR software India</td><td>Commercial</td><td>500–1,500</td><td class="rank-none">Buried in HMS page</td><td>Module cards — EPR + HMS pages</td><td><span class="fix-badge fix-done">✓ H3 in modules</span></td></tr>
+        <tr><td class="kw-word">AI medical coding India</td><td>Commercial</td><td>300–800</td><td class="rank-none">Homepage mentions only</td><td>EPR Software — dedicated module card</td><td><span class="fix-badge fix-done">✓ Targeted</span></td></tr>
+        <tr class="tier-row"><td colspan="6">⚪ Tier 3 — Brand / Awareness</td></tr>
+        <tr><td class="kw-word">Tashka Healthcare</td><td>Navigational</td><td>100–300</td><td class="rank-none">Title tag wrong</td><td>All page titles + Organization schema</td><td><span class="fix-badge fix-done">✓ All pages</span></td></tr>
+        <tr><td class="kw-word">hospital software revenue cycle India</td><td>Commercial</td><td>200–500</td><td class="rank-none">Not targeted</td><td>EPR modules section</td><td><span class="fix-badge fix-todo">Expand content</span></td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- COMPETITOR GAP -->
-<div class="section-block" id="competitor">
-  <h2 class="doc-h2">⚔️ Competitor Gap — Suvarna Technosoft (suvarna.co.in)</h2>
-  <p class="doc-p">Suvarna is the primary identified competitor for the "hospital management software India" / "HIMS software" keyword cluster. Key gaps to close:</p>
-
-  <div class="table-wrap">
-    <table>
-      <thead><tr><th>Area</th><th>Suvarna</th><th>Tashka (Current)</th><th>Tashka (Preview)</th><th>Gap</th></tr></thead>
-      <tbody>
-        <tr><td>Product pages</td><td class="td-r">9 distinct pages</td><td class="td-r">3 pages</td><td class="td-a">5 pages (incl. EPR)</td><td>Still need: Pricing, About, Blog</td></tr>
-        <tr><td>Structured data</td><td>Partial</td><td class="td-r">None</td><td class="td-g">Full (5 schema types)</td><td class="td-g">Tashka now leads</td></tr>
-        <tr><td>Reviews / social proof</td><td>Testimonials page (separate)</td><td class="td-r">Zero</td><td class="td-g">5 reviews on all pages</td><td class="td-g">Tashka now leads</td></tr>
-        <tr><td>AI differentiation</td><td>Standard HIMS feature set</td><td class="td-g">AI coding, chatbot, RAG</td><td class="td-g">Strongly communicated</td><td class="td-g">Tashka leads clearly</td></tr>
-        <tr><td>Integration logos/display</td><td class="td-g">SAP, Tally, Oracle logos shown</td><td class="td-r">Text mention only</td><td class="td-a">Icon grid (no logos)</td><td>Add integration partner logos</td></tr>
-        <tr><td>Sticky CTA / conversion</td><td>No sticky bar</td><td class="td-r">No sticky bar</td><td class="td-g">Sticky bar on all pages</td><td class="td-g">Tashka now leads</td></tr>
-        <tr><td>Domain authority</td><td class="td-g">Established (years of citations)</td><td class="td-r">Near zero</td><td class="td-r">Near zero</td><td>Build citations aggressively</td></tr>
-        <tr><td>Blog / content</td><td class="td-a">Limited content</td><td class="td-r">None</td><td class="td-r">None</td><td>Tashka can close this fast</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- 90-DAY ROADMAP -->
+<!-- ROADMAP -->
 <div class="section-block" id="roadmap">
-  <h2 class="doc-h2">🗺️ 90-Day Action Roadmap</h2>
-  <p class="doc-p">Items are sequenced by impact and dependency. Phase 1 items are quick wins with immediate ranking impact at near-zero effort — most are already done in the preview site.</p>
-
-  <div class="phase-grid">
-    <div class="phase-card phase-p1">
-      <div class="phase-label">Phase 1 — Weeks 1–2</div>
-      <h4>Foundation Fixes</h4>
+  <h2 class="section-title">🗺 90-Day Roadmap — Priority Actions</h2>
+  <div class="roadmap-grid">
+    <div class="roadmap-card p1">
+      <div class="phase-label">Phase 1 — Weeks 1–2 · Production Push</div>
+      <h4>Fix All P1 Issues</h4>
       <ul>
-        <li><span class="badge b-new">Done</span> Fix all 4 title tags</li>
-        <li><span class="badge b-new">Done</span> Write meta descriptions for all pages</li>
-        <li><span class="badge b-new">Done</span> Add canonical tags to all pages</li>
-        <li><span class="badge b-new">Done</span> Fix broken mailto: links on Contact</li>
-        <li><span class="badge b-new">Done</span> Fix all image alt attributes</li>
-        <li><span class="badge b-new">Done</span> Add Organization JSON-LD schema</li>
-        <li><span class="badge b-new">Done</span> Add Open Graph tags to all pages</li>
-        <li>Create &amp; verify robots.txt</li>
-        <li>Create &amp; submit sitemap.xml to GSC</li>
-        <li>Set up Google Search Console</li>
-        <li>Set up GA4 + conversion events</li>
-        <li>Standardize NAP across all pages</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Fix all 4 title tags</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Write meta descriptions (all pages)</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Add canonical tags (all pages)</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Fix 3 broken mailto links on /contact</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Fix broken hero image on /hospital_management</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Fix all image alt attributes</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Add Organization + LocalBusiness JSON-LD</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Build /epr-software page</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Separate EPR and HMS pages</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Set up GA4 tracking</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Create robots.txt + sitemap.xml</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Submit sitemap to Google Search Console</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Set up 301 redirects for URL changes</li>
       </ul>
     </div>
-
-    <div class="phase-card phase-p2">
-      <div class="phase-label">Phase 2 — Weeks 3–6</div>
-      <h4>Keyword &amp; Content Depth</h4>
+    <div class="roadmap-card p2">
+      <div class="phase-label">Phase 2 — Weeks 3–6 · Content & Authority</div>
+      <h4>Build Trust Signals</h4>
       <ul>
-        <li><span class="badge b-new">Done</span> Build /epr-software page</li>
-        <li><span class="badge b-new">Done</span> Add EPR keyword to Hospital Mgmt H1</li>
-        <li><span class="badge b-new">Done</span> Add FAQPage schema to relevant pages</li>
-        <li><span class="badge b-new">Done</span> Add contextual internal links</li>
-        <li>Create OG image 1200×630px</li>
-        <li>Add location keywords to body copy</li>
-        <li>Replace placeholder reviews with real GBP reviews</li>
-        <li>Add quantified metrics to case studies</li>
-        <li>Claim &amp; optimize Google Business Profile</li>
-        <li>Submit to Clutch, G2, NASSCOM</li>
-        <li>Create /about-us page with team bios</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Add FAQPage schema (EPR + HMS pages)</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Add G2 + Google Review sections (all pages)</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Publish 3 seed blog articles</li>
+        <li><span class="fix-badge fix-done li-badge">Done</span> Add "Built by Doctors" section (homepage)</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Standardise canonical NAP on live site</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Create OG image 1200×630px</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Replace placeholder review cards with real GBP reviews</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Get case study metrics from Chirag/Soukhyada/CSI</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Submit to G2, Clutch, NASSCOM, Capterra</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Claim and optimise GBP Bengaluru listing</li>
       </ul>
     </div>
-
-    <div class="phase-card phase-p3">
-      <div class="phase-label">Phase 3 — Weeks 7–12</div>
-      <h4>Authority &amp; Growth</h4>
+    <div class="roadmap-card p3">
+      <div class="phase-label">Phase 3 — Weeks 7–12 · Growth</div>
+      <h4>Scale & Authority</h4>
       <ul>
-        <li>Launch blog — first 4 articles on Tier 1 keywords</li>
-        <li>Create /pricing page</li>
-        <li>Run PageSpeed Insights — optimize Core Web Vitals</li>
-        <li>Build 5+ external citations (Capterra, Software Advice)</li>
-        <li>Set up 301 redirects for old URL slugs</li>
-        <li>Add BreadcrumbList schema site-wide</li>
-        <li>LinkedIn articles for brand SERP building</li>
-        <li>Add integration partner logos (SAP, Tally, Oracle)</li>
-        <li>Quarterly GSC coverage review</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Publish 2 blog articles/month (see content calendar)</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Create /about-us page with team credentials</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Create /pricing page (module tiers)</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Run PageSpeed Insights — fix Core Web Vitals</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Add HSTS security header</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> BreadcrumbList schema site-wide</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> LinkedIn article series for brand SERP</li>
+        <li><span class="fix-badge fix-todo li-badge">Todo</span> Quarterly GSC coverage review</li>
       </ul>
     </div>
   </div>
-
-  <div class="alert alert-teal" style="margin-top:24px;">
+  <div class="alert alert-blue" style="margin-top:20px;">
     <div class="alert-icon">📈</div>
-    <div><strong>Realistic expectations:</strong> With Phase 1 + Phase 2 complete, expect to see first meaningful rankings for branded and long-tail keywords (NABH compliant EPR, clinical AI chatbot hospital Bangalore) within 6–10 weeks of production deploy. Competitive head terms (EPR software India, hospital management software India) typically take 4–8 months depending on how aggressively backlinks are built.</div>
+    <div><strong>Realistic timeline:</strong> With all P1 fixes live, expect first meaningful rankings for branded and long-tail keywords within 6–10 weeks. Competitive head terms ("EPR software India", "hospital management software India") typically take 4–8 months depending on how aggressively backlinks are built through G2, Clutch, and NASSCOM citations.</div>
   </div>
 </div>
 
-<hr>
-<p class="doc-p" style="font-size:.76rem;color:var(--steel);">
-  SEO Audit v1.0 · Prepared by AdsPilot / FirstDial · April 2026 · For: Tashka Healthcare (tashkahealthcare.com)<br>
-  Audited pages: tashkahealthcare.com, /custom_ai, /hospital_management, /contact · Competitor audited: suvarna.co.in/hims
-</p>
+<hr style="border:none;border-top:1px solid var(--border);margin:32px 0;">
+<p style="font-size:12px;color:var(--text3);">SEO Audit v2.0 · Prepared by AdsPilot / FirstDial · April 2026 · Audited: tashkahealthcare.com (live) · All pages fetched and verified · Preview: <a href="https://adspilotwork-droid.github.io/tashkahealthcare-revamped/index.html" target="_blank">adspilotwork-droid.github.io/tashkahealthcare-revamped</a></p>
 
 </main>
 </div>

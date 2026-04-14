@@ -729,6 +729,24 @@ body.sticky-active{padding-bottom:60px;}
   .use-cases-grid,.deploy-grid{grid-template-columns:1fr;}
 }
 
+
+/* ── DOCTOR STRIP — image left, copy right ────────────────────────────────── */
+.doc-strip{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:56px 0;background:#fff;border-bottom:1px solid var(--border);}
+.doc-strip.alt{background:var(--bg-g);}
+.doc-strip-img{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.12);}
+.doc-strip-img img{width:100%;height:380px;object-fit:cover;object-position:center top;display:block;}
+.doc-strip-badge{position:absolute;bottom:16px;left:16px;background:rgba(255,255,255,.96);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.12);}
+.doc-strip-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+.doc-strip-copy{}
+.doc-strip-copy h3{font-size:clamp(22px,2.5vw,32px);font-weight:800;color:var(--text);letter-spacing:-.8px;margin-bottom:14px;line-height:1.2;}
+.doc-strip-copy p{font-size:15px;color:var(--text-3);line-height:1.78;margin-bottom:20px;}
+.doc-strip-copy ul{list-style:none;margin-bottom:24px;}
+.doc-strip-copy ul li{font-size:14px;color:var(--text-2);padding:10px 0;border-bottom:1px solid var(--border-l);display:flex;align-items:flex-start;gap:10px;}
+.doc-strip-copy ul li:last-child{border-bottom:none;}
+.doc-strip-copy ul li::before{content:'✓';color:var(--blue);font-weight:800;flex-shrink:0;}
+@media(max-width:968px){.doc-strip{grid-template-columns:1fr;gap:28px;}.doc-strip-img img{height:280px;}}
+@media(max-width:640px){.doc-strip-img img{height:220px;}}
+
 </style>
 </head>
 <body>
@@ -881,6 +899,22 @@ body.sticky-active{padding-bottom:60px;}
   </div>
 </section>
 
+
+<section class="doc-strip">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div class="doc-strip-img">
+      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD management" loading="lazy">
+      <div class="doc-strip-badge">OPD Module · Live at Chirag Hospital</div>
+    </div>
+    <div class="doc-strip-copy">
+      <h3>Every Outpatient Visit. <span style="color:var(--blue);">One Click.</span></h3>
+      <p>From appointment booking to prescription to pharmacy — Tashka's OPD module handles the full consultation workflow without a single manual handoff.</p>
+      <ul><li>Live queue management — see waiting, in consultation, and completed in real time</li><li>One-click EMR templates — customizable per specialty</li><li>Prescription auto-routes to pharmacy instantly</li><li>Lab orders and results flow back to the same record</li></ul>
+      <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
+    </div>
+  </div>
+</section>
+
 <section class="feat-spotlight">
   <div class="container">
     <div class="feat-split">
@@ -899,9 +933,6 @@ body.sticky-active{padding-bottom:60px;}
           <li><div class="feat-bullet-icon">✓</div><div><strong>Prescription auto-routes to pharmacy</strong> — the moment a doctor prescribes, pharmacy sees it</div></li>
           <li><div class="feat-bullet-icon">✓</div><div><strong>Lab orders in the same workflow</strong> — investigations ordered during consult, results flow back to the record</div></li>
         </ul>
-              <div class="feat-doctor-wrap">
-        <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD management software" loading="lazy">
-        <div class="feat-doctor-badge">OPD Module · Live at Chirag Hospital</div>
       </div>
 <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
       </div>
@@ -965,6 +996,27 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </section>
+
+<section class="doc-strip alt">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div class="doc-strip-img">
+      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD patient records on Tashka" loading="lazy">
+      <div class="doc-strip-badge">IPD Module · Live at Soukhyada Hospital</div>
+    </div>
+    <div class="doc-strip-copy">
+      <h3>Every Bed. Every Patient. <span style="color:var(--blue);">Live.</span></h3>
+      <p>Tashka's IPD module gives your ward managers and nursing teams a real-time view of every bed across every floor — who's in it, who's ready for discharge, and what's reserved. No phone calls. No clipboards.</p>
+      <ul>
+        <li>Live bed board — available, occupied, and reserved across all wards in one view</li>
+        <li>NABH discharge summaries — auto-generated from clinical notes, signed by treating doctor</li>
+        <li>Nursing shift notes and MAR — every dose administered, every vitals reading, logged in real time</li>
+        <li>OT scheduling — pre/post-op documentation linked directly to the patient's record</li>
+      </ul>
+      <a href="contact.html" class="feat-cta-link">See IPD module in action →</a>
+    </div>
+  </div>
+</section>
+
 <section class="feat-spotlight alt">
   <div class="container">
     <div class="feat-split reverse">
@@ -1024,15 +1076,33 @@ body.sticky-active{padding-bottom:60px;}
           <li><div class="feat-bullet-icon">✓</div><div><strong>Nursing shift notes and MAR</strong> — every dose administered, every vitals reading, logged in real time</div></li>
           <li><div class="feat-bullet-icon">✓</div><div><strong>OT scheduling</strong> — pre/post-op documentation linked directly to the patient's record</div></li>
         </ul>
-              <div class="feat-doctor-wrap">
-        <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD patient records on Tashka software" loading="lazy">
-        <div class="feat-doctor-badge">IPD Module · Live at Soukhyada Hospital</div>
       </div>
 <a href="contact.html" class="feat-cta-link">See IPD module in action →</a>
       </div>
     </div>
   </div>
 </section>
+
+<section class="doc-strip">
+  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
+    <div class="doc-strip-img">
+      <img src="img/doctors/admin.jpg" alt="Hospital administrator reviewing billing dashboard" loading="lazy">
+      <div class="doc-strip-badge">Billing Module · Auto-generated</div>
+    </div>
+    <div class="doc-strip-copy">
+      <h3>Every Clinical Event. <span style="color:var(--blue);">Auto-Billed.</span></h3>
+      <p>When a doctor prescribes, pharmacy bills it. When a lab runs a test, it's billed. When a nurse administers a procedure, it's captured. Nothing slips through.</p>
+      <ul>
+        <li>Auto-billing from clinical events — prescriptions, lab orders, procedures trigger billing lines automatically</li>
+        <li>TPA &amp; insurance workflows — pre-auth, claim submission, settlement tracking, aging reports</li>
+        <li>Corporate and government scheme billing — Ayushman Bharat, CGHS, ECHS configured out of the box</li>
+        <li>Real-time receivables dashboard — outstanding, overdue, and collection status at a glance</li>
+      </ul>
+      <a href="contact.html" class="feat-cta-link">See billing module in action →</a>
+    </div>
+  </div>
+</section>
+
 <section class="feat-spotlight">
   <div class="container">
     <div class="feat-split">
@@ -1051,9 +1121,6 @@ body.sticky-active{padding-bottom:60px;}
           <li><div class="feat-bullet-icon">✓</div><div><strong>Corporate and government scheme billing</strong> — Ayushman Bharat, CGHS, ECHS configured out of the box</div></li>
           <li><div class="feat-bullet-icon">✓</div><div><strong>Real-time receivables dashboard</strong> — outstanding, overdue, and collection status at a glance</div></li>
         </ul>
-              <div class="feat-doctor-wrap">
-        <img src="img/doctors/admin.jpg" alt="Hospital administrator reviewing billing dashboard" loading="lazy">
-        <div class="feat-doctor-badge">Billing Module · Auto-generated</div>
       </div>
 <a href="contact.html" class="feat-cta-link">See billing module in action →</a>
       </div>
