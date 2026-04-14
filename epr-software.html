@@ -748,6 +748,16 @@ body.sticky-active{padding-bottom:60px;}
 @media(max-width:968px){.doc-strip{grid-template-columns:1fr;gap:28px;}.doc-strip-img img{height:280px;}}
 @media(max-width:640px){.doc-strip-img img{height:220px;}}
 
+
+/* ── 2-COL FEAT SPLIT: photo | copy ─────────────────────────────────────── */
+.feat-split-3{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center;}
+.feat-img-col{border-radius:16px;overflow:hidden;box-shadow:0 20px 56px rgba(0,0,0,.14);position:relative;min-height:420px;}
+.feat-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.feat-img-badge{position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.97);border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.13);}
+.feat-img-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+@media(max-width:1100px){.feat-split-3{grid-template-columns:320px 1fr;gap:36px;}}
+@media(max-width:968px){.feat-split-3{grid-template-columns:1fr;gap:28px;}.feat-img-col{min-height:260px;}}
+
 </style>
 </head>
 <body>
@@ -886,26 +896,14 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </section>
-
-
-<section class="doc-strip">
-  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div class="doc-strip-img">
-      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD management" loading="lazy">
-      <div class="doc-strip-badge">OPD Module · Live at Chirag Hospital</div>
-    </div>
-    <div class="doc-strip-copy">
-      <h3>Every Outpatient Visit. <span style="color:var(--blue);">One Click.</span></h3>
-      <p>From appointment booking to prescription to pharmacy — Tashka's OPD module handles the full consultation workflow without a single manual handoff.</p>
-      <ul><li>Live queue management — see waiting, in consultation, and completed in real time</li><li>One-click EMR templates — customizable per specialty (General, Ayurveda, Cardiology, Ortho)</li><li>Prescription auto-routes to pharmacy — the moment a doctor prescribes, pharmacy sees it</li><li>Lab orders in the same workflow — investigations ordered, results flow back to the record</li></ul>
-      <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
-    </div>
-  </div>
-</section>
-
 <section class="feat-spotlight">
   <div class="container">
-    <div class="feat-split">
+    <div class="feat-split-3">
+    <div class="feat-img-col">
+      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD" loading="lazy">
+      <div class="feat-img-badge">OPD Module · Live at Chirag Hospital</div>
+    </div>
+    
       <div class="feat-copy">
         <div class="feat-eyebrow">OPD Management</div>
         <h2 class="feat-title">Every Outpatient Visit.<br><span class="accent">One Click.</span></h2>
@@ -923,64 +921,6 @@ body.sticky-active{padding-bottom:60px;}
         </ul>
       </div>
 <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">🏥 TASHKA HEALTHCARE — OPD Console</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">13 Apr 2026 · Bengaluru</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">OPD Queue</div>
-          <div class="feat-ui-tab">Registration</div>
-          <div class="feat-ui-tab">Consultation</div>
-          <div class="feat-ui-tab">Prescription</div>
-        </div>
-        <div class="feat-ui-body">
-          <div class="opd-queue-header">
-            <span class="opd-queue-title">Today's OPD Queue — General OPD</span>
-            <span class="opd-queue-badge">● 247 patients</span>
-          </div>
-          <div style="display:grid;grid-template-columns:24px 1fr 80px 60px 52px;gap:6px;padding:0 8px 4px;" class="opd-col-head">
-            <span></span><span>Patient</span><span>Type</span><span>Status</span><span>Action</span>
-          </div>
-          <div class="opd-patient-row active-row">
-            <div class="opd-num active-num">1</div>
-            <div><div class="opd-name">Ramesh Kumar</div><div class="opd-type">General · MRN 00841</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status in-consult">In Consult</div>
-            <div class="opd-action">Open EMR</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">2</div>
-            <div><div class="opd-name">Priya Sharma</div><div class="opd-type">General · MRN 00922</div></div>
-            <div style="font-size:7px;color:#6b7280;">New Visit</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">3</div>
-            <div><div class="opd-name">Venkat Rao</div><div class="opd-type">Ayurveda · MRN 00784</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">4</div>
-            <div><div class="opd-name">Anita Menon</div><div class="opd-type">Cardiology · MRN 00631</div></div>
-            <div style="font-size:7px;color:#6b7280;">New Visit</div>
-            <div class="opd-status done">Done</div>
-            <div class="opd-action" style="background:#16a34a;">View</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">5</div>
-            <div><div class="opd-name">Suresh Patel</div><div class="opd-type">Orthopaedics · MRN 00512</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Live · Bengaluru</div>
-      </div>
     </div>
   </div>
 </section>
@@ -1003,64 +943,6 @@ body.sticky-active{padding-bottom:60px;}
           <li><div class="feat-bullet-icon">✓</div><div><strong>Real-time receivables dashboard</strong> — outstanding, overdue, and collection status at a glance</div></li>
         </ul>
         <a href="contact.html" class="feat-cta-link">See billing module in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">💰 TASHKA HEALTHCARE — Patient Billing</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">MRN 00841 · R. Kumar</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">Bill Summary</div>
-          <div class="feat-ui-tab">TPA / Insurance</div>
-          <div class="feat-ui-tab">Receipts</div>
-        </div>
-        <div class="feat-ui-body">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <div>
-              <div style="font-size:10px;font-weight:700;color:#1a2e5a;">Ramesh Kumar — IPD Bill</div>
-              <div style="font-size:7px;color:#6b7280;">Admitted: 09-Apr-2026 · Discharge: 13-Apr-2026</div>
-            </div>
-            <span class="bill-status-tpa">TPA: United Health</span>
-          </div>
-          <div class="bill-table-head">
-            <span>Service</span><span>Qty</span><span>Rate</span><span>Amount</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Room Charges (Ward B)</span>
-            <span>4 days</span><span>₹1,800</span><span>₹7,200</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Laparoscopic Appendectomy</span>
-            <span>1</span><span>₹28,000</span><span>₹28,000</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Anaesthesia Charges</span>
-            <span>1</span><span>₹6,500</span><span>₹6,500</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Lab Investigations (CBC, LFT)</span>
-            <span>3</span><span>₹850</span><span>₹2,550</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Pharmacy (Auto-captured)</span>
-            <span>—</span><span>—</span><span>₹3,840</span>
-          </div>
-          <div class="bill-total-row">
-            <span>Total Bill Amount</span>
-            <span></span><span></span><span>₹48,090</span>
-          </div>
-          <div style="display:flex;gap:6px;padding:8px 0 0;">
-            <div style="flex:1;background:#dcfce7;border-radius:5px;padding:6px 8px;">
-              <div style="font-size:6px;color:#16a34a;font-weight:700;margin-bottom:1px;">TPA Approved</div>
-              <div style="font-size:10px;font-weight:800;color:#16a34a;">₹38,472</div>
-            </div>
-            <div style="flex:1;background:#fee2e2;border-radius:5px;padding:6px 8px;">
-              <div style="font-size:6px;color:#dc2626;font-weight:700;margin-bottom:1px;">Patient Payable</div>
-              <div style="font-size:10px;font-weight:800;color:#dc2626;">₹9,618</div>
-            </div>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Auto-generated · Zero re-entry</div>
       </div>
     </div>
   </div>

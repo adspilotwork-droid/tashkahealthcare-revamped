@@ -747,6 +747,16 @@ body.sticky-active{padding-bottom:60px;}
 @media(max-width:968px){.doc-strip{grid-template-columns:1fr;gap:28px;}.doc-strip-img img{height:280px;}}
 @media(max-width:640px){.doc-strip-img img{height:220px;}}
 
+
+/* ── 2-COL FEAT SPLIT: photo | copy ─────────────────────────────────────── */
+.feat-split-3{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center;}
+.feat-img-col{border-radius:16px;overflow:hidden;box-shadow:0 20px 56px rgba(0,0,0,.14);position:relative;min-height:420px;}
+.feat-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.feat-img-badge{position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.97);border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.13);}
+.feat-img-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+@media(max-width:1100px){.feat-split-3{grid-template-columns:320px 1fr;gap:36px;}}
+@media(max-width:968px){.feat-split-3{grid-template-columns:1fr;gap:28px;}.feat-img-col{min-height:260px;}}
+
 </style>
 </head>
 <body>
@@ -898,26 +908,14 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </section>
-
-
-<section class="doc-strip">
-  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div class="doc-strip-img">
-      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD management" loading="lazy">
-      <div class="doc-strip-badge">OPD Module · Live at Chirag Hospital</div>
-    </div>
-    <div class="doc-strip-copy">
-      <h3>Every Outpatient Visit. <span style="color:var(--blue);">One Click.</span></h3>
-      <p>From appointment booking to prescription to pharmacy — Tashka's OPD module handles the full consultation workflow without a single manual handoff.</p>
-      <ul><li>Live queue management — see waiting, in consultation, and completed in real time</li><li>One-click EMR templates — customizable per specialty</li><li>Prescription auto-routes to pharmacy instantly</li><li>Lab orders and results flow back to the same record</li></ul>
-      <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
-    </div>
-  </div>
-</section>
-
 <section class="feat-spotlight">
   <div class="container">
-    <div class="feat-split">
+    <div class="feat-split-3">
+    <div class="feat-img-col">
+      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD" loading="lazy">
+      <div class="feat-img-badge">OPD Module · Live at Chirag Hospital</div>
+    </div>
+    
       <div class="feat-copy">
         <div class="feat-eyebrow">OPD Management</div>
         <h2 class="feat-title">Every Outpatient Visit.<br><span class="accent">One Click.</span></h2>
@@ -935,177 +933,27 @@ body.sticky-active{padding-bottom:60px;}
         </ul>
       </div>
 <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">🏥 TASHKA HEALTHCARE — OPD Console</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">13 Apr 2026 · Bengaluru</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">OPD Queue</div>
-          <div class="feat-ui-tab">Registration</div>
-          <div class="feat-ui-tab">Consultation</div>
-          <div class="feat-ui-tab">Prescription</div>
-        </div>
-        <div class="feat-ui-body">
-          <div class="opd-queue-header">
-            <span class="opd-queue-title">Today's OPD Queue — General OPD</span>
-            <span class="opd-queue-badge">● 247 patients</span>
-          </div>
-          <div style="display:grid;grid-template-columns:24px 1fr 80px 60px 52px;gap:6px;padding:0 8px 4px;" class="opd-col-head">
-            <span></span><span>Patient</span><span>Type</span><span>Status</span><span>Action</span>
-          </div>
-          <div class="opd-patient-row active-row">
-            <div class="opd-num active-num">1</div>
-            <div><div class="opd-name">Ramesh Kumar</div><div class="opd-type">General · MRN 00841</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status in-consult">In Consult</div>
-            <div class="opd-action">Open EMR</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">2</div>
-            <div><div class="opd-name">Priya Sharma</div><div class="opd-type">General · MRN 00922</div></div>
-            <div style="font-size:7px;color:#6b7280;">New Visit</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">3</div>
-            <div><div class="opd-name">Venkat Rao</div><div class="opd-type">Ayurveda · MRN 00784</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">4</div>
-            <div><div class="opd-name">Anita Menon</div><div class="opd-type">Cardiology · MRN 00631</div></div>
-            <div style="font-size:7px;color:#6b7280;">New Visit</div>
-            <div class="opd-status done">Done</div>
-            <div class="opd-action" style="background:#16a34a;">View</div>
-          </div>
-          <div class="opd-patient-row">
-            <div class="opd-num">5</div>
-            <div><div class="opd-name">Suresh Patel</div><div class="opd-type">Orthopaedics · MRN 00512</div></div>
-            <div style="font-size:7px;color:#6b7280;">Follow-up</div>
-            <div class="opd-status waiting">Waiting</div>
-            <div class="opd-action" style="background:#6b7280;">Queue</div>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Live · Bengaluru</div>
-      </div>
     </div>
   </div>
 </section>
-
-<section class="doc-strip alt">
-  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div class="doc-strip-img">
-      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD patient records on Tashka" loading="lazy">
-      <div class="doc-strip-badge">IPD Module · Live at Soukhyada Hospital</div>
-    </div>
-    <div class="doc-strip-copy">
-      <h3>Every Bed. Every Patient. <span style="color:var(--blue);">Live.</span></h3>
-      <p>Tashka's IPD module gives your ward managers and nursing teams a real-time view of every bed across every floor — who's in it, who's ready for discharge, and what's reserved. No phone calls. No clipboards.</p>
-      <ul>
-        <li>Live bed board — available, occupied, and reserved across all wards in one view</li>
-        <li>NABH discharge summaries — auto-generated from clinical notes, signed by treating doctor</li>
-        <li>Nursing shift notes and MAR — every dose administered, every vitals reading, logged in real time</li>
-        <li>OT scheduling — pre/post-op documentation linked directly to the patient's record</li>
-      </ul>
-      <a href="contact.html" class="feat-cta-link">See IPD module in action →</a>
-    </div>
-  </div>
-</section>
-
 <section class="feat-spotlight alt">
   <div class="container">
-    <div class="feat-split reverse">
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">🛏️ TASHKA HEALTHCARE — Ward Management</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">Live Bed Board</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">Bed Board</div>
-          <div class="feat-ui-tab">IPD Admissions</div>
-          <div class="feat-ui-tab">Discharge Queue</div>
-          <div class="feat-ui-tab">OT Schedule</div>
-        </div>
-        <div class="feat-ui-body">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <span style="font-size:10px;font-weight:700;color:#1a2e5a;">General Ward — Floor 2</span>
-            <div style="display:flex;gap:6px;">
-              <span style="font-size:7px;background:#dcfce7;color:#16a34a;padding:2px 7px;border-radius:10px;font-weight:700;">12 Available</span>
-              <span style="font-size:7px;background:#fee2e2;color:#dc2626;padding:2px 7px;border-radius:10px;font-weight:700;">18 Occupied</span>
-            </div>
-          </div>
-          <div class="bed-grid-ui">
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-01</div><div class="bed-cell-name">R. Kumar</div></div>
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-02</div><div class="bed-cell-name">P. Sharma</div></div>
-            <div class="bed-cell available"><div class="bed-cell-num">G-03</div><div class="bed-cell-name">Available</div></div>
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-04</div><div class="bed-cell-name">A. Menon</div></div>
-            <div class="bed-cell reserved"><div class="bed-cell-num">G-05</div><div class="bed-cell-name">Reserved</div></div>
-            <div class="bed-cell available"><div class="bed-cell-num">G-06</div><div class="bed-cell-name">Available</div></div>
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-07</div><div class="bed-cell-name">V. Rao</div></div>
-            <div class="bed-cell available"><div class="bed-cell-num">G-08</div><div class="bed-cell-name">Available</div></div>
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-09</div><div class="bed-cell-name">S. Patel</div></div>
-            <div class="bed-cell occupied"><div class="bed-cell-num">G-10</div><div class="bed-cell-name">M. Iyer</div></div>
-            <div class="bed-cell available"><div class="bed-cell-num">G-11</div><div class="bed-cell-name">Available</div></div>
-            <div class="bed-cell reserved"><div class="bed-cell-num">G-12</div><div class="bed-cell-name">Reserved</div></div>
-          </div>
-          <div class="bed-legend-row">
-            <span><span class="bed-legend-dot" style="background:#86efac;"></span>Available</span>
-            <span><span class="bed-legend-dot" style="background:#fca5a5;"></span>Occupied</span>
-            <span><span class="bed-legend-dot" style="background:#fcd34d;"></span>Reserved</span>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Real-time · All wards</div>
-      </div>
-      <div class="feat-copy">
-        <div class="feat-eyebrow">IPD &amp; Ward Management</div>
-        <h2 class="feat-title">Every Bed. Every Patient.<br><span class="accent">Live.</span></h2>
-        <p class="feat-desc">Tashka's IPD module gives your ward managers and nursing teams a real-time view of every bed across every floor — who's in it, who's ready for discharge, and what's reserved. No phone calls. No clipboards.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>89%</strong><span>Bed occupancy rate</span></div>
-          <div class="feat-metric-badge"><strong>↑ 35%</strong><span>Discharge speed</span></div>
-          <div class="feat-metric-badge"><strong>Zero</strong><span>Paper records</span></div>
-        </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Live bed board</strong> — available, occupied, and reserved across all wards and floors in one view</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>NABH discharge summaries</strong> — auto-generated from clinical notes, signed by treating doctor</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Nursing shift notes and MAR</strong> — every dose administered, every vitals reading, logged in real time</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>OT scheduling</strong> — pre/post-op documentation linked directly to the patient's record</div></li>
-        </ul>
-      </div>
-<a href="contact.html" class="feat-cta-link">See IPD module in action →</a>
-      </div>
+    <div class="feat-split-3">
+    <div class="feat-img-col">
+      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD records" loading="lazy">
+      <div class="feat-img-badge">IPD Module · Live at Soukhyada Hospital</div>
+    </div>
     </div>
   </div>
 </section>
-
-<section class="doc-strip">
-  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div class="doc-strip-img">
-      <img src="img/doctors/admin.jpg" alt="Hospital administrator reviewing billing dashboard" loading="lazy">
-      <div class="doc-strip-badge">Billing Module · Auto-generated</div>
-    </div>
-    <div class="doc-strip-copy">
-      <h3>Every Clinical Event. <span style="color:var(--blue);">Auto-Billed.</span></h3>
-      <p>When a doctor prescribes, pharmacy bills it. When a lab runs a test, it's billed. When a nurse administers a procedure, it's captured. Nothing slips through.</p>
-      <ul>
-        <li>Auto-billing from clinical events — prescriptions, lab orders, procedures trigger billing lines automatically</li>
-        <li>TPA &amp; insurance workflows — pre-auth, claim submission, settlement tracking, aging reports</li>
-        <li>Corporate and government scheme billing — Ayushman Bharat, CGHS, ECHS configured out of the box</li>
-        <li>Real-time receivables dashboard — outstanding, overdue, and collection status at a glance</li>
-      </ul>
-      <a href="contact.html" class="feat-cta-link">See billing module in action →</a>
-    </div>
-  </div>
-</section>
-
 <section class="feat-spotlight">
   <div class="container">
-    <div class="feat-split">
+    <div class="feat-split-3">
+    <div class="feat-img-col">
+      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD records" loading="lazy">
+      <div class="feat-img-badge">IPD Module · Live at Soukhyada Hospital</div>
+    </div>
+    
       <div class="feat-copy">
         <div class="feat-eyebrow">Billing &amp; Revenue Cycle</div>
         <h2 class="feat-title">Every Clinical Event.<br><span class="accent">Auto-Billed.</span></h2>
@@ -1123,123 +971,12 @@ body.sticky-active{padding-bottom:60px;}
         </ul>
       </div>
 <a href="contact.html" class="feat-cta-link">See billing module in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">💰 TASHKA HEALTHCARE — Patient Billing</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">MRN 00841 · R. Kumar</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">Bill Summary</div>
-          <div class="feat-ui-tab">TPA / Insurance</div>
-          <div class="feat-ui-tab">Receipts</div>
-        </div>
-        <div class="feat-ui-body">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
-            <div>
-              <div style="font-size:10px;font-weight:700;color:#1a2e5a;">Ramesh Kumar — IPD Bill</div>
-              <div style="font-size:7px;color:#6b7280;">Admitted: 09-Apr-2026 · Discharge: 13-Apr-2026</div>
-            </div>
-            <span class="bill-status-tpa">TPA: United Health</span>
-          </div>
-          <div class="bill-table-head">
-            <span>Service</span><span>Qty</span><span>Rate</span><span>Amount</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Room Charges (Ward B)</span>
-            <span>4 days</span><span>₹1,800</span><span>₹7,200</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Laparoscopic Appendectomy</span>
-            <span>1</span><span>₹28,000</span><span>₹28,000</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Anaesthesia Charges</span>
-            <span>1</span><span>₹6,500</span><span>₹6,500</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Lab Investigations (CBC, LFT)</span>
-            <span>3</span><span>₹850</span><span>₹2,550</span>
-          </div>
-          <div class="bill-row">
-            <span class="bill-row-name">Pharmacy (Auto-captured)</span>
-            <span>—</span><span>—</span><span>₹3,840</span>
-          </div>
-          <div class="bill-total-row">
-            <span>Total Bill Amount</span>
-            <span></span><span></span><span>₹48,090</span>
-          </div>
-          <div style="display:flex;gap:6px;padding:8px 0 0;">
-            <div style="flex:1;background:#dcfce7;border-radius:5px;padding:6px 8px;">
-              <div style="font-size:6px;color:#16a34a;font-weight:700;margin-bottom:1px;">TPA Approved</div>
-              <div style="font-size:10px;font-weight:800;color:#16a34a;">₹38,472</div>
-            </div>
-            <div style="flex:1;background:#fee2e2;border-radius:5px;padding:6px 8px;">
-              <div style="font-size:6px;color:#dc2626;font-weight:700;margin-bottom:1px;">Patient Payable</div>
-              <div style="font-size:10px;font-weight:800;color:#dc2626;">₹9,618</div>
-            </div>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Auto-generated · Zero re-entry</div>
-      </div>
     </div>
   </div>
 </section>
 <section class="feat-spotlight alt">
   <div class="container">
     <div class="feat-split reverse">
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">📊 TASHKA HEALTHCARE — MIS Dashboard</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">April 2026</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">Revenue</div>
-          <div class="feat-ui-tab">OPD / IPD</div>
-          <div class="feat-ui-tab">Pharmacy</div>
-          <div class="feat-ui-tab">Finance</div>
-        </div>
-        <div class="feat-ui-body">
-          <div class="mis-kpi-row">
-            <div class="mis-kpi"><div class="mis-kpi-val">₹18.4L</div><div class="mis-kpi-label">Total Revenue</div></div>
-            <div class="mis-kpi"><div class="mis-kpi-val">247</div><div class="mis-kpi-label">OPD / Day</div></div>
-            <div class="mis-kpi"><div class="mis-kpi-val">89%</div><div class="mis-kpi-label">Bed Occ.</div></div>
-            <div class="mis-kpi"><div class="mis-kpi-val">4.2</div><div class="mis-kpi-label">Avg LOS</div></div>
-          </div>
-          <div class="mis-chart-row">
-            <div class="mis-bar-label"><span>OPD Revenue</span><span>₹4.2L</span></div>
-            <div class="mis-bar-track"><div class="mis-bar-fill" style="width:72%;"></div></div>
-            <div class="mis-bar-label"><span>IPD Revenue</span><span>₹9.8L</span></div>
-            <div class="mis-bar-track"><div class="mis-bar-fill" style="width:88%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
-            <div class="mis-bar-label"><span>Pharmacy</span><span>₹1.4L</span></div>
-            <div class="mis-bar-track"><div class="mis-bar-fill" style="width:42%;background:linear-gradient(90deg,#d97706,#fbbf24);"></div></div>
-            <div class="mis-bar-label"><span>Lab &amp; Radio</span><span>₹2.1L</span></div>
-            <div class="mis-bar-track"><div class="mis-bar-fill" style="width:56%;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div></div>
-          </div>
-          <div style="padding:6px 0 2px;display:flex;justify-content:space-between;align-items:center;">
-            <span style="font-size:7px;color:#6b7280;">TPA Receivables Outstanding</span>
-            <span style="font-size:8px;font-weight:700;color:#d97706;">₹3.2L aging 30+ days</span>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> Real-time · 100+ reports</div>
-      </div>
-      <div class="feat-copy">
-        <div class="feat-eyebrow">MIS Reports &amp; Dashboards</div>
-        <h2 class="feat-title">100+ Reports.<br><span class="accent">Real-Time.</span></h2>
-        <p class="feat-desc">Your finance team shouldn't wait two days for yesterday's numbers. Tashka's MIS dashboards give your CMO, CFO, and operations head a live view of every KPI — revenue, census, bed occupancy, collection, and TPA aging — any time they open it.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>100+</strong><span>Preconfigured reports</span></div>
-          <div class="feat-metric-badge"><strong>Real-Time</strong><span>vs 2-day delay</span></div>
-          <div class="feat-metric-badge"><strong>All formats</strong><span>Excel · PDF · Print</span></div>
-        </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Revenue by department and doctor</strong> — see exactly where revenue is coming from and where it isn't</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Bed occupancy and ALOS trends</strong> — optimize ward capacity and identify discharge bottlenecks</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>TPA settlement aging</strong> — flag overdue claims before they become bad debt</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Multi-location consolidated view</strong> — group-level dashboard across all campuses simultaneously</div></li>
-        </ul>
-        <a href="contact.html" class="feat-cta-link">See MIS reports in action →</a>
-      </div>
     </div>
   </div>
 </section>

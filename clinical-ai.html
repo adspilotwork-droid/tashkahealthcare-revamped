@@ -740,6 +740,16 @@ body.sticky-active{padding-bottom:60px;}
 @media(max-width:968px){.doc-strip{grid-template-columns:1fr;gap:28px;}.doc-strip-img img{height:280px;}}
 @media(max-width:640px){.doc-strip-img img{height:220px;}}
 
+
+/* ── 2-COL FEAT SPLIT: photo | copy ─────────────────────────────────────── */
+.feat-split-3{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center;}
+.feat-img-col{border-radius:16px;overflow:hidden;box-shadow:0 20px 56px rgba(0,0,0,.14);position:relative;min-height:420px;}
+.feat-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.feat-img-badge{position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.97);border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.13);}
+.feat-img-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+@media(max-width:1100px){.feat-split-3{grid-template-columns:320px 1fr;gap:36px;}}
+@media(max-width:968px){.feat-split-3{grid-template-columns:1fr;gap:28px;}.feat-img-col{min-height:260px;}}
+
 </style>
 </head>
 <body>
@@ -910,26 +920,14 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </section>
-
-
-<section class="doc-strip">
-  <div style="max-width:1280px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
-    <div class="doc-strip-img">
-      <img src="img/doctors/doctor3.jpg" alt="Doctor using Tashka Clinical AI" loading="lazy">
-      <div class="doc-strip-badge">Clinical AI · RAG Architecture</div>
-    </div>
-    <div class="doc-strip-copy">
-      <h3>Your Hospital's Data. <span style="color:var(--blue);">Conversational.</span></h3>
-      <p>Instead of logging into 3 systems before ward rounds, your doctors ask Tashka AI one question and get the complete patient picture in seconds — from your hospital's own data, not the internet.</p>
-      <ul><li>RAG architecture — answers from your EMR, LIS, pharmacy, and billing data only</li><li>Role-based context — doctors see clinical, billing sees financial, nurses see nursing</li><li>Natural language queries — no training required for staff to start immediately</li><li>Full audit trail — every query, response, and data access logged for compliance</li></ul>
-      <a href="contact.html" class="feat-cta-link">See Clinical AI in action →</a>
-    </div>
-  </div>
-</section>
-
 <section class="feat-spotlight">
   <div class="container">
-    <div class="feat-split">
+    <div class="feat-split-3">
+    <div class="feat-img-col">
+      <img src="img/doctors/doctor3.jpg" alt="Doctor using Tashka Clinical AI" loading="lazy">
+      <div class="feat-img-badge">Clinical AI · RAG Architecture</div>
+    </div>
+    
       <div class="feat-copy">
         <div class="feat-eyebrow">Clinical AI Chatbot</div>
         <h2 class="feat-title">Your Hospital's Data.<br><span class="accent">Conversational.</span></h2>
@@ -947,48 +945,6 @@ body.sticky-active{padding-bottom:60px;}
         </ul>
       </div>
 <a href="contact.html" class="feat-cta-link">See Clinical AI in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="position:relative;">
-        <div class="feat-ui-header">
-          <span class="feat-ui-title">🤖 TASHKA AI — Clinical Assistant</span>
-          <span style="font-size:8px;color:rgba(255,255,255,.6);">Dr. R. Sharma · Attending Physician</span>
-        </div>
-        <div class="feat-ui-tab-row">
-          <div class="feat-ui-tab active">Clinical Queries</div>
-          <div class="feat-ui-tab">Ward Summary</div>
-          <div class="feat-ui-tab">Discharge Queue</div>
-        </div>
-        <div class="ai-chat-body">
-          <div>
-            <div class="ai-sender"><div class="ai-sender-icon">👤</div><span class="ai-sender-name">Dr. Sharma</span></div>
-            <div class="ai-msg-user">Summarise Ramesh Kumar's IPD status before ward rounds</div>
-          </div>
-          <div>
-            <div class="ai-sender"><div class="ai-sender-icon">🤖</div><span class="ai-sender-name">Tashka AI · Verified from EMR</span></div>
-            <div class="ai-msg-ai">
-              <strong>Ramesh Kumar · MRN 00841 · Day 4 IPD</strong><br>
-              Dx: Acute Appendicitis (K35.89)<br>
-              Surgery: Laparoscopic appendectomy — 10-Apr ✓<br>
-              Last vitals: BP 118/76 · Temp 98.4°F · SpO2 99%<br>
-              WBC 12-Apr: 9.2 (↓ trending normal)<br>
-              <strong>Pending:</strong> Surgeon discharge clearance<br>
-              Billing: TPA pre-auth approved · ₹38,472
-            </div>
-          </div>
-          <div>
-            <div class="ai-sender"><div class="ai-sender-icon">👤</div><span class="ai-sender-name">Dr. Sharma</span></div>
-            <div class="ai-msg-user">How many patients are pending discharge today?</div>
-          </div>
-          <div>
-            <div class="ai-sender"><div class="ai-sender-icon">🤖</div><span class="ai-sender-name">Tashka AI</span></div>
-            <div class="ai-msg-ai">
-              <strong>14 patients</strong> pending discharge across all wards.<br>
-              Billing cleared: 9 · Awaiting surgeon sign-off: 4 · Pharmacy pending: 1
-            </div>
-          </div>
-        </div>
-        <div class="feat-proof-badge"><div class="feat-proof-dot"></div> RAG · Your data only</div>
-      </div>
     </div>
   </div>
 </section>
