@@ -961,6 +961,46 @@ body.sticky-active{padding-bottom:60px;}
   .contact-details-row{flex-direction:column;gap:10px;}
 }
 
+
+/* ── NEW EDITORIAL FEAT SECTIONS ─────────────────────────────────────────── */
+.feat-editorial{padding:80px 0;overflow:hidden;}
+.feat-editorial.alt{background:var(--bg-g);}
+.feat-editorial-header{max-width:780px;margin-bottom:52px;}
+.feat-editorial-eyebrow{display:inline-block;padding:5px 14px;background:var(--blue-l);color:var(--blue);font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-radius:99px;margin-bottom:18px;}
+.feat-editorial-h2{font-size:clamp(30px,4vw,48px);font-weight:800;color:var(--text);letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px;}
+.feat-editorial-h2 .accent{color:var(--blue);}
+.feat-editorial-desc{font-size:17px;color:var(--text-3);line-height:1.75;font-weight:500;max-width:680px;}
+.feat-editorial-grid{display:grid;grid-template-columns:5fr 7fr;gap:48px;align-items:start;margin-bottom:56px;}
+.feat-editorial-left{display:flex;flex-direction:column;gap:32px;}
+.feat-editorial-img{position:relative;border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.1);aspect-ratio:4/3;}
+.feat-editorial-img img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.feat-editorial-img-badge{position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.97);border-radius:9px;padding:8px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.12);}
+.feat-editorial-img-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+.feat-editorial-checklist{list-style:none;display:flex;flex-direction:column;gap:20px;}
+.feat-editorial-checklist li{display:flex;align-items:flex-start;gap:14px;}
+.feat-editorial-check{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:var(--blue-l);display:flex;align-items:center;justify-content:center;margin-top:2px;font-size:12px;color:var(--blue);font-weight:800;}
+.feat-editorial-checklist h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.feat-editorial-checklist p{font-size:13px;color:var(--text-3);line-height:1.6;}
+.feat-editorial-cta{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-size:14px;font-weight:700;transition:gap .2s;}
+.feat-editorial-cta:hover{gap:10px;}
+.feat-editorial-panel{background:#fff;padding:8px;border-radius:16px;box-shadow:0 12px 32px rgba(15,23,42,.06);border:1px solid rgba(195,198,215,.3);}
+.feat-editorial-panel-inner{background:#fff;border-radius:12px;overflow:hidden;}
+.feat-editorial-browser-bar{height:40px;padding:0 16px;background:var(--bg-g);display:flex;align-items:center;gap:8px;}
+.feb-dots{display:flex;gap:5px;}
+.feb-dots span{display:block;width:10px;height:10px;border-radius:50%;}
+.feb-dots span:nth-child(1){background:rgba(186,26,26,.25);}
+.feb-dots span:nth-child(2){background:rgba(0,74,198,.2);}
+.feb-dots span:nth-child(3){background:rgba(0,98,65,.25);}
+.feb-url{flex:1;height:22px;background:#fff;border-radius:8px;border:1px solid rgba(195,198,215,.3);margin:0 auto;max-width:55%;}
+.feat-editorial-panel-body{padding:20px;background:var(--bg-w);}
+.feat-editorial-stats{border-top:1px solid rgba(195,198,215,.2);padding-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+.feat-editorial-stat-num{font-size:clamp(28px,3.5vw,42px);font-weight:900;color:var(--blue);letter-spacing:-1.5px;line-height:1;margin-bottom:6px;}
+.feat-editorial-stat-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--text-3);margin-bottom:8px;}
+.feat-editorial-stat-desc{font-size:12px;color:var(--text-4);line-height:1.6;max-width:180px;}
+@media(max-width:1100px){.feat-editorial-grid{grid-template-columns:1fr 1fr;gap:32px;}}
+@media(max-width:768px){.feat-editorial-grid{grid-template-columns:1fr;gap:28px;}.feat-editorial-stats{grid-template-columns:1fr;gap:28px;}}
+
+.feat-editorial-right{}
 </style>
 </head>
 <body>
@@ -1152,33 +1192,57 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </section>
-<section class="feat-spotlight">
+<section class="feat-editorial">
   <div class="container">
-    <div class="feat-split-3">
-    <div class="feat-img-col">
-      <img src="img/doctors/doctor2.jpg" alt="Doctor using Tashka OPD" loading="lazy">
-      <div class="feat-img-badge">OPD Module · Live at Chirag Hospital</div>
+    <div class="feat-editorial-header">
+      <div class="feat-editorial-eyebrow">OPD Management</div>
+      <h2 class="feat-editorial-h2">Every Outpatient Visit.<br><span class="accent">One Click.</span></h2>
+      <p class="feat-editorial-desc">From appointment booking to prescription to pharmacy — Tashka's OPD module handles the full consultation workflow without a single manual handoff. Your doctors see more patients in less time.</p>
     </div>
-    
-      <div class="feat-copy">
-        <div class="feat-eyebrow">OPD Management</div>
-        <h2 class="feat-title">Every Outpatient Visit.<br><span class="accent">One Click.</span></h2>
-        <p class="feat-desc">From appointment booking to prescription to pharmacy — Tashka's OPD module handles the full consultation workflow without a single manual handoff. Your doctors see more patients in less time.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>↓ 60%</strong><span>Consultation time</span></div>
-          <div class="feat-metric-badge"><strong>247</strong><span>OPD patients/day</span></div>
-          <div class="feat-metric-badge"><strong>Zero</strong><span>Paper records</span></div>
+    <div class="feat-editorial-grid">
+      <div class="feat-editorial-left">
+        <div class="feat-editorial-img">
+          <img src="img/doctors/doctor2.jpg" alt="OPD Management - Tashka Healthcare" loading="lazy">
+          <div class='feat-editorial-img-badge'>OPD Module · Live at Chirag Hospital</div>
         </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Live queue management</strong> — see which patients are waiting, in consultation, and completed in real time</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>One-click EMR templates</strong> — customizable per specialty (General, Ayurveda, Cardiology, Ortho)</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Prescription auto-routes to pharmacy</strong> — the moment a doctor prescribes, pharmacy sees it</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Lab orders in the same workflow</strong> — investigations ordered during consult, results flow back to the record</div></li>
+        <ul class="feat-editorial-checklist">
+          <li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Live queue management</h4>
+              <p>see which patients are waiting, in consultation, and completed in real time</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>One-click EMR templates</h4>
+              <p>customizable per specialty (General, Ayurveda, Cardiology, Ortho)</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Prescription auto-routes to pharmacy</h4>
+              <p>the moment a doctor prescribes, pharmacy sees it</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Lab orders in the same workflow</h4>
+              <p>investigations ordered during consult, results flow back to the record</p>
+            </div>
+          </li>
         </ul>
+        <a href="contact.html" class="feat-editorial-cta">See OPD module in action → →</a>
       </div>
-<a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
-    </div>
-      <div class="feat-ui-panel">
+      <div class="feat-editorial-right">
+        <div class="feat-editorial-panel">
+          <div class="feat-editorial-panel-inner">
+            <div class="feat-editorial-browser-bar">
+              <div class="feb-dots"><span></span><span></span><span></span></div>
+              <div class="feb-url"></div>
+            </div>
+            <div class="feat-editorial-panel-body">
+              <div class="feat-ui-panel">
   <div class="fup-header">
     <span class="fup-dots"><span></span><span></span><span></span></span>
     <span class="fup-title">🏥 TASHKA HEALTHCARE — OPD Console</span>
@@ -1230,34 +1294,76 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </div>
-    </div>
-</section>
-<section class="feat-spotlight alt">
-  <div class="container">
-    <div class="feat-split-3">
-    <div class="feat-img-col">
-      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD patient records" loading="lazy">
-      <div class="feat-img-badge">IPD Module · Live at Soukhyada Hospital</div>
-    </div>
-    <div class="feat-copy">
-        <div class="feat-eyebrow">IPD &amp; Ward Management</div>
-        <h2 class="feat-title">Every Bed. Every Patient.<br><span class="accent">Live.</span></h2>
-        <p class="feat-desc">Tashka's IPD module gives your ward managers and nursing teams a real-time view of every bed across every floor — who's in it, who's ready for discharge, and what's reserved. No phone calls. No clipboards.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>89%</strong><span>Bed occupancy rate</span></div>
-          <div class="feat-metric-badge"><strong>↑ 35%</strong><span>Discharge speed</span></div>
-          <div class="feat-metric-badge"><strong>Zero</strong><span>Paper records</span></div>
+            </div>
+          </div>
         </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Live bed board</strong> — available, occupied, and reserved across all wards and floors in one view</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>NABH discharge summaries</strong> — auto-generated from clinical notes, signed by treating doctor</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Nursing shift notes and MAR</strong> — every dose administered, every vitals reading, logged in real time</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>OT scheduling</strong> — pre/post-op documentation linked directly to the patient's record</div></li>
-        </ul>
-</div>
-<a href="contact.html" class="feat-cta-link">See IPD module in action →</a>
       </div>
-      <div class="feat-ui-panel">
+    </div>
+    <div class="feat-editorial-stats">
+      <div>
+          <div class="feat-editorial-stat-num">↓ 60%</div>
+          <div class="feat-editorial-stat-label">Consultation time</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">247</div>
+          <div class="feat-editorial-stat-label">OPD patients/day</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">Zero</div>
+          <div class="feat-editorial-stat-label">Paper records</div>
+        </div>
+    </div>
+  </div>
+</section>
+<section class="feat-editorial">
+  <div class="container">
+    <div class="feat-editorial-header">
+      <div class="feat-editorial-eyebrow">IPD &amp; Ward Management</div>
+      <h2 class="feat-editorial-h2">Every Bed. Every Patient.<br><span class="accent">Live.</span></h2>
+      <p class="feat-editorial-desc">Tashka's IPD module gives your ward managers and nursing teams a real-time view of every bed across every floor — who's in it, who's ready for discharge, and what's reserved. No phone calls. No clipboards.</p>
+    </div>
+    <div class="feat-editorial-grid">
+      <div class="feat-editorial-left">
+        <div class="feat-editorial-img">
+          <img src="img/doctors/doctor1.jpg" alt="IPD &amp; Ward Management - Tashka Healthcare" loading="lazy">
+          <div class='feat-editorial-img-badge'>IPD Module · Live at Soukhyada Hospital</div>
+        </div>
+        <ul class="feat-editorial-checklist">
+          <li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Live bed board</h4>
+              <p>available, occupied, and reserved across all wards and floors in one view</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>NABH discharge summaries</h4>
+              <p>auto-generated from clinical notes, signed by treating doctor</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Nursing shift notes and MAR</h4>
+              <p>every dose administered, every vitals reading, logged in real time</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>OT scheduling</h4>
+              <p>pre/post-op documentation linked directly to the patient's record</p>
+            </div>
+          </li>
+        </ul>
+        <a href="contact.html" class="feat-editorial-cta">See IPD module in action → →</a>
+      </div>
+      <div class="feat-editorial-right">
+        <div class="feat-editorial-panel">
+          <div class="feat-editorial-panel-inner">
+            <div class="feat-editorial-browser-bar">
+              <div class="feb-dots"><span></span><span></span><span></span></div>
+              <div class="feb-url"></div>
+            </div>
+            <div class="feat-editorial-panel-body">
+              <div class="feat-ui-panel">
   <div class="fup-header">
     <span class="fup-dots"><span></span><span></span><span></span></span>
     <span class="fup-title">🛏️ TASHKA — Bed Board · Ward A</span>
@@ -1301,36 +1407,76 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-editorial-stats">
+      <div>
+          <div class="feat-editorial-stat-num">89%</div>
+          <div class="feat-editorial-stat-label">Bed occupancy rate</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">↑ 35%</div>
+          <div class="feat-editorial-stat-label">Discharge speed</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">Zero</div>
+          <div class="feat-editorial-stat-label">Paper records</div>
+        </div>
     </div>
   </div>
 </section>
-<section class="feat-spotlight">
+<section class="feat-editorial">
   <div class="container">
-    <div class="feat-split-3">
-    <div class="feat-img-col">
-      <img src="img/doctors/doctor1.jpg" alt="Doctor reviewing IPD records" loading="lazy">
-      <div class="feat-img-badge">IPD Module · Live at Soukhyada Hospital</div>
+    <div class="feat-editorial-header">
+      <div class="feat-editorial-eyebrow">Billing &amp; Revenue Cycle</div>
+      <h2 class="feat-editorial-h2">Every Clinical Event.<br><span class="accent">Auto-Billed.</span></h2>
+      <p class="feat-editorial-desc">When a doctor prescribes, pharmacy bills it. When a lab runs a test, it's billed. When a nurse administers a procedure, it's captured. Nothing slips through. Your billing team closes accounts on discharge day — not 2 days later.</p>
     </div>
-    
-      <div class="feat-copy">
-        <div class="feat-eyebrow">Billing &amp; Revenue Cycle</div>
-        <h2 class="feat-title">Every Clinical Event.<br><span class="accent">Auto-Billed.</span></h2>
-        <p class="feat-desc">When a doctor prescribes, pharmacy bills it. When a lab runs a test, it's billed. When a nurse administers a procedure, it's captured. Nothing slips through. Your billing team closes accounts on discharge day — not 2 days later.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>↓ 25%</strong><span>Claim denials</span></div>
-          <div class="feat-metric-badge"><strong>↓ 15 days</strong><span>Days in A/R</span></div>
-          <div class="feat-metric-badge"><strong>Zero</strong><span>Unbilled services</span></div>
+    <div class="feat-editorial-grid">
+      <div class="feat-editorial-left">
+        <div class="feat-editorial-img">
+          <img src="img/doctors/admin.jpg" alt="Billing &amp; Revenue Cycle - Tashka Healthcare" loading="lazy">
+          <div class='feat-editorial-img-badge'>Billing Module · Auto-generated</div>
         </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Auto-billing from clinical events</strong> — prescriptions, lab orders, procedures all trigger billing lines automatically</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>TPA &amp; insurance workflows</strong> — pre-auth, claim submission, settlement tracking, aging reports</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Corporate and government scheme billing</strong> — Ayushman Bharat, CGHS, ECHS configured out of the box</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Real-time receivables dashboard</strong> — outstanding, overdue, and collection status at a glance</div></li>
+        <ul class="feat-editorial-checklist">
+          <li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Auto-billing from clinical events</h4>
+              <p>prescriptions, lab orders, procedures all trigger billing lines automatically</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>TPA &amp; insurance workflows</h4>
+              <p>pre-auth, claim submission, settlement tracking, aging reports</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Corporate and government scheme billing</h4>
+              <p>Ayushman Bharat, CGHS, ECHS configured out of the box</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Real-time receivables dashboard</h4>
+              <p>outstanding, overdue, and collection status at a glance</p>
+            </div>
+          </li>
         </ul>
+        <a href="contact.html" class="feat-editorial-cta">See billing module in action → →</a>
       </div>
-<a href="contact.html" class="feat-cta-link">See billing module in action →</a>
-    </div>
-      <div class="feat-ui-panel">
+      <div class="feat-editorial-right">
+        <div class="feat-editorial-panel">
+          <div class="feat-editorial-panel-inner">
+            <div class="feat-editorial-browser-bar">
+              <div class="feb-dots"><span></span><span></span><span></span></div>
+              <div class="feb-url"></div>
+            </div>
+            <div class="feat-editorial-panel-body">
+              <div class="feat-ui-panel">
   <div class="fup-header">
     <span class="fup-dots"><span></span><span></span><span></span></span>
     <span class="fup-title">💰 TASHKA — Billing Console</span>
@@ -1367,59 +1513,115 @@ body.sticky-active{padding-bottom:60px;}
     </div>
   </div>
 </div>
-    </div>
-</section>
-<section class="feat-spotlight alt">
-  <div class="container">
-    <div class="feat-split">
-      <div class="feat-copy">
-        <div class="feat-eyebrow">MIS Reports &amp; Dashboards</div>
-        <h2 class="feat-title">100+ Reports.<br><span class="accent">Real-Time.</span></h2>
-        <p class="feat-desc">Your finance team shouldn't wait two days for yesterday's numbers. Tashka's MIS dashboards give your CMO, CFO, and operations head a live view of every KPI — revenue, census, bed occupancy, collection, and TPA aging — any time they open it.</p>
-        <div class="feat-metric-row">
-          <div class="feat-metric-badge"><strong>100+</strong><span>Preconfigured reports</span></div>
-          <div class="feat-metric-badge"><strong>Real-Time</strong><span>vs 2-day delay</span></div>
-          <div class="feat-metric-badge"><strong>All formats</strong><span>Excel · PDF · Print</span></div>
-        </div>
-        <ul class="feat-bullets">
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Revenue by department and doctor</strong> — see exactly where revenue is coming from and where it isn't</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Bed occupancy and ALOS trends</strong> — optimize ward capacity and identify discharge bottlenecks</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>TPA settlement aging</strong> — flag overdue claims before they become bad debt</div></li>
-          <li><div class="feat-bullet-icon">✓</div><div><strong>Multi-location consolidated view</strong> — group-level dashboard across all campuses simultaneously</div></li>
-        </ul>
-        <a href="contact.html" class="feat-cta-link">See MIS reports in action →</a>
-      </div>
-      <div class="feat-ui-panel" style="background:#1e293b;border-radius:14px;overflow:hidden;">
-        <div class="feat-ui-header" style="background:#0f172a;">
-          <span class="fup-dots"><span></span><span></span><span></span></span>
-          <span class="fup-title" style="color:#e2e8f0;">📊 TASHKA — MIS Dashboard</span>
-          <span class="fup-meta">April 2026</span>
-        </div>
-        <div style="padding:14px;">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
-            <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;"><div style="font-size:20px;font-weight:800;color:#60a5fa;letter-spacing:-.5px;">₹18.4L</div><div style="font-size:9px;color:#64748b;margin-top:2px;">Today Revenue</div></div>
-            <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;"><div style="font-size:20px;font-weight:800;color:#34d399;letter-spacing:-.5px;">89%</div><div style="font-size:9px;color:#64748b;margin-top:2px;">Bed Occupancy</div></div>
-            <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;"><div style="font-size:20px;font-weight:800;color:#fbbf24;letter-spacing:-.5px;">₹3.2L</div><div style="font-size:9px;color:#64748b;margin-top:2px;">TPA Pending</div></div>
-            <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:10px 12px;"><div style="font-size:20px;font-weight:800;color:#a78bfa;letter-spacing:-.5px;">247</div><div style="font-size:9px;color:#64748b;margin-top:2px;">OPD Today</div></div>
-          </div>
-          <div style="background:rgba(255,255,255,.04);border-radius:8px;padding:12px;">
-            <div style="font-size:9px;color:#475569;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px;">Revenue Trend — Last 7 Days</div>
-            <div style="display:flex;align-items:flex-end;gap:5px;height:60px;">
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:55%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:70%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:45%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:80%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:65%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#2563eb,#60a5fa);border-radius:3px 3px 0 0;height:90%;"></div>
-              <div style="flex:1;background:linear-gradient(0deg,#3b82f6,#93c5fd);border-radius:3px 3px 0 0;height:100%;border:1px solid #93c5fd;"></div>
             </div>
-            <div style="display:flex;justify-content:space-between;font-size:8px;color:#475569;margin-top:4px;"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span style="color:#60a5fa;font-weight:700;">Today</span></div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="feat-editorial-stats">
+      <div>
+          <div class="feat-editorial-stat-num">↓ 25%</div>
+          <div class="feat-editorial-stat-label">Claim denials</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">↓ 15 days</div>
+          <div class="feat-editorial-stat-label">Days in A/R</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">Zero</div>
+          <div class="feat-editorial-stat-label">Unbilled services</div>
+        </div>
     </div>
   </div>
 </section>
+<section class="feat-editorial">
+  <div class="container">
+    <div class="feat-editorial-header">
+      <div class="feat-editorial-eyebrow">MIS Reports &amp; Dashboards</div>
+      <h2 class="feat-editorial-h2">100+ Reports.<br><span class="accent">Real-Time.</span></h2>
+      <p class="feat-editorial-desc">Your finance team shouldn't wait two days for yesterday's numbers. Tashka's MIS dashboards give your CMO, CFO, and operations head a live view of every KPI — revenue, census, bed occupancy, collection, and TPA aging — any time they open it.</p>
+    </div>
+    <div class="feat-editorial-grid">
+      <div class="feat-editorial-left">
+        
+        <ul class="feat-editorial-checklist">
+          <li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Revenue by department and doctor</h4>
+              <p>see exactly where revenue is coming from and where it isn't</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Bed occupancy and ALOS trends</h4>
+              <p>optimize ward capacity and identify discharge bottlenecks</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>TPA settlement aging</h4>
+              <p>flag overdue claims before they become bad debt</p>
+            </div>
+          </li><li>
+            <div class="feat-editorial-check">✓</div>
+            <div>
+              <h4>Multi-location consolidated view</h4>
+              <p>group-level dashboard across all campuses simultaneously</p>
+            </div>
+          </li>
+        </ul>
+        <a href="contact.html" class="feat-editorial-cta">See MIS reports in action → →</a>
+      </div>
+      <div class="feat-editorial-right">
+        <div class="feat-editorial-panel">
+          <div class="feat-editorial-panel-inner">
+            <div class="feat-editorial-browser-bar">
+              <div class="feb-dots"><span></span><span></span><span></span></div>
+              <div class="feb-url"></div>
+            </div>
+            <div class="feat-editorial-panel-body" style="padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+                <span style="font-size:13px;font-weight:700;color:#111827;">MIS Dashboard — April 2026</span>
+                <span style="font-size:9px;font-weight:700;padding:3px 8px;background:#dcfce7;color:#166534;border-radius:4px;">● Live</span>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+                <div style="padding:12px;background:#f9fafb;border-radius:10px;border-left:3px solid #2563eb;"><div style="font-size:20px;font-weight:800;color:#2563eb;">₹18.4L</div><div style="font-size:9px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Revenue Today</div></div>
+                <div style="padding:12px;background:#f9fafb;border-radius:10px;border-left:3px solid #22c55e;"><div style="font-size:20px;font-weight:800;color:#22c55e;">89%</div><div style="font-size:9px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">Bed Occupancy</div></div>
+                <div style="padding:12px;background:#f9fafb;border-radius:10px;border-left:3px solid #f59e0b;"><div style="font-size:20px;font-weight:800;color:#f59e0b;">₹3.2L</div><div style="font-size:9px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">TPA Pending</div></div>
+                <div style="padding:12px;background:#f9fafb;border-radius:10px;border-left:3px solid #8b5cf6;"><div style="font-size:20px;font-weight:800;color:#8b5cf6;">247</div><div style="font-size:9px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.04em;">OPD Today</div></div>
+              </div>
+              <div style="background:#f9fafb;border-radius:10px;padding:12px;">
+                <div style="font-size:9px;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:10px;">Revenue Trend — Last 7 Days</div>
+                <div style="display:flex;align-items:flex-end;gap:6px;height:56px;">
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:55%;"></div>
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:70%;"></div>
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:45%;"></div>
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:80%;"></div>
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:65%;"></div>
+                  <div style="flex:1;background:#bfdbfe;border-radius:3px 3px 0 0;height:90%;"></div>
+                  <div style="flex:1;background:#2563eb;border-radius:3px 3px 0 0;height:100%;"></div>
+                </div>
+                <div style="display:flex;justify-content:space-between;font-size:8px;color:#9ca3af;margin-top:5px;"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span style="color:#2563eb;font-weight:700;">Today</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="feat-editorial-stats">
+      <div>
+          <div class="feat-editorial-stat-num">100+</div>
+          <div class="feat-editorial-stat-label">Preconfigured reports</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">Real-Time</div>
+          <div class="feat-editorial-stat-label">vs 2-day delay</div>
+        </div><div>
+          <div class="feat-editorial-stat-num">All formats</div>
+          <div class="feat-editorial-stat-label">Excel · PDF · Print</div>
+        </div>
+    </div>
+  </div>
+</section>
+
 
 <section class="pd-96 bg-grey"><div class="container">
   <div class="section-header"><div class="section-label">Live Deployments</div>
