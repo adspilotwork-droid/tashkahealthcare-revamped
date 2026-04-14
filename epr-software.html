@@ -749,14 +749,218 @@ body.sticky-active{padding-bottom:60px;}
 @media(max-width:640px){.doc-strip-img img{height:220px;}}
 
 
-/* ── 2-COL FEAT SPLIT: photo | copy ─────────────────────────────────────── */
-.feat-split-3{display:grid;grid-template-columns:380px 1fr;gap:48px;align-items:center;}
-.feat-img-col{border-radius:16px;overflow:hidden;box-shadow:0 20px 56px rgba(0,0,0,.14);position:relative;min-height:420px;}
-.feat-img-col img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
-.feat-img-badge{position:absolute;bottom:14px;left:14px;background:rgba(255,255,255,.97);border-radius:9px;padding:9px 14px;font-size:12px;font-weight:700;color:#0a0a0a;display:flex;align-items:center;gap:7px;box-shadow:0 2px 16px rgba(0,0,0,.13);}
-.feat-img-badge::before{content:'';width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
-@media(max-width:1100px){.feat-split-3{grid-template-columns:320px 1fr;gap:36px;}}
-@media(max-width:968px){.feat-split-3{grid-template-columns:1fr;gap:28px;}.feat-img-col{min-height:260px;}}
+/* ── FEAT UI PANEL (product mockup inside content sections) ──────────────── */
+.feat-split-3{display:grid;grid-template-columns:320px 1fr 1fr;gap:32px;align-items:stretch;}
+.feat-ui-panel{background:#fff;border-radius:14px;border:1px solid #e5e7eb;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.07);display:flex;flex-direction:column;}
+.fup-header{display:flex;align-items:center;gap:8px;padding:9px 12px;background:#f8fafc;border-bottom:1px solid #e5e7eb;flex-shrink:0;}
+.fup-dots{display:flex;gap:4px;}
+.fup-dots span{display:block;width:8px;height:8px;border-radius:50%;}
+.fup-dots span:nth-child(1){background:#ff5f57;}
+.fup-dots span:nth-child(2){background:#febc2e;}
+.fup-dots span:nth-child(3){background:#28c840;}
+.fup-title{font-size:10px;font-weight:700;color:#374151;flex:1;}
+.fup-meta{font-size:9px;color:#9ca3af;white-space:nowrap;}
+.fup-tabs{display:flex;border-bottom:1px solid #e5e7eb;background:#f8fafc;flex-shrink:0;}
+.fup-tab{font-size:10px;font-weight:600;padding:7px 11px;color:#9ca3af;cursor:pointer;white-space:nowrap;}
+.fup-tab.active{color:#2563eb;border-bottom:2px solid #2563eb;background:#fff;}
+.fup-body{padding:8px 10px;flex:1;overflow:hidden;}
+.fup-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.fup-row-head{font-size:10px;font-weight:600;color:#374151;}
+.fup-badge-green{background:#dcfce7;color:#166534;font-size:9px;font-weight:700;padding:3px 8px;border-radius:4px;}
+.fup-table-head{display:grid;grid-template-columns:1.8fr .7fr .8fr .7fr;gap:4px;padding:4px 6px;font-size:8px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #f3f4f6;margin-bottom:3px;}
+.fup-table-row{display:grid;grid-template-columns:1.8fr .7fr .8fr .7fr;gap:4px;padding:6px 6px;border-bottom:1px solid #f9fafb;align-items:center;}
+.fup-row-active{background:#eff6ff;border-radius:6px;}
+.fup-patient{display:flex;align-items:center;gap:6px;}
+.fup-num{width:18px;height:18px;background:#e5e7eb;border-radius:50%;font-size:9px;font-weight:700;color:#374151;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.fup-name{font-size:10px;font-weight:600;color:#111827;}
+.fup-mrn{font-size:9px;color:#9ca3af;}
+.fup-type{font-size:9px;color:#6b7280;}
+.fup-status{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.fup-status-consult{background:#dbeafe;color:#1d4ed8;}
+.fup-status-waiting{background:#fef3c7;color:#92400e;}
+.fup-status-done{background:#dcfce7;color:#166534;}
+.fup-action{font-size:9px;font-weight:700;padding:3px 7px;border-radius:4px;text-align:center;}
+.fup-action-blue{background:#2563eb;color:#fff;}
+.fup-action-grey{background:#f3f4f6;color:#6b7280;border:1px solid #e5e7eb;}
+.fup-action-outline{background:#fff;color:#2563eb;border:1px solid #2563eb;}
+/* Bed board */
+.fup-bed{border-radius:6px;padding:6px 4px;text-align:center;font-size:9px;font-weight:700;line-height:1.4;}
+.fup-bed span{font-size:8px;font-weight:400;display:block;}
+.fup-bed-occ{background:#dbeafe;color:#1d4ed8;}
+.fup-bed-free{background:#dcfce7;color:#166534;}
+.fup-bed-res{background:#fef3c7;color:#92400e;}
+/* Billing stats */
+.fup-stat-card{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:9px 11px;}
+.fup-stat-val{font-size:16px;font-weight:800;letter-spacing:-.5px;line-height:1;}
+.fup-stat-lbl{font-size:9px;color:#9ca3af;margin-top:3px;}
+/* AI Chat */
+.fup-chat-msg{display:flex;gap:7px;margin-bottom:8px;}
+.fup-chat-user{flex-direction:row;}
+.fup-chat-avatar{width:24px;height:24px;border-radius:50%;background:#2563eb;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+.fup-chat-avatar-u{background:#e5e7eb;}
+.fup-chat-name{font-size:9px;font-weight:700;color:#6b7280;margin-bottom:3px;}
+.fup-chat-bubble{font-size:10px;line-height:1.6;border-radius:8px;padding:7px 10px;}
+.fup-bubble-user{background:#eff6ff;color:#1e40af;}
+.fup-bubble-ai{background:#f9fafb;border:1px solid #e5e7eb;color:#374151;}
+@media(max-width:1200px){.feat-split-3{grid-template-columns:260px 1fr 1fr;gap:24px;}}
+@media(max-width:968px){.feat-split-3{grid-template-columns:1fr;}.feat-ui-panel{display:none;}}}
+
+
+
+
+
+/* ── PROD HERO PANEL DOTS ──────────────────────────────────────────────────── */
+.pd-dot{width:9px;height:9px;border-radius:50%;}
+.pd-red{background:#ff5f57;}.pd-yellow{background:#febc2e;}.pd-green{background:#28c840;}
+.pd-title{font-size:11px;color:#64748b;font-family:monospace;margin-left:8px;}
+
+
+
+.pp-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+
+
+
+
+
+
+
+
+
+
+
+.prod-hero-trust{background:rgba(0,0,0,.35);border-top:1px solid rgba(255,255,255,.08);padding:14px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:12px;font-weight:600;color:#94a3b8;position:relative;z-index:1;}
+.prod-hero-trust-dot{width:7px;height:7px;background:#22c55e;border-radius:50%;box-shadow:0 0 0 3px rgba(34,197,94,.2);flex-shrink:0;}
+.prod-hero-trust-item{display:flex;align-items:center;gap:5px;}
+.prod-hero-trust-div{width:1px;height:12px;background:rgba(255,255,255,.2);}
+@media(max-width:968px){.prod-hero-panel{display:none;}}
+
+
+/* ── HERO PANEL — LIGHT THEME ───────────────────────────────────────────── */
+.prod-panel-card{background:#fff;border-radius:16px;border:1px solid #e5e7eb;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.15);width:100%;max-width:440px;}
+.prod-panel-bar{display:flex;align-items:center;gap:6px;padding:11px 14px;background:#f8fafc;border-bottom:1px solid #e5e7eb;}
+.prod-panel-body{padding:16px;background:#fff;}
+.pp-stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.pp-stat{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:12px 10px;}
+.pp-stat-val{font-size:18px;font-weight:800;color:#2563eb;line-height:1;margin-bottom:3px;}
+.pp-stat-label{font-size:9px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+.pp-module-list{display:flex;flex-direction:column;gap:5px;}
+.pp-module{display:flex;align-items:center;gap:10px;background:#f9fafb;border:1px solid #f3f4f6;border-radius:9px;padding:10px 12px;transition:border-color .2s;}
+.pp-module:hover{border-color:#dbeafe;}
+.pp-module-icon{width:28px;height:28px;border-radius:7px;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.pp-module-name{font-size:12px;font-weight:600;color:#111827;}
+.pp-module-status{margin-left:auto;font-size:10px;font-weight:700;padding:2px 8px;border-radius:5px;}
+.pp-status-live{background:#dcfce7;color:#166534;}
+.pp-status-sync{background:#dbeafe;color:#1d4ed8;}
+.prod-hero-panel{display:flex;align-items:center;justify-content:center;padding:48px 24px 48px 16px;}
+
+
+/* ── FEAT IMG COL — doctor photo card ──────────────────────────────────────── */
+.feat-img-col{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 56px rgba(0,0,0,.13);
+  min-height:420px;
+  background:#f3f4f6;
+}
+.feat-img-col img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+}
+.feat-img-badge{
+  position:absolute;
+  bottom:16px;
+  left:16px;
+  background:rgba(255,255,255,.97);
+  border-radius:10px;
+  padding:9px 14px;
+  font-size:12px;
+  font-weight:700;
+  color:#0a0a0a;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  box-shadow:0 2px 16px rgba(0,0,0,.13);
+}
+.feat-img-badge::before{
+  content:'';
+  width:8px;height:8px;
+  background:#22c55e;
+  border-radius:50%;
+  box-shadow:0 0 0 3px rgba(34,197,94,.2);
+  flex-shrink:0;
+}
+
+
+/* ── FINAL CTA SECTION ───────────────────────────────────────────────────── */
+.final-cta{
+  padding:96px 0;
+  background:linear-gradient(135deg,#2563eb,#1d4ed8);
+  color:#fff;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:48px 48px;pointer-events:none;
+}
+.final-cta .container{position:relative;z-index:1;}
+.final-cta h2{
+  font-size:clamp(24px,3.5vw,42px);
+  font-weight:800;color:#fff;
+  margin-bottom:16px;
+  letter-spacing:-1px;
+  line-height:1.15;
+}
+.final-cta p{
+  font-size:17px;color:rgba(255,255,255,.9);
+  margin-bottom:32px;
+  max-width:560px;margin-left:auto;margin-right:auto;
+  line-height:1.7;
+}
+.final-cta > .container > div:not(.contact-details-row){
+  display:flex;justify-content:center;gap:12px;flex-wrap:wrap;
+  margin-bottom:28px;
+}
+.btn-white{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:#fff;color:#2563eb;
+  font-size:15px;font-weight:700;
+  padding:14px 28px;border-radius:9px;
+  transition:all .2s;
+  box-shadow:0 4px 16px rgba(0,0,0,.15);
+}
+.btn-white:hover{background:#f0f9ff;transform:translateY(-2px);}
+.btn-outline-w{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  background:transparent;color:#fff;
+  font-size:15px;font-weight:700;
+  padding:14px 28px;border-radius:9px;
+  border:2px solid rgba(255,255,255,.5);
+  transition:all .2s;
+}
+.btn-outline-w:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.contact-details-row{
+  display:flex;justify-content:center;align-items:center;
+  gap:28px;flex-wrap:wrap;
+  font-size:13px;color:rgba(255,255,255,.85);
+}
+.contact-detail-item{
+  display:flex;align-items:center;gap:6px;
+}
+.contact-detail-item a{color:rgba(255,255,255,.9);}
+.contact-detail-item a:hover{color:#fff;}
+@media(max-width:640px){
+  .final-cta{padding:64px 0;}
+  .btn-white,.btn-outline-w{display:block;width:100%;text-align:center;}
+  .contact-details-row{flex-direction:column;gap:10px;}
+}
 
 </style>
 </head>
@@ -848,6 +1052,29 @@ body.sticky-active{padding-bottom:60px;}
         <a href="#modules" class="prod-cta-secondary">See All Modules ↓</a>
       </div>
     </div>
+    <div class="prod-hero-panel">
+  <div class="prod-panel-card">
+    <div class="prod-panel-bar">
+      <div class="pd-dot pd-red"></div><div class="pd-dot pd-yellow"></div><div class="pd-dot pd-green"></div>
+      <span class="pd-title">Tashka EPR — Live · Bengaluru</span>
+    </div>
+    <div class="prod-panel-body">
+      <div class="pp-stat-row">
+        <div class="pp-stat"><div class="pp-stat-val">247</div><div class="pp-stat-label">OPD Today</div></div>
+        <div class="pp-stat"><div class="pp-stat-val">89%</div><div class="pp-stat-label">Bed Occ.</div></div>
+        <div class="pp-stat"><div class="pp-stat-val">₹18.4L</div><div class="pp-stat-label">Revenue</div></div>
+      </div>
+      <div class="pp-module-list">
+        <div class="pp-module"><div class="pp-module-icon">🖥️</div><span class="pp-module-name">OPD Management</span><span class="pp-module-status pp-status-live">● Live</span></div>
+        <div class="pp-module"><div class="pp-module-icon">🛏️</div><span class="pp-module-name">IPD &amp; Ward Management</span><span class="pp-module-status pp-status-live">● Live</span></div>
+        <div class="pp-module"><div class="pp-module-icon">💊</div><span class="pp-module-name">Pharmacy Integration</span><span class="pp-module-status pp-status-live">● Live</span></div>
+        <div class="pp-module"><div class="pp-module-icon">🧪</div><span class="pp-module-name">Lab &amp; LIS</span><span class="pp-module-status pp-status-sync">⟳ Syncing</span></div>
+        <div class="pp-module"><div class="pp-module-icon">💰</div><span class="pp-module-name">Billing &amp; TPA</span><span class="pp-module-status pp-status-live">● Live</span></div>
+        <div class="pp-module"><div class="pp-module-icon">🤖</div><span class="pp-module-name">AI Medical Coding</span><span class="pp-module-status pp-status-live">● Live</span></div>
+      </div>
+    </div>
+  </div>
+</div>
   </div>
   <div class="prod-hero-trust"><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ NABH-Ready</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ HIPAA Compliant</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ FHIR / HL7</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>✓ Chirag · Soukhyada · CSI Hospitals</span></div><div class="prod-hero-trust-div"></div><div class="prod-hero-trust-item"><div class="prod-hero-trust-dot"></div><span>⭐ G2 5.0 Rated</span></div></div>
 </section><div class="trust-bar"><div class="container"><div class="trust-bar-inner">
@@ -922,7 +1149,59 @@ body.sticky-active{padding-bottom:60px;}
       </div>
 <a href="contact.html" class="feat-cta-link">See OPD module in action →</a>
     </div>
+      <div class="feat-ui-panel">
+  <div class="fup-header">
+    <span class="fup-dots"><span></span><span></span><span></span></span>
+    <span class="fup-title">🏥 TASHKA HEALTHCARE — OPD Console</span>
+    <span class="fup-meta">13 Apr 2026 · Bengaluru</span>
   </div>
+  <div class="fup-tabs">
+    <div class="fup-tab active">OPD Queue</div>
+    <div class="fup-tab">Registration</div>
+    <div class="fup-tab">Consultation</div>
+    <div class="fup-tab">Prescription</div>
+  </div>
+  <div class="fup-body">
+    <div class="fup-row fup-row-head">
+      <span>Today's OPD Queue — General OPD</span>
+      <span class="fup-badge-green">+ 247 patients</span>
+    </div>
+    <div class="fup-table-head">
+      <span>PATIENT</span><span>TYPE</span><span>STATUS</span><span>ACTION</span>
+    </div>
+    <div class="fup-table-row fup-row-active">
+      <div class="fup-patient"><div class="fup-num">1</div><div><div class="fup-name">Ramesh Kumar</div><div class="fup-mrn">General · MRN 00841</div></div></div>
+      <span class="fup-type">Follow-up</span>
+      <span class="fup-status fup-status-consult">In Consult</span>
+      <span class="fup-action fup-action-blue">Open EMR</span>
+    </div>
+    <div class="fup-table-row">
+      <div class="fup-patient"><div class="fup-num">2</div><div><div class="fup-name">Priya Sharma</div><div class="fup-mrn">General · MRN 00922</div></div></div>
+      <span class="fup-type">New Visit</span>
+      <span class="fup-status fup-status-waiting">Waiting</span>
+      <span class="fup-action fup-action-grey">Queue</span>
+    </div>
+    <div class="fup-table-row">
+      <div class="fup-patient"><div class="fup-num">3</div><div><div class="fup-name">Venkat Rao</div><div class="fup-mrn">Ayurveda · MRN 00784</div></div></div>
+      <span class="fup-type">Follow-up</span>
+      <span class="fup-status fup-status-waiting">Waiting</span>
+      <span class="fup-action fup-action-grey">Queue</span>
+    </div>
+    <div class="fup-table-row">
+      <div class="fup-patient"><div class="fup-num">4</div><div><div class="fup-name">Anita Menon</div><div class="fup-mrn">Cardiology · MRN 00831</div></div></div>
+      <span class="fup-type">New Visit</span>
+      <span class="fup-status fup-status-done">Done</span>
+      <span class="fup-action fup-action-outline">View</span>
+    </div>
+    <div class="fup-table-row">
+      <div class="fup-patient"><div class="fup-num">5</div><div><div class="fup-name">Suresh Patel</div><div class="fup-mrn">Orthopaedics · MRN 00512</div></div></div>
+      <span class="fup-type">Follow-up</span>
+      <span class="fup-status fup-status-consult" style="background:#0f172a;color:#fff;font-size:9px;">● Live · Bengaluru</span>
+      <span></span>
+    </div>
+  </div>
+</div>
+    </div>
 </section>
 <section class="feat-spotlight">
   <div class="container">
